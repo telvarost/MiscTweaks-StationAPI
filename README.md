@@ -1,4 +1,4 @@
-# MoreStairsRecipes StationAPI Edition for Minecraft Beta 1.7.3
+# SmallCraftingTweaks StationAPI Edition for Minecraft Beta 1.7.3
 
 A StationAPI mod for Minecraft Beta 1.7.3 that changes the stair recipes to craft 6 stairs.
 
@@ -10,13 +10,16 @@ A StationAPI mod for Minecraft Beta 1.7.3 that changes the stair recipes to craf
 
 **If you're looking for modern Minecraft recipes:** https://github.com/telvarost/MostlyModernRecipes-StationAPI
 
-# More Stairs Recipes
+# Small Crafting Tweaks
 
 **There's a very high chance this mod will not work in multiplayer, as of right now it is purely for singleplayer**
 
-## List of changed recipes
+## List of changes
 
-* Stairs recipes now craft 6 stairs instead of 4
+* Allow player crafting grid (4x4 grid) to be used as inventory slots.
+* Stairs recipes craft 1-16 stairs, default 4.
+* Change the value using GlassConfigAPI 1.2.0 https://maven.glass-launcher.net/#/releases/net/glasslauncher/mods/GlassConfigAPI
+  * GlassConfigAPI requires: Mod Menu https://github.com/calmilamsy/ModMenu/releases
 
 ## Installation using Prism Launcher
 
@@ -25,12 +28,12 @@ A StationAPI mod for Minecraft Beta 1.7.3 that changes the stair recipes to craf
 3. Add StationAPI to the mod folder for the instance: https://jenkins.glass-launcher.net/job/StationAPI/lastSuccessfulBuild/
 4. (Optional) Add Mod Menu to the mod folder for the instance: https://github.com/calmilamsy/ModMenu/releases
 5. (Optional) Add GlassConfigAPI 1.1.6+ to the mod folder for the instance: https://maven.glass-launcher.net/#/releases/net/glasslauncher/mods/GlassConfigAPI
-6. Add this mod to the mod folder for the instance: https://github.com/telvarost/MoreStairsRecipes-StationAPI/releases
+6. Add this mod to the mod folder for the instance: https://github.com/telvarost/SmallCraftingTweaks-StationAPI/releases
 7. Run and enjoy! 👍
 
 ## Feedback
 
-Got any suggestions on what should be added next? Feel free to share it by [creating an issue](https://github.com/telvarost/MoreStairsRecipes-StationAPI/issues/new). Know how to code and want to do it yourself? Then look below on how to get started.
+Got any suggestions on what should be added next? Feel free to share it by [creating an issue](https://github.com/telvarost/SmallCraftingTweaks-StationAPI/issues/new). Know how to code and want to do it yourself? Then look below on how to get started.
 
 ## Contributing
 
