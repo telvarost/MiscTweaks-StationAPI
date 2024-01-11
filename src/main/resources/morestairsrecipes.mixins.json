@@ -4,6 +4,7 @@
   "package": "com.github.telvarost.morestairsrecipes.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "ContainerPlayerMixin"
   ],
   "server": [
   ],
