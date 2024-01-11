@@ -1,6 +1,6 @@
-package com.github.telvarost.morestairsrecipes.mixin;
+package com.github.telvarost.smallcraftingtweaks.mixin;
 
-import com.github.telvarost.morestairsrecipes.Config;
+import com.github.telvarost.smallcraftingtweaks.Config;
 import net.minecraft.block.BlockBase;
 import net.minecraft.container.ContainerBase;
 import net.minecraft.container.slot.CraftingResult;
@@ -26,6 +26,7 @@ public class ContainerPlayerMixin extends ContainerBase {
     @Shadow public Crafting craftingInv;
     @Shadow public InventoryBase resultInv;
     @Shadow public boolean local;
+
     public ContainerPlayerMixin(PlayerInventory arg) {
         this(arg, true);
     }
@@ -40,16 +41,11 @@ public class ContainerPlayerMixin extends ContainerBase {
 
     @Inject(method = "onClosed", at = @At("HEAD"), cancellable = true)
     public void onClosed(PlayerBase arg, CallbackInfo ci) {
-        super.onClosed(arg);
-
-        for(int var2 = 0; var2 < 4; ++var2) {
-            ItemInstance var3 = this.craftingInv.getInventoryItem(var2);
-            if (var3 != null) {
-                //arg.dropItem(var3);
-                //this.craftingInv.setInventoryItem(var2, (ItemInstance)null);
-            }
+        if (Config.ConfigFields.allowCraftingInventorySlots)
+        {
+            super.onClosed(arg);
+            ci.cancel();
         }
-        ci.cancel();
     }
 
 
