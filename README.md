@@ -18,6 +18,7 @@ A StationAPI mod for Minecraft Beta 1.7.3 that changes the stair recipes to craf
 
 * Allow player crafting grid (2x2 grid) to be used as inventory slots.
 * Stairs recipes craft 1-16 stairs, default 4.
+  * Note: There currently seems to be a bug with GlassConfigAPI where Integer configs need to be saved twice to take effect
 * Change the value using GlassConfigAPI 1.2.0 https://maven.glass-launcher.net/#/releases/net/glasslauncher/mods/GlassConfigAPI
   * GlassConfigAPI requires: Mod Menu https://github.com/calmilamsy/ModMenu/releases
 
