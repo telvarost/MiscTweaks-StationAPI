@@ -1,38 +1,38 @@
 {
   "schemaVersion": 1,
-  "id": "smallcraftingtweaks",
+  "id": "misctweaks",
   "version": "${version}",
 
-  "name": "SmallCraftingTweaks",
-  "description": "Allows player crafting grid to be used as inventory and allows stairs recipe output to be changed.",
+  "name": "MiscTweaks",
+  "description": "Random tweaks that did not fit in my other mods such as allowing stairs recipe output to be changed.",
   "authors": [
     "Telvarost",
     "MiTask"
   ],
   "contact": {
-    "issues": "https://github.com/telvarost/SmallCraftingTweaks-StationAPI/issues",
-    "homepage": "https://github.com/telvarost/SmallCraftingTweaks-StationAPI/",
-    "sources": "https://github.com/telvarost/SmallCraftingTweaks-StationAPI/"
+    "issues": "https://github.com/telvarost/MiscTweaks-StationAPI/issues",
+    "homepage": "https://github.com/telvarost/MiscTweaks-StationAPI/",
+    "sources": "https://github.com/telvarost/MiscTweaks-StationAPI/"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/smallcraftingtweaks/icon.png",
+  "icon": "assets/misctweaks/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "com.github.telvarost.smallcraftingtweaks.events.init.RecipeListener"
+      "com.github.telvarost.misctweaks.events.init.RecipeListener"
     ],
     "stationapi:event_bus_client": [
     ],
     "stationapi:event_bus_server": [
     ],
     "gcapi": [
-      "com.github.telvarost.smallcraftingtweaks.Config"
+      "com.github.telvarost.misctweaks.Config"
     ]
   },
   "mixins": [
-    "smallcraftingtweaks.mixins.json"
+    "misctweaks.mixins.json"
   ],
 
   "depends": {
