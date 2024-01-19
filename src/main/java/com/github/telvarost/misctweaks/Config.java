@@ -14,5 +14,9 @@ public class Config {
         @ConfigName("Stairs Crafting Recipe Output: 1-16")
         @Comment("Restart required for changes to take effect")
         public static Integer stairsOutput = 4;
+
+        @ConfigName("Shapeless Jack o’ Lantern Recipe")
+        @Comment("Restart required for changes to take effect")
+        public static Boolean enableShapelessJackOLanternRecipe = true;
     }
 }
