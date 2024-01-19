@@ -1,6 +1,6 @@
 # MiscTweaks StationAPI Edition for Minecraft Beta 1.7.3
 
-A StationAPI mod for Minecraft Beta 1.7.3 that changes the stair recipes to craft 6 stairs.
+A StationAPI mod for Minecraft Beta 1.7.3 that tweaks random things that did not fit in my other mods such as allowing stairs recipe output to be changed.
 
 **If you're looking for graphical fixes and some QoL see:** https://github.com/telvarost/FinalBeta-StationAPI
 
