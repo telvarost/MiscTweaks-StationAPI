@@ -10,7 +10,7 @@ A StationAPI mod for Minecraft Beta 1.7.3 that changes the stair recipes to craf
 
 **If you're looking for modern Minecraft recipes:** https://github.com/telvarost/MostlyModernRecipes-StationAPI
 
-# Small Crafting Tweaks
+# Miscellaneous Tweaks
 
 **There's a very high chance this mod will not work in multiplayer, as of right now it is purely for singleplayer**
 
