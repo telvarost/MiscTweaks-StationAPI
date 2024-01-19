@@ -1,4 +1,4 @@
-# SmallCraftingTweaks StationAPI Edition for Minecraft Beta 1.7.3
+# MiscTweaks StationAPI Edition for Minecraft Beta 1.7.3
 
 A StationAPI mod for Minecraft Beta 1.7.3 that changes the stair recipes to craft 6 stairs.
 
@@ -16,7 +16,6 @@ A StationAPI mod for Minecraft Beta 1.7.3 that changes the stair recipes to craf
 
 ## List of changes
 
-* Allow player crafting grid (2x2 grid) to be used as inventory slots.
 * Stairs recipes craft 1-16 stairs, default 4.
   * Note: There currently seems to be a bug with GlassConfigAPI where Integer configs need to be saved twice to take effect
 * Change the value using GlassConfigAPI 1.2.0 https://maven.glass-launcher.net/#/releases/net/glasslauncher/mods/GlassConfigAPI
@@ -29,12 +28,12 @@ A StationAPI mod for Minecraft Beta 1.7.3 that changes the stair recipes to craf
 3. Add StationAPI to the mod folder for the instance: https://jenkins.glass-launcher.net/job/StationAPI/lastSuccessfulBuild/
 4. (Optional) Add Mod Menu to the mod folder for the instance: https://github.com/calmilamsy/ModMenu/releases
 5. (Optional) Add GlassConfigAPI 1.1.6+ to the mod folder for the instance: https://maven.glass-launcher.net/#/releases/net/glasslauncher/mods/GlassConfigAPI
-6. Add this mod to the mod folder for the instance: https://github.com/telvarost/SmallCraftingTweaks-StationAPI/releases
+6. Add this mod to the mod folder for the instance: https://github.com/telvarost/MiscTweaks-StationAPI/releases
 7. Run and enjoy! 👍
 
 ## Feedback
 
-Got any suggestions on what should be added next? Feel free to share it by [creating an issue](https://github.com/telvarost/SmallCraftingTweaks-StationAPI/issues/new). Know how to code and want to do it yourself? Then look below on how to get started.
+Got any suggestions on what should be added next? Feel free to share it by [creating an issue](https://github.com/telvarost/MiscTweaks-StationAPI/issues/new). Know how to code and want to do it yourself? Then look below on how to get started.
 
 ## Contributing
 

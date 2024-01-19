@@ -1,8 +1,8 @@
-package com.github.telvarost.smallcraftingtweaks.events.init;
+package com.github.telvarost.misctweaks.events.init;
 
 import blue.endless.jankson.JsonObject;
 import blue.endless.jankson.JsonPrimitive;
-import com.github.telvarost.smallcraftingtweaks.Config;
+import com.github.telvarost.misctweaks.Config;
 import net.glasslauncher.mods.api.gcapi.api.GCAPI;
 import net.glasslauncher.mods.api.gcapi.impl.ConfigFactories;
 import net.mine_diver.unsafeevents.listener.EventListener;
@@ -17,7 +17,7 @@ import net.modificationstation.stationapi.api.util.Identifier;
 import java.lang.reflect.Field;
 import java.util.List;
 
-import static com.github.telvarost.smallcraftingtweaks.Config.config;
+import static com.github.telvarost.misctweaks.Config.config;
 
 public class RecipeListener {
 
@@ -34,11 +34,11 @@ public class RecipeListener {
                 Config.ConfigFields.stairsOutput = 16;
                 try {
                     JsonObject jsonObject = new JsonObject();
-                    for (Field field : com.github.telvarost.smallcraftingtweaks.Config.ConfigFields.class.getDeclaredFields()) {
+                    for (Field field : com.github.telvarost.misctweaks.Config.ConfigFields.class.getDeclaredFields()) {
                         jsonObject.put(field.getName(), ConfigFactories.saveFactories.get(field.getType()).apply(field.get(config)));
                     }
                     jsonObject.put("stairsOutput", new JsonPrimitive(16));
-                    GCAPI.reloadConfig(Identifier.of("smallcraftingtweaks:config"), jsonObject.toJson());
+                    GCAPI.reloadConfig(Identifier.of("misctweaks:config"), jsonObject.toJson());
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
@@ -48,11 +48,11 @@ public class RecipeListener {
                 Config.ConfigFields.stairsOutput = 1;
                 try {
                     JsonObject jsonObject = new JsonObject();
-                    for (Field field : com.github.telvarost.smallcraftingtweaks.Config.ConfigFields.class.getDeclaredFields()) {
+                    for (Field field : com.github.telvarost.misctweaks.Config.ConfigFields.class.getDeclaredFields()) {
                         jsonObject.put(field.getName(), ConfigFactories.saveFactories.get(field.getType()).apply(field.get(config)));
                     }
                     jsonObject.put("stairsOutput", new JsonPrimitive(1));
-                    GCAPI.reloadConfig(Identifier.of("smallcraftingtweaks:config"), jsonObject.toJson());
+                    GCAPI.reloadConfig(Identifier.of("misctweaks:config"), jsonObject.toJson());
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
