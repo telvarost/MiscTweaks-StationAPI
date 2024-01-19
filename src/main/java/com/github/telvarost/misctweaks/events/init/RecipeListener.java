@@ -12,6 +12,7 @@ import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.recipe.RecipeRegistry;
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent;
+import net.modificationstation.stationapi.api.recipe.CraftingRegistry;
 import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.lang.reflect.Field;
@@ -84,6 +85,13 @@ public class RecipeListener {
                     inputArray[8] = new ItemInstance(BlockBase.COBBLESTONE.asItem(), 1);
                     recipes.set(i, new ShapedRecipe(3, 3, inputArray, new ItemInstance(BlockBase.COBBLESTONE_STAIRS.asItem(), Config.ConfigFields.stairsOutput)));
                 }
+            }
+        }
+
+        if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPELESS.type())
+        {
+            if (Config.ConfigFields.enableShapelessJackOLanternRecipe) {
+                CraftingRegistry.addShapelessRecipe(new ItemInstance(BlockBase.JACK_O_LANTERN.asItem(), 1), BlockBase.PUMPKIN, BlockBase.TORCH);
             }
         }
     }
