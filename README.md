@@ -2,15 +2,11 @@
 
 A StationAPI mod for Minecraft Beta 1.7.3 that tweaks random things that did not fit in my other mods such as allowing stairs recipe output to be changed.
 
-**If you're looking for graphical fixes and some QoL see:** https://github.com/telvarost/FinalBeta-StationAPI
-
-**If you're looking for skin fixes and inventory fixes:** https://modrinth.com/mod/mojangfix/versions
-
-**If you're looking for vanilla Minecraft block/entity bug fixes:** https://github.com/telvarost/AnnoyanceFix-StationAPI
-
 **If you're looking for modern Minecraft recipes:** https://github.com/telvarost/MostlyModernRecipes-StationAPI
 
 # Miscellaneous Tweaks
+
+You will need ModMenu and GlassConfigAPI to change stairs recipe output and tweak other parts of the mod. See installation instructions below.
 
 **There's a very high chance this mod will not work in multiplayer, as of right now it is purely for singleplayer**
 
