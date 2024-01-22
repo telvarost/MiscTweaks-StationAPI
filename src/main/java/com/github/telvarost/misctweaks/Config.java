@@ -3,6 +3,7 @@ package com.github.telvarost.misctweaks;
 import blue.endless.jankson.Comment;
 import net.glasslauncher.mods.api.gcapi.api.ConfigName;
 import net.glasslauncher.mods.api.gcapi.api.GConfig;
+import net.glasslauncher.mods.api.gcapi.api.MaxLength;
 
 public class Config {
 
@@ -21,6 +22,7 @@ public class Config {
 
         @ConfigName("Stairs Crafting Recipe Output: 1-16")
         @Comment("Restart required for changes to take effect")
+        @MaxLength(16)
         public static Integer stairsOutput = 4;
 
         @ConfigName("Shapeless Jack o’ Lantern Recipe")

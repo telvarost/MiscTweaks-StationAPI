@@ -5,7 +5,6 @@ import net.minecraft.block.BlockBase;
 import net.minecraft.block.Fluid;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerBase;
-import net.minecraft.item.ItemBase;
 import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.entity.player.PlayerHelper;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,15 +27,7 @@ abstract class FluidMixin extends BlockBase {
 
     @Inject(method = "onBlockPlaced", at = @At("TAIL"), cancellable = true)
     public void miscTweaks_onBlockPlaced(Level arg, int i, int j, int k, CallbackInfo ci) {
-        ItemBase fluidItem = this.asItem();
-        //ItemBase fluidItem = BlockBase.FLOWING_WATER.asItem();
         if (Config.ConfigFields.moddedDispenserFluidPlacement) {
-            if (null != fluidItem) {
-                if (1 != fluidItem.getMaxStackSize()) {
-                    fluidItem.setMaxStackSize(1);
-                }
-            }
-
             if (arg.isAir(i, j, k) || !arg.getMaterial(i, j, k).isSolid()) {
                 int blockId = arg.getTileId(i, j, k);
                 if (arg.dimension.evaporatesWater && blockId == BlockBase.FLOWING_WATER.id) {
@@ -53,14 +44,6 @@ abstract class FluidMixin extends BlockBase {
                         arg.addParticle("largesmoke", (double) i + Math.random(), (double) j + Math.random(), (double) k + Math.random(), 0.0, 0.0, 0.0);
                     }
                     arg.placeBlockWithMetaData(i, j, k, 0, 0);
-                }
-            }
-        }
-        else
-        {
-            if (null != fluidItem) {
-                if (64 != fluidItem.getMaxStackSize()) {
-                    fluidItem.setMaxStackSize(64);
                 }
             }
         }
