@@ -11,6 +11,14 @@ public class Config {
 
     public static class ConfigFields {
 
+        @ConfigName("Modded Dispenser Fluid Placement")
+        @Comment("Craft Fluids & Use Dispensers as Pumps")
+        public static Boolean moddedDispenserFluidPlacement = false;
+
+        @ConfigName("Modern Dispenser Fluid Placement")
+        @Comment("Restart required for modded variant only")
+        public static Boolean modernDispenserFluidPlacement = false;
+
         @ConfigName("Stairs Crafting Recipe Output: 1-16")
         @Comment("Restart required for changes to take effect")
         public static Integer stairsOutput = 4;
