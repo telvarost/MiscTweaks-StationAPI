@@ -79,36 +79,50 @@ abstract class DispenserMixin extends BlockWithEntity {
                 arg.spawnEntity(var23);
                 arg.playLevelEvent(1002, i, j, k, 0);
             } else if (Config.ConfigFields.moddedDispenserFluidPlacement && var12.itemId == BlockBase.FLOWING_WATER.id) {
-                if (  (-1 < ModHelper.ModHelperFields.emptySlotAvailable)
-                   && (0 == arg.getTileMeta(i + x_axis, j, k + z_axis))
-                   && (  (BlockBase.FLOWING_WATER.id == blockIdInFrontOfDispenser)
-                      || (BlockBase.STILL_WATER.id  == blockIdInFrontOfDispenser)
-                      )
-                   )
-                {
-                    arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, 0, 0);
-                    arg.playLevelEvent(1000, i, j, k, 0);
-                    var11.setInventoryItem(ModHelper.ModHelperFields.lastSlotDispensed, new ItemInstance(BlockBase.FLOWING_WATER, 1));
-                    var11.setInventoryItem(ModHelper.ModHelperFields.emptySlotAvailable, new ItemInstance(BlockBase.FLOWING_WATER, 1));
+                if (0 == blockIdInFrontOfDispenser || !arg.getMaterial(i + x_axis, j, k + z_axis).isSolid()) {
+                    if (  (-1 < ModHelper.ModHelperFields.emptySlotAvailable)
+                       && (0 == arg.getTileMeta(i + x_axis, j, k + z_axis))
+                       && ( (BlockBase.FLOWING_WATER.id == blockIdInFrontOfDispenser)
+                          || (BlockBase.STILL_WATER.id == blockIdInFrontOfDispenser)
+                          )
+                    ) {
+                        arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, 0, 0);
+                        arg.playLevelEvent(1000, i, j, k, 0);
+                        var11.setInventoryItem(ModHelper.ModHelperFields.lastSlotDispensed, new ItemInstance(BlockBase.FLOWING_WATER, 1));
+                        var11.setInventoryItem(ModHelper.ModHelperFields.emptySlotAvailable, new ItemInstance(BlockBase.FLOWING_WATER, 1));
+                    } else {
+                        arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, FLOWING_WATER.id, 0);
+                        arg.playSound(i, j, k, "liquid.splash", 0.5F, 2.6F + (arg.rand.nextFloat() - arg.rand.nextFloat()) * 0.8F);
+                    }
                 } else {
-                    arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, FLOWING_WATER.id, 0);
-                    arg.playLevelEvent(1000, i, j, k, 0);
+                    var11.setInventoryItem(ModHelper.ModHelperFields.lastSlotDispensed, new ItemInstance(BlockBase.FLOWING_WATER, 1));
+                    arg.playSound(i, j, k, "random.fizz", 0.5F, 2.6F + (arg.rand.nextFloat() - arg.rand.nextFloat()) * 0.8F);
+                    for (int var28 = 0; var28 < 8; ++var28) {
+                        arg.addParticle("largesmoke", (double) i + Math.random(), (double) j + Math.random(), (double) k + Math.random(), 0.0, 0.0, 0.0);
+                    }
                 }
             } else if (Config.ConfigFields.moddedDispenserFluidPlacement && var12.itemId == BlockBase.FLOWING_LAVA.id) {
-                if (  (-1 < ModHelper.ModHelperFields.emptySlotAvailable)
-                   && (0 == arg.getTileMeta(i + x_axis, j, k + z_axis))
-                   && (  (BlockBase.FLOWING_LAVA.id == blockIdInFrontOfDispenser)
-                      || (BlockBase.STILL_LAVA.id  == blockIdInFrontOfDispenser)
-                      )
-                   )
-                {
-                    arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, 0, 0);
-                    arg.playLevelEvent(1002, i, j, k, 0);
-                    var11.setInventoryItem(ModHelper.ModHelperFields.lastSlotDispensed, new ItemInstance(BlockBase.FLOWING_LAVA, 1));
-                    var11.setInventoryItem(ModHelper.ModHelperFields.emptySlotAvailable, new ItemInstance(BlockBase.FLOWING_LAVA, 1));
+                if (0 == blockIdInFrontOfDispenser || !arg.getMaterial(i + x_axis, j, k + z_axis).isSolid()) {
+                    if (  (-1 < ModHelper.ModHelperFields.emptySlotAvailable)
+                       && (0 == arg.getTileMeta(i + x_axis, j, k + z_axis))
+                       && (  (BlockBase.FLOWING_LAVA.id == blockIdInFrontOfDispenser)
+                          || (BlockBase.STILL_LAVA.id == blockIdInFrontOfDispenser)
+                          )
+                    ) {
+                        arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, 0, 0);
+                        arg.playLevelEvent(1000, i, j, k, 0);
+                        var11.setInventoryItem(ModHelper.ModHelperFields.lastSlotDispensed, new ItemInstance(BlockBase.FLOWING_LAVA, 1));
+                        var11.setInventoryItem(ModHelper.ModHelperFields.emptySlotAvailable, new ItemInstance(BlockBase.FLOWING_LAVA, 1));
+                    } else {
+                        arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, FLOWING_LAVA.id, 0);
+                        arg.playLevelEvent(1002, i, j, k, 0);
+                    }
                 } else {
-                    arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, FLOWING_LAVA.id, 0);
-                    arg.playLevelEvent(1002, i, j, k, 0);
+                    var11.setInventoryItem(ModHelper.ModHelperFields.lastSlotDispensed, new ItemInstance(BlockBase.FLOWING_LAVA, 1));
+                    arg.playSound(i + 0.5, j + 0.5, k + 0.5, "random.fizz", 0.5F, 2.6F + (arg.rand.nextFloat() - arg.rand.nextFloat()) * 0.8F);
+                    for (int var28 = 0; var28 < 8; ++var28) {
+                        arg.addParticle("largesmoke", (double) i + Math.random(), (double) j + Math.random(), (double) k + Math.random(), 0.0, 0.0, 0.0);
+                    }
                 }
             } else if (  (Config.ConfigFields.modernDispenserFluidPlacement)
                       && (var12.itemId == ItemBase.waterBucket.id)
