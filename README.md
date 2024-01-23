@@ -20,7 +20,7 @@ You will need ModMenu and GlassConfigAPI to change stairs recipe output and twea
 * Modded Dispenser Fluid Placement, default false.
   * Dispensers cannot pick up water/lava source blocks when dry
     * This is to fulfill the iron requirement of picking up water/lava and makes sense in terms of some real life fluid pumps that don't run when dry
-  * Craft water/lava source blocks from water/lava buckets and use them in dispensers
+  * Craft water/lava source blocks from water/lava buckets (bucket will be consumed) and use them in dispensers
     * Stack size of water/lava source blocks changed to 1
     * Water source blocks will evaporate if placed in the nether
     * Config option added for using lava source blocks as fuel in furnaces
