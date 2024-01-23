@@ -16,7 +16,7 @@ You will need ModMenu and GlassConfigAPI to change stairs recipe output and twea
 * Stairs recipes craft 1-16 stairs, default 4.
   * Note: There currently seems to be a bug with GlassConfigAPI where Integer configs need to be saved twice to take effect
 * Modern Dispenser Fluid Placement, default false.
-  * Allows dispensers to place and pick up water/lava from buckets
+  * Allows dispensers to place and pick up water/lava with buckets
 * Modded Dispenser Fluid Placement, default false.
   * Dispensers cannot pick up water/lava source blocks when dry
     * This is to fulfill the iron requirement of picking up water/lava and makes sense in terms of some real life fluid pumps that don't run when dry
