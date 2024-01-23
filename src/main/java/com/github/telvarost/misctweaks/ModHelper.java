@@ -43,5 +43,9 @@ public class ModHelper {
 
     public static class ModHelperFields {
         public static Boolean blocksAndItemsRegistered = false;
+
+        public static Integer emptySlotAvailable = -1;
+
+        public static Integer lastSlotDispensed = -1;
     }
 }

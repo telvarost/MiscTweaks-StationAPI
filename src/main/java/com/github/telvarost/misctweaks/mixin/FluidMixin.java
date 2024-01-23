@@ -27,24 +27,26 @@ abstract class FluidMixin extends BlockBase {
 
     @Inject(method = "onBlockPlaced", at = @At("TAIL"), cancellable = true)
     public void miscTweaks_onBlockPlaced(Level arg, int i, int j, int k, CallbackInfo ci) {
-        if (Config.ConfigFields.moddedDispenserFluidPlacement) {
-            if (arg.isAir(i, j, k) || !arg.getMaterial(i, j, k).isSolid()) {
-                int blockId = arg.getTileId(i, j, k);
-                if (arg.dimension.evaporatesWater && blockId == BlockBase.FLOWING_WATER.id) {
-                    PlayerBase player = PlayerHelper.getPlayerFromGame();
-                    if (null != player) {
-                        float var4 = 1.0F;
-                        double var7 = player.prevX + (player.x - player.prevX) * (double) var4;
-                        double var9 = player.prevY + (player.y - player.prevY) * (double) var4 + 1.62 - (double) player.standingEyeHeight;
-                        double var11 = player.prevZ + (player.z - player.prevZ) * (double) var4;
-                        arg.playSound(var7 + 0.5, var9 + 0.5, var11 + 0.5, "random.fizz", 0.5F, 2.6F + (arg.rand.nextFloat() - arg.rand.nextFloat()) * 0.8F);
-                    }
+        if (!Config.ConfigFields.moddedDispenserFluidPlacement) {
+            return;
+        }
 
-                    for (int var28 = 0; var28 < 8; ++var28) {
-                        arg.addParticle("largesmoke", (double) i + Math.random(), (double) j + Math.random(), (double) k + Math.random(), 0.0, 0.0, 0.0);
-                    }
-                    arg.placeBlockWithMetaData(i, j, k, 0, 0);
+        if (arg.isAir(i, j, k) || !arg.getMaterial(i, j, k).isSolid()) {
+            int blockId = arg.getTileId(i, j, k);
+            if (arg.dimension.evaporatesWater && blockId == BlockBase.FLOWING_WATER.id) {
+                PlayerBase player = PlayerHelper.getPlayerFromGame();
+                if (null != player) {
+                    float var4 = 1.0F;
+                    double var7 = player.prevX + (player.x - player.prevX) * (double) var4;
+                    double var9 = player.prevY + (player.y - player.prevY) * (double) var4 + 1.62 - (double) player.standingEyeHeight;
+                    double var11 = player.prevZ + (player.z - player.prevZ) * (double) var4;
+                    arg.playSound(var7 + 0.5, var9 + 0.5, var11 + 0.5, "random.fizz", 0.5F, 2.6F + (arg.rand.nextFloat() - arg.rand.nextFloat()) * 0.8F);
                 }
+
+                for (int var28 = 0; var28 < 8; ++var28) {
+                    arg.addParticle("largesmoke", (double) i + Math.random(), (double) j + Math.random(), (double) k + Math.random(), 0.0, 0.0, 0.0);
+                }
+                arg.placeBlockWithMetaData(i, j, k, 0, 0);
             }
         }
     }
