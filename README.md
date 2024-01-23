@@ -36,8 +36,10 @@ You will need ModMenu and GlassConfigAPI to change stairs recipe output and twea
 ![water block recipe](https://github.com/telvarost/MiscTweaks-StationAPI/blob/main/images/WaterBlockRecipe.PNG)
 ![lava block recipe](https://github.com/telvarost/MiscTweaks-StationAPI/blob/main/images/LavaBlockRecipe.PNG)
 ![lava block as fuel source](https://github.com/telvarost/MiscTweaks-StationAPI/blob/main/images/LavaBlockAsFuelSource.PNG)
+### Dry Pump
+![modded dispenser pump dry](https://github.com/telvarost/MiscTweaks-StationAPI/blob/main/images/ModdedDispenserWaterPumpDry.gif)
+### Water Pump
 ![modded dispenser pump](https://github.com/telvarost/MiscTweaks-StationAPI/blob/main/images/ModdedDispenserWaterPump.gif)
-![modded dispenser pump dry](https://github.com/telvarost/MiscTweaks-StationAPI/blob/main/images/ModdedDispenserLavaPumpDry.gif)
 
 ## Installation using Prism Launcher
 
