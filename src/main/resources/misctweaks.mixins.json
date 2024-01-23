@@ -4,6 +4,9 @@
   "package": "com.github.telvarost.misctweaks.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "DispenserMixin",
+    "FluidMixin",
+    "TileEntityDispenserMixin"
   ],
   "server": [
   ],
