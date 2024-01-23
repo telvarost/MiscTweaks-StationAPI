@@ -12,6 +12,10 @@ public class Config {
 
     public static class ConfigFields {
 
+        @ConfigName("Allow Using Lava Block As Fuel Source")
+        @Comment("Restart required for changes to take effect")
+        public static Boolean enableLavaBlockSmeltingRecipe = true;
+
         @ConfigName("Modded Dispenser Fluid Placement")
         @Comment("Craft Fluids & Use Dispensers as Pumps")
         public static Boolean moddedDispenserFluidPlacement = false;

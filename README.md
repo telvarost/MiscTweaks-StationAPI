@@ -12,11 +12,32 @@ You will need ModMenu and GlassConfigAPI to change stairs recipe output and twea
 
 ## List of changes
 
-* Shapeless Jack o’ Lanterns.
+* Shapeless Jack o’ Lanterns, default true.
 * Stairs recipes craft 1-16 stairs, default 4.
   * Note: There currently seems to be a bug with GlassConfigAPI where Integer configs need to be saved twice to take effect
-* Change the value using GlassConfigAPI 1.2.0 https://maven.glass-launcher.net/#/releases/net/glasslauncher/mods/GlassConfigAPI
-  * GlassConfigAPI requires: Mod Menu https://github.com/calmilamsy/ModMenu/releases
+* Modern Dispenser Fluid Placement, default false.
+  * Allows dispensers to place and pick up water/lava from buckets
+* Modded Dispenser Fluid Placement, default false.
+  * Dispensers cannot pick up water/lava source blocks when dry
+    * This is to fulfill the iron requirement of picking up water/lava and makes sense in terms of some real life fluid pumps that don't run when dry
+  * Craft water/lava source blocks from water/lava buckets and use them in dispensers
+    * Stack size of water/lava source blocks changed to 1
+    * Water source blocks will evaporate if placed in the nether
+    * Config option added for using lava source blocks as fuel in furnaces
+  * Dispensers will fizzle and fail to dispense water/lava blocks if there is a solid block in front of the dispenser
+
+## Modern Dispenser Fluid Placement
+
+![modern dispenser water](https://github.com/telvarost/MiscTweaks-StationAPI/blob/main/images/ModernDispenserWater.gif)
+![modern dispenser lava](https://github.com/telvarost/MiscTweaks-StationAPI/blob/main/images/ModernDispenserLava.gif)
+
+## Modded Dispenser Fluid Placement
+
+![water block recipe](https://github.com/telvarost/MiscTweaks-StationAPI/blob/main/images/WaterBlockRecipe.PNG)
+![lava block recipe](https://github.com/telvarost/MiscTweaks-StationAPI/blob/main/images/LavaBlockRecipe.PNG)
+![lava block as fuel source](https://github.com/telvarost/MiscTweaks-StationAPI/blob/main/images/LavaBlockAsFuelSource.PNG)
+![modded dispenser pump](https://github.com/telvarost/MiscTweaks-StationAPI/blob/main/images/ModdedDispenserWaterPump.gif)
+![modded dispenser pump dry](https://github.com/telvarost/MiscTweaks-StationAPI/blob/main/images/ModdedDispenserLavaPumpDry.gif)
 
 ## Installation using Prism Launcher
 
