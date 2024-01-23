@@ -23,7 +23,7 @@ You will need ModMenu and GlassConfigAPI to change stairs recipe output and twea
   * Craft water/lava source blocks from water/lava buckets (bucket will be consumed) and use them in dispensers
     * Stack size of water/lava source blocks changed to 1
     * Water source blocks will evaporate if placed in the nether
-    * Config option added for using lava source blocks as fuel in furnaces
+    * Config option added for using lava source blocks as fuel in furnaces, default true
   * Dispensers will fizzle and fail to dispense water/lava blocks if there is a solid block in front of the dispenser
 
 ## Modern Dispenser Fluid Placement
