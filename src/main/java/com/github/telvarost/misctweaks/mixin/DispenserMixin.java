@@ -130,7 +130,7 @@ abstract class DispenserMixin extends BlockWithEntity {
                       )
             {
                 arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, FLOWING_WATER.id, 0);
-                arg.playLevelEvent(1000, i, j, k, 0);
+                arg.playSound(i, j, k, "liquid.splash", 0.5F, 2.6F + (arg.rand.nextFloat() - arg.rand.nextFloat()) * 0.8F);
                 var11.setInventoryItem(ModHelper.ModHelperFields.lastSlotDispensed, new ItemInstance(ItemBase.bucket, 1));
             } else if (  (Config.ConfigFields.modernDispenserFluidPlacement)
                       && (var12.itemId == ItemBase.lavaBucket.id)
