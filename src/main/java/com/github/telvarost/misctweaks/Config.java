@@ -12,6 +12,9 @@ public class Config {
 
     public static class ConfigFields {
 
+        @ConfigName("A Test")
+        public static Boolean fakeToggle = true;
+
         @ConfigName("Allow Using Lava Block As Fuel Source")
         @Comment("Restart required for changes to take effect")
         public static Boolean enableLavaBlockSmeltingRecipe = true;

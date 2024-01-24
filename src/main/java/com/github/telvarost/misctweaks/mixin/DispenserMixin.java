@@ -15,10 +15,12 @@ import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.minecraft.tileentity.TileEntityDispenser;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 @Mixin(Dispenser.class)
@@ -30,15 +32,15 @@ abstract class DispenserMixin extends BlockWithEntity {
         this.texture = 45;
     }
 
+
+    @Unique
+    private void dispenseNewItem(Level arg, int i, int j, int k, Random random)
+    {
+
+    }
+
     @Inject(method = "dispense", at = @At("HEAD"), cancellable = true)
     private void dispense(Level arg, int i, int j, int k, Random random, CallbackInfo ci) {
-        if (  (!Config.ConfigFields.moddedDispenserFluidPlacement)
-           && (!Config.ConfigFields.modernDispenserFluidPlacement)
-           )
-        {
-            return;
-        }
-
         int var6 = arg.getTileMeta(i, j, k);
         byte x_axis = 0;
         byte z_axis = 0;
@@ -60,7 +62,14 @@ abstract class DispenserMixin extends BlockWithEntity {
         if (var12 == null) {
             arg.playLevelEvent(1001, i, j, k, 0);
         } else {
-            int blockIdInFrontOfDispenser = arg.getTileId(i + x_axis, j, k + z_axis);
+            for (int dispenseNewItemIndex = 0; dispenseNewItemIndex < ModHelper.ModHelperFields.dispenseNewItemIds.size(); dispenseNewItemIndex++) {
+                if (var12.itemId == ModHelper.ModHelperFields.dispenseNewItemIds.get(dispenseNewItemIndex)) {
+                    ModHelper.ModHelperFields.dispenseNewItemFunctions.get(dispenseNewItemIndex).dispenseAction(var11, arg, i, j, k, x_axis, z_axis, random);
+                    arg.playLevelEvent(2000, i, j, k, x_axis + 1 + (z_axis + 1) * 3);
+                    ci.cancel();
+                    return;
+                }
+            }
 
             if (var12.itemId == ItemBase.arrow.id) {
                 Arrow var19 = new Arrow(arg, var13, var15, var17);
@@ -78,89 +87,6 @@ abstract class DispenserMixin extends BlockWithEntity {
                 var23.method_1656((double)x_axis, 0.10000000149011612, (double)z_axis, 1.1F, 6.0F);
                 arg.spawnEntity(var23);
                 arg.playLevelEvent(1002, i, j, k, 0);
-            } else if (Config.ConfigFields.moddedDispenserFluidPlacement && var12.itemId == BlockBase.FLOWING_WATER.id) {
-                if (0 == blockIdInFrontOfDispenser || !arg.getMaterial(i + x_axis, j, k + z_axis).isSolid()) {
-                    if (  (-1 < ModHelper.ModHelperFields.emptySlotAvailable)
-                       && (0 == arg.getTileMeta(i + x_axis, j, k + z_axis))
-                       && ( (BlockBase.FLOWING_WATER.id == blockIdInFrontOfDispenser)
-                          || (BlockBase.STILL_WATER.id == blockIdInFrontOfDispenser)
-                          )
-                    ) {
-                        arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, 0, 0);
-                        arg.playLevelEvent(1000, i, j, k, 0);
-                        var11.setInventoryItem(ModHelper.ModHelperFields.lastSlotDispensed, new ItemInstance(BlockBase.FLOWING_WATER, 1));
-                        var11.setInventoryItem(ModHelper.ModHelperFields.emptySlotAvailable, new ItemInstance(BlockBase.FLOWING_WATER, 1));
-                    } else {
-                        arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, FLOWING_WATER.id, 0);
-                        arg.playSound(i, j, k, "liquid.splash", 0.5F, 2.6F + (arg.rand.nextFloat() - arg.rand.nextFloat()) * 0.8F);
-                    }
-                } else {
-                    var11.setInventoryItem(ModHelper.ModHelperFields.lastSlotDispensed, new ItemInstance(BlockBase.FLOWING_WATER, 1));
-                    arg.playSound(i, j, k, "random.fizz", 0.5F, 2.6F + (arg.rand.nextFloat() - arg.rand.nextFloat()) * 0.8F);
-                    for (int var28 = 0; var28 < 8; ++var28) {
-                        arg.addParticle("largesmoke", (double) i + Math.random(), (double) j + Math.random(), (double) k + Math.random(), 0.0, 0.0, 0.0);
-                    }
-                }
-            } else if (Config.ConfigFields.moddedDispenserFluidPlacement && var12.itemId == BlockBase.FLOWING_LAVA.id) {
-                if (0 == blockIdInFrontOfDispenser || !arg.getMaterial(i + x_axis, j, k + z_axis).isSolid()) {
-                    if (  (-1 < ModHelper.ModHelperFields.emptySlotAvailable)
-                       && (0 == arg.getTileMeta(i + x_axis, j, k + z_axis))
-                       && (  (BlockBase.FLOWING_LAVA.id == blockIdInFrontOfDispenser)
-                          || (BlockBase.STILL_LAVA.id == blockIdInFrontOfDispenser)
-                          )
-                    ) {
-                        arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, 0, 0);
-                        arg.playLevelEvent(1000, i, j, k, 0);
-                        var11.setInventoryItem(ModHelper.ModHelperFields.lastSlotDispensed, new ItemInstance(BlockBase.FLOWING_LAVA, 1));
-                        var11.setInventoryItem(ModHelper.ModHelperFields.emptySlotAvailable, new ItemInstance(BlockBase.FLOWING_LAVA, 1));
-                    } else {
-                        arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, FLOWING_LAVA.id, 0);
-                        arg.playLevelEvent(1002, i, j, k, 0);
-                    }
-                } else {
-                    var11.setInventoryItem(ModHelper.ModHelperFields.lastSlotDispensed, new ItemInstance(BlockBase.FLOWING_LAVA, 1));
-                    arg.playSound(i + 0.5, j + 0.5, k + 0.5, "random.fizz", 0.5F, 2.6F + (arg.rand.nextFloat() - arg.rand.nextFloat()) * 0.8F);
-                    for (int var28 = 0; var28 < 8; ++var28) {
-                        arg.addParticle("largesmoke", (double) i + Math.random(), (double) j + Math.random(), (double) k + Math.random(), 0.0, 0.0, 0.0);
-                    }
-                }
-            } else if (  (Config.ConfigFields.modernDispenserFluidPlacement)
-                      && (var12.itemId == ItemBase.waterBucket.id)
-                      && (0 == blockIdInFrontOfDispenser || !arg.getMaterial(i + x_axis, j, k + z_axis).isSolid())
-                      )
-            {
-                arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, FLOWING_WATER.id, 0);
-                arg.playSound(i, j, k, "liquid.splash", 0.5F, 2.6F + (arg.rand.nextFloat() - arg.rand.nextFloat()) * 0.8F);
-                var11.setInventoryItem(ModHelper.ModHelperFields.lastSlotDispensed, new ItemInstance(ItemBase.bucket, 1));
-            } else if (  (Config.ConfigFields.modernDispenserFluidPlacement)
-                      && (var12.itemId == ItemBase.lavaBucket.id)
-                      && (0 == blockIdInFrontOfDispenser || !arg.getMaterial(i + x_axis, j, k + z_axis).isSolid())
-                      )
-            {
-                arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, FLOWING_LAVA.id, 0);
-                arg.playLevelEvent(1002, i, j, k, 0);
-                var11.setInventoryItem(ModHelper.ModHelperFields.lastSlotDispensed, new ItemInstance(ItemBase.bucket, 1));
-            } else if (  (Config.ConfigFields.modernDispenserFluidPlacement)
-                      && (var12.itemId == ItemBase.bucket.id)
-                      && (0 == arg.getTileMeta(i + x_axis, j, k + z_axis))
-                      && (  (BlockBase.FLOWING_WATER.id == blockIdInFrontOfDispenser)
-                         || (BlockBase.STILL_WATER.id  == blockIdInFrontOfDispenser)
-                         || (BlockBase.FLOWING_LAVA.id  == blockIdInFrontOfDispenser)
-                         || (BlockBase.STILL_LAVA.id  == blockIdInFrontOfDispenser)
-                         )
-                      )
-            {
-                arg.placeBlockWithMetaData(i + x_axis, j, k + z_axis, 0, 0);
-                arg.playLevelEvent(1000, i, j, k, 0);
-
-                if (  (BlockBase.FLOWING_WATER.id == blockIdInFrontOfDispenser)
-                   || (BlockBase.STILL_WATER.id  == blockIdInFrontOfDispenser)
-                   )
-                {
-                    var11.setInventoryItem(ModHelper.ModHelperFields.lastSlotDispensed, new ItemInstance(ItemBase.waterBucket, 1));
-                } else {
-                    var11.setInventoryItem(ModHelper.ModHelperFields.lastSlotDispensed, new ItemInstance(ItemBase.lavaBucket, 1));
-                }
             } else {
                 Item var24 = new Item(arg, var13, var15 - 0.3, var17, var12);
                 double var20 = random.nextDouble() * 0.1 + 0.2;

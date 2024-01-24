@@ -4,9 +4,11 @@ import blue.endless.jankson.JsonObject;
 import blue.endless.jankson.JsonPrimitive;
 import com.github.telvarost.misctweaks.Config;
 import com.github.telvarost.misctweaks.ModHelper;
+import com.github.telvarost.misctweaks.NewDispenseActions;
 import net.glasslauncher.mods.api.gcapi.api.PreConfigSavedListener;
 import net.glasslauncher.mods.api.gcapi.impl.ConfigFactories;
 import net.mine_diver.unsafeevents.listener.EventListener;
+import net.minecraft.block.BlockBase;
 
 import java.lang.reflect.Field;
 
@@ -17,8 +19,14 @@ public class ConfigListener implements PreConfigSavedListener {
 
     @Override
     public void onPreConfigSaved(JsonObject jsonObject, JsonObject jsonObject1) {
-        /** - Update max stack size on config change */
-        ModHelper.AttemptToSetStackSizeOfFluids();
+        if (ModHelper.ModHelperFields.blocksAndItemsRegistered)
+        {
+            /** - Update max stack size on config change */
+            ModHelper.SetStackSizeOfItems();
+
+            /** - Update dispenser actions on config change */
+            NewDispenseActions.ToggleDispenseActions();
+        }
 
         /** - Ensure stairs crafting recipe output is an integer value between 1 and 16 */
         if (16 < Config.ConfigFields.stairsOutput)
