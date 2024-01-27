@@ -12,7 +12,16 @@ public class Config {
 
     public static class ConfigFields {
 
-        @ConfigName("Allow Using Lava Block As Fuel Source")
+        @ConfigName("Disable Creeper Explosion Breaking Blocks")
+        public static Boolean disableCreeperExplosionBreakingBlocks = false;
+
+        @ConfigName("Disable Ghast Explosion Breaking Blocks")
+        public static Boolean disableGhastExplosionBreakingBlocks = false;
+
+        @ConfigName("Disable Ghast Explosion Causing Fire")
+        public static Boolean disableGhastExplosionCausingFire = false;
+
+        @ConfigName("Enable Lava Block As Fuel Source")
         @Comment("Restart required for changes to take effect")
         public static Boolean enableLavaBlockSmeltingRecipe = true;
 
