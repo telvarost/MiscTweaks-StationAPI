@@ -4,8 +4,12 @@
   "package": "com.github.telvarost.misctweaks.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "CreeperMixin",
     "DispenserMixin",
+    "ExplosionMixin",
+    "FireballMixin",
     "FluidMixin",
+    "GhastMixin",
     "TileEntityDispenserMixin"
   ],
   "server": [
