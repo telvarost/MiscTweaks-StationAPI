@@ -12,6 +12,9 @@ You will need ModMenu and GlassConfigAPI to change stairs recipe output and twea
 
 ## List of changes
 
+* Disable creeper explosions breaking blocks, default false.
+* Disable ghast explosions causing fire, default false.
+* Disable ghast explosions breaking blocks, default false.
 * Shapeless Jack o’ Lanterns, default true.
 * Stairs recipes craft 1-16 stairs, default 4.
   * Note: There currently seems to be a bug with GlassConfigAPI where Integer configs need to be saved twice to take effect
