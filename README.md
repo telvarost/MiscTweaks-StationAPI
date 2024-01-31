@@ -14,6 +14,7 @@ You will need ModMenu and GlassConfigAPI to change stairs recipe output and twea
 
 * Allow editing signs with a feather (feather is consumed on use), default false.
 * Allow coloring signs with dye (dye is consumed on use), default false.
+  * Coloring signs is incompatible with the MojangFix mod.
 * Allow defusing TNT with shears (use left-click to defuse), default false.
 * Disable creeper explosions breaking blocks, default false.
 * Disable ghast explosions causing fire, default false.
