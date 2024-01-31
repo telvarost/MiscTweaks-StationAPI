@@ -12,13 +12,17 @@ public class Config {
 
     public static class ConfigFields {
 
-        @ConfigName("Allow Editing Signs With A Feather")
-        @Comment("Feather will be consumed on use")
-        public static Boolean enableEditSignsWithFeathers = true;
-
         @ConfigName("Allow Coloring Signs With Dye")
         @Comment("Dye will be consumed on use")
-        public static Boolean enableColorSignsWithDye = true;
+        public static Boolean enableColorSignsWithDye = false;
+
+        @ConfigName("Allow Editing Signs With A Feather")
+        @Comment("Feather will be consumed on use")
+        public static Boolean enableEditSignsWithFeathers = false;
+
+        @ConfigName("Allow TNT Defusing With Shears")
+        @Comment("Use Left-Click with shears to cut the fuse")
+        public static Boolean enableDefusingTnt = false;
 
         @ConfigName("Disable Creeper Explosion Breaking Blocks")
         public static Boolean disableCreeperExplosionBreakingBlocks = false;
@@ -41,13 +45,13 @@ public class Config {
         @Comment("Restart required for modded variant only")
         public static Boolean modernDispenserFluidPlacement = false;
 
+        @ConfigName("Shapeless Jack o’ Lantern Recipe")
+        @Comment("Restart required for changes to take effect")
+        public static Boolean enableShapelessJackOLanternRecipe = true;
+
         @ConfigName("Stairs Crafting Recipe Output: 1-16")
         @Comment("Restart required for changes to take effect")
         @MaxLength(16)
         public static Integer stairsOutput = 4;
-
-        @ConfigName("Shapeless Jack o’ Lantern Recipe")
-        @Comment("Restart required for changes to take effect")
-        public static Boolean enableShapelessJackOLanternRecipe = true;
     }
 }

@@ -12,6 +12,7 @@
     "FluidMixin",
     "GhastMixin",
     "ItemBaseMixin",
+    "MinecraftAccessor",
     "TileEntityDispenserMixin",
     "TileEntitySignMixin"
   ],
