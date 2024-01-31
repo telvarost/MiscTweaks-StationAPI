@@ -21,7 +21,7 @@ public class Config {
         public static Boolean enableEditSignsWithFeathers = false;
 
         @ConfigName("Allow TNT Defusing With Shears")
-        @Comment("Use Left-Click with shears to cut the fuse")
+        @Comment("Use Left-Click with shears to defuse")
         public static Boolean enableDefusingTnt = false;
 
         @ConfigName("Disable Creeper Explosion Breaking Blocks")
