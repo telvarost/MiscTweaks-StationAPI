@@ -6,15 +6,20 @@
   "mixins": [
     "CreeperMixin",
     "DispenserMixin",
+    "DyeMixin",
     "ExplosionMixin",
     "FireballMixin",
     "FluidMixin",
     "GhastMixin",
-    "TileEntityDispenserMixin"
+    "ItemBaseMixin",
+    "MinecraftAccessor",
+    "TileEntityDispenserMixin",
+    "TileEntitySignMixin"
   ],
   "server": [
   ],
   "client": [
+    "EditSignMixin"
   ],
   "injectors": {
     "defaultRequire": 1
