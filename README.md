@@ -12,6 +12,8 @@ You will need ModMenu and GlassConfigAPI to change stairs recipe output and twea
 
 ## List of changes
 
+* Allow editing signs with a feather (feather is consumed on use), default true.
+* Allow coloring signs with dye (dye is consumed on use), default true.
 * Disable creeper explosions breaking blocks, default false.
 * Disable ghast explosions causing fire, default false.
 * Disable ghast explosions breaking blocks, default false.

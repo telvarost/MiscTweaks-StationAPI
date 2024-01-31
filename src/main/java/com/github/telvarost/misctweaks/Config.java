@@ -12,6 +12,14 @@ public class Config {
 
     public static class ConfigFields {
 
+        @ConfigName("Allow Editing Signs With A Feather")
+        @Comment("Feather will be consumed on use")
+        public static Boolean enableEditSignsWithFeathers = true;
+
+        @ConfigName("Allow Coloring Signs With Dye")
+        @Comment("Dye will be consumed on use")
+        public static Boolean enableColorSignsWithDye = true;
+
         @ConfigName("Disable Creeper Explosion Breaking Blocks")
         public static Boolean disableCreeperExplosionBreakingBlocks = false;
 
