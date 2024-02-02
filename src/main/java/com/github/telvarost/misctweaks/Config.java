@@ -33,6 +33,18 @@ public class Config {
         @ConfigName("Disable Ghast Explosion Causing Fire")
         public static Boolean disableGhastExplosionCausingFire = false;
 
+        @ConfigName("Disable Trampling Farmland")
+        @Comment("Player/mobs will no longer trample farmland")
+        public static Boolean disableTramplingFarmland = false;
+
+        @ConfigName("Do Not Trample Farmland When Barefoot")
+        @Comment("Only affects player without boots")
+        public static Boolean disableTrampleFarmlandWhenBarefoot = false;
+
+        @ConfigName("Do Not Trample Farmland With Leather Boots")
+        @Comment("Only affects player with leather boots")
+        public static Boolean disableTrampleFarmlandWithLeatherBoots = false;
+
         @ConfigName("Enable Lava Block As Fuel Source")
         @Comment("Restart required for changes to take effect")
         public static Boolean enableLavaBlockSmeltingRecipe = true;

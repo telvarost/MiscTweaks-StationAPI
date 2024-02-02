@@ -14,11 +14,14 @@ You will need ModMenu and GlassConfigAPI to change stairs recipe output and twea
 
 * Allow editing signs with a feather (feather is consumed on use), default false.
 * Allow coloring signs with dye (dye is consumed on use), default false.
-  * Signs cannot be colored if the MojangFix mod is installed.
+  * Coloring signs is incompatible with the MojangFix mod.
 * Allow defusing TNT with shears (use left-click to defuse), default false.
 * Disable creeper explosions breaking blocks, default false.
 * Disable ghast explosions causing fire, default false.
 * Disable ghast explosions breaking blocks, default false.
+* Disable player/mobs trampling farmland, default false.
+* Disable player trampling farmland if player is not wearing boots, default false.
+* Disable player trampling farmland if player is wearing leather boots, default false.
 * Shapeless Jack o’ Lanterns, default true.
 * Stairs recipes craft 1-16 stairs, default 4.
   * Note: There currently seems to be a bug with GlassConfigAPI where Integer configs need to be saved twice to take effect
