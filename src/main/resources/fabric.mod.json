@@ -6,8 +6,7 @@
   "name": "MiscTweaks",
   "description": "Random tweaks that did not fit in my other mods such as allowing stairs recipe output to be changed.",
   "authors": [
-    "Telvarost",
-    "MiTask"
+    "Telvarost"
   ],
   "contact": {
     "issues": "https://github.com/telvarost/MiscTweaks-StationAPI/issues",
