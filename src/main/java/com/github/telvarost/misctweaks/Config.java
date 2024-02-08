@@ -24,6 +24,11 @@ public class Config {
         @Comment("Use Left-Click with shears to defuse")
         public static Boolean enableDefusingTnt = false;
 
+        @ConfigName("Apple Drop Chance From Oak Leaves 0.X%")
+        @MaxLength(10)
+        @Comment("0 = disabled, 5 = modern drop chance")
+        public static Integer appleDropChance = 0;
+
         @ConfigName("Disable Creeper Explosion Breaking Blocks")
         public static Boolean disableCreeperExplosionBreakingBlocks = false;
 

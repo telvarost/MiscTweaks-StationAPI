@@ -23,7 +23,7 @@ public class DyeMixin extends ItemBase {
     }
 
     @Inject(method = "useOnTile", at = @At("HEAD"), cancellable = true)
-    public void useOnTile(ItemInstance arg, PlayerBase arg2, Level arg3, int i, int j, int k, int l, CallbackInfoReturnable<Boolean> cir) {
+    public void miscTweaks_useOnTile(ItemInstance arg, PlayerBase arg2, Level arg3, int i, int j, int k, int l, CallbackInfoReturnable<Boolean> cir) {
         if (!Config.ConfigFields.enableColorSignsWithDye) {
             return;
         }

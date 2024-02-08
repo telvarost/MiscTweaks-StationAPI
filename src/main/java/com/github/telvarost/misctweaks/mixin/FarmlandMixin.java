@@ -23,7 +23,7 @@ public abstract class FarmlandMixin extends BlockBase {
 
 
     @Inject(method = "onSteppedOn", at = @At("HEAD"), cancellable = true)
-    public void onSteppedOn(Level arg, int i, int j, int k, EntityBase arg2, CallbackInfo ci) {
+    public void miscTweaks_onSteppedOnByPlayer(Level arg, int i, int j, int k, EntityBase arg2, CallbackInfo ci) {
         if (  (Config.ConfigFields.disableTrampleFarmlandWhenBarefoot)
            || (Config.ConfigFields.disableTrampleFarmlandWithLeatherBoots)
         ) {
@@ -53,7 +53,7 @@ public abstract class FarmlandMixin extends BlockBase {
                     target = "Ljava/util/Random;nextInt(I)I"
             )
     )
-    public int onSteppedOn(Random rand, int value) {
+    public int miscTweaks_onSteppedOnDisableTrample(Random rand, int value) {
         if (Config.ConfigFields.disableTramplingFarmland) {
             return -1;
         } else {

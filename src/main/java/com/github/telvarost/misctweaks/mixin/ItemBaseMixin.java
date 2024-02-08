@@ -30,7 +30,7 @@ public class ItemBaseMixin implements StationFlatteningItem, StationItem, Statio
     @Shadow public static Shears shears;
 
     @Inject(method = "getAttack", at = @At("HEAD"), cancellable = true)
-    public void getAttack(EntityBase arg, CallbackInfoReturnable<Integer> cir) {
+    public void miscTweaks_getAttack(EntityBase arg, CallbackInfoReturnable<Integer> cir) {
         if (!Config.ConfigFields.enableDefusingTnt) {
             return;
         }
@@ -54,7 +54,7 @@ public class ItemBaseMixin implements StationFlatteningItem, StationItem, Statio
     }
 
     @Inject(method = "useOnTile", at = @At("HEAD"), cancellable = true)
-    public void useOnTile(ItemInstance arg, PlayerBase arg2, Level arg3, int i, int j, int k, int l, CallbackInfoReturnable<Boolean> cir) {
+    public void miscTweaks_useOnTile(ItemInstance arg, PlayerBase arg2, Level arg3, int i, int j, int k, int l, CallbackInfoReturnable<Boolean> cir) {
         if (!Config.ConfigFields.enableEditSignsWithFeathers) {
             return;
         }
