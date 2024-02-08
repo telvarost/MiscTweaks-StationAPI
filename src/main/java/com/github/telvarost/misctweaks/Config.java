@@ -45,18 +45,6 @@ public class Config {
         @Comment("Only affects player with leather boots")
         public static Boolean disableTrampleFarmlandWithLeatherBoots = false;
 
-        @ConfigName("Enable Lava Block As Fuel Source")
-        @Comment("Restart required for changes to take effect")
-        public static Boolean enableLavaBlockSmeltingRecipe = true;
-
-        @ConfigName("Modded Dispenser Fluid Placement")
-        @Comment("Craft Fluids & Use Dispensers as Pumps")
-        public static Boolean moddedDispenserFluidPlacement = false;
-
-        @ConfigName("Modern Dispenser Fluid Placement")
-        @Comment("Restart required for modded variant only")
-        public static Boolean modernDispenserFluidPlacement = false;
-
         @ConfigName("Shapeless Jack o’ Lantern Recipe")
         @Comment("Restart required for changes to take effect")
         public static Boolean enableShapelessJackOLanternRecipe = true;

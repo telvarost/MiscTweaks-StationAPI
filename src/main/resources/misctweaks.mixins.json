@@ -5,16 +5,13 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "CreeperMixin",
-    "DispenserMixin",
     "DyeMixin",
     "ExplosionMixin",
     "FarmlandMixin",
     "FireballMixin",
-    "FluidMixin",
     "GhastMixin",
     "ItemBaseMixin",
     "MinecraftAccessor",
-    "TileEntityDispenserMixin",
     "TileEntitySignMixin"
   ],
   "server": [

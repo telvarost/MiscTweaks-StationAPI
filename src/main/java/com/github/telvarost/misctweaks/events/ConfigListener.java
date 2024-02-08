@@ -17,9 +17,6 @@ public class ConfigListener implements PreConfigSavedListener {
 
     @Override
     public void onPreConfigSaved(JsonObject jsonObject, JsonObject jsonObject1) {
-        /** - Update max stack size on config change */
-        ModHelper.AttemptToSetStackSizeOfFluids();
-
         /** - Ensure stairs crafting recipe output is an integer value between 1 and 16 */
         if (16 < Config.ConfigFields.stairsOutput)
         {

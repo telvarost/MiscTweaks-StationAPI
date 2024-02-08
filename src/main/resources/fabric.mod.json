@@ -21,9 +21,7 @@
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "com.github.telvarost.misctweaks.events.init.RecipeListener",
-      "com.github.telvarost.misctweaks.events.init.RegistryListener",
-      "com.github.telvarost.misctweaks.events.ItemUsedInCraftingListener"
+      "com.github.telvarost.misctweaks.events.init.RecipeListener"
     ],
     "stationapi:event_bus_client": [
     ],

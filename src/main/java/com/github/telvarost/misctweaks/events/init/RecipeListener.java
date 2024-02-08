@@ -51,23 +51,10 @@ public class RecipeListener {
             }
         }
 
-        if (type == RecipeRegisterEvent.Vanilla.SMELTING.type()) {
-            if (Config.ConfigFields.enableLavaBlockSmeltingRecipe) {
-                /** - 1000 second fuel duration */
-                FuelRegistry.addFuelItem(BlockBase.FLOWING_LAVA.asItem(), 20000);
-            }
-        }
-
         if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPELESS.type())
         {
             if (Config.ConfigFields.enableShapelessJackOLanternRecipe) {
                 CraftingRegistry.addShapelessRecipe(new ItemInstance(BlockBase.JACK_O_LANTERN.asItem(), 1), BlockBase.PUMPKIN, BlockBase.TORCH);
-            }
-
-            if (Config.ConfigFields.moddedDispenserFluidPlacement)
-            {
-                CraftingRegistry.addShapelessRecipe(new ItemInstance(BlockBase.FLOWING_WATER, 1), ItemBase.waterBucket);
-                CraftingRegistry.addShapelessRecipe(new ItemInstance(BlockBase.FLOWING_LAVA, 1), ItemBase.lavaBucket);
             }
         }
     }
