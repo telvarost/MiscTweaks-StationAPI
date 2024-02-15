@@ -12,6 +12,10 @@ public class Config {
 
     public static class ConfigFields {
 
+        @ConfigName("Allow Chests To Open Even When Blocked")
+        @Comment("Chests can open when a block is above them")
+        public static Boolean enableChestsOpenWithBlockAbove = false;
+
         @ConfigName("Allow Coloring Signs With Dye")
         @Comment("Dye will be consumed on use")
         public static Boolean enableColorSignsWithDye = false;
@@ -50,6 +54,14 @@ public class Config {
         @Comment("Only affects player with leather boots")
         public static Boolean disableTrampleFarmlandWithLeatherBoots = false;
 
+        @ConfigName("Equalize Base Armor Durability")
+        @Comment("Restart required for changes to take effect")
+        public static Boolean equalizeBaseArmorDurability = false;
+
+        @ConfigName("Modern Armor Defense Points")
+        @Comment("Restart required for changes to take effect")
+        public static Boolean modernArmorDefensePoints = false;
+
         @ConfigName("Shapeless Jack o’ Lantern Recipe")
         @Comment("Restart required for changes to take effect")
         public static Boolean enableShapelessJackOLanternRecipe = true;
@@ -58,5 +70,8 @@ public class Config {
         @Comment("Restart required for changes to take effect")
         @MaxLength(16)
         public static Integer stairsOutput = 4;
+
+        @ConfigName("Use Right Click To Equip Armor")
+        public static Boolean rightClickEquipArmor = true;
     }
 }

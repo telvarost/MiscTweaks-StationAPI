@@ -4,6 +4,8 @@
   "package": "com.github.telvarost.misctweaks.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "ArmourMixin",
+    "ChestMixin",
     "CreeperMixin",
     "DyeMixin",
     "ExplosionMixin",
@@ -13,6 +15,7 @@
     "ItemBaseMixin",
     "LeavesMixin",
     "MinecraftAccessor",
+    "PlayerInventoryMixin",
     "TileEntitySignMixin"
   ],
   "server": [

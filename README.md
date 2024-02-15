@@ -13,6 +13,7 @@ You will need ModMenu and GlassConfigAPI to change stairs recipe output and twea
 ## List of changes
 
 All changes are default false/vanilla behavior unless otherwise specified.
+* Allow chests to be opened even when a solid block is above them.
 * Allow editing signs with a feather (feather is consumed on use).
 * Allow coloring signs with dye (dye is consumed on use).
   * Coloring signs is incompatible with the MojangFix mod.
@@ -25,6 +26,10 @@ All changes are default false/vanilla behavior unless otherwise specified.
 * Disable player/mobs trampling farmland.
 * Disable player trampling farmland if player is not wearing boots.
 * Disable player trampling farmland if player is wearing leather boots.
+* Equalize base armor durability.
+  * Helmet, Chestplate, Leggings, and Boots will all have the same durability
+* Modern armor defense points.
+  * Lower tiers have less defense and defense does not decrease with durability loss
 * Shapeless Jack o’ Lanterns, default true.
 * Stairs recipes craft 1-16 stairs.
   * Note: There currently seems to be a bug with GlassConfigAPI where Integer configs need to be saved twice to take effect
