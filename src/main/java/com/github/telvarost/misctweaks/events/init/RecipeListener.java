@@ -3,14 +3,12 @@ package com.github.telvarost.misctweaks.events.init;
 import com.github.telvarost.misctweaks.Config;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.BlockBase;
-import net.minecraft.item.ItemBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.recipe.RecipeRegistry;
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent;
 import net.modificationstation.stationapi.api.recipe.CraftingRegistry;
-import net.modificationstation.stationapi.api.recipe.FuelRegistry;
 import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.List;
