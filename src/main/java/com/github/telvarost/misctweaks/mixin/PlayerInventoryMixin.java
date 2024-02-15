@@ -19,7 +19,7 @@ public abstract class PlayerInventoryMixin implements InventoryBase, StationFlat
                     target = "Lnet/minecraft/item/ItemInstance;getDamage2()I"
             )
     )
-    public int getArmourValue(ItemInstance instance) {
+    public int miscTweaks_getArmourValue(ItemInstance instance) {
         if (Config.ConfigFields.modernArmorDefensePoints) {
             return 0;
         } else {

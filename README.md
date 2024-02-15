@@ -33,6 +33,7 @@ All changes are default false/vanilla behavior unless otherwise specified.
 * Shapeless Jack o’ Lanterns, default true.
 * Stairs recipes craft 1-16 stairs.
   * Note: There currently seems to be a bug with GlassConfigAPI where Integer configs need to be saved twice to take effect
+* Use right click to equip/swap pieces of armor.
 
 ## Dispenser changes moved to DispenserTweaks
 * See: https://github.com/telvarost/DispenserTweaks-StationAPI
