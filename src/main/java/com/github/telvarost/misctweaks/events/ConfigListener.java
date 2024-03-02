@@ -3,7 +3,6 @@ package com.github.telvarost.misctweaks.events;
 import blue.endless.jankson.JsonObject;
 import blue.endless.jankson.JsonPrimitive;
 import com.github.telvarost.misctweaks.Config;
-import com.github.telvarost.misctweaks.ModHelper;
 import net.glasslauncher.mods.api.gcapi.api.PreConfigSavedListener;
 import net.glasslauncher.mods.api.gcapi.impl.ConfigFactories;
 import net.mine_diver.unsafeevents.listener.EventListener;

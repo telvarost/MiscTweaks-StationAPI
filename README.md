@@ -16,7 +16,9 @@ All changes are default false/vanilla behavior unless otherwise specified.
 * Allow chests to be opened even when a solid block is above them.
 * Allow editing signs with a feather (feather is consumed on use).
 * Allow coloring signs with dye (dye is consumed on use).
-  * Coloring signs is incompatible with the MojangFix mod.
+  * Coloring signs is incompatible with the MojangFix mod's signs.
+  * Use MojangFixStationAPI with GlassConfigAPI to disable MojangFix signs and let MiscTweaks signs work properly.
+    * https://github.com/telvarost/MojangFix-StationAPI
 * Allow defusing TNT with shears (use left-click to defuse).
 * Add chance for apples to drop from oak leaves.
   * Note: There currently seems to be a bug with GlassConfigAPI where Integer configs need to be saved twice to take effect
