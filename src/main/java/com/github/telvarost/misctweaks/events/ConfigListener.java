@@ -15,7 +15,7 @@ import static com.github.telvarost.misctweaks.Config.config;
 public class ConfigListener implements PreConfigSavedListener {
 
     @Override
-    public void onPreConfigSaved(JsonObject jsonObject, JsonObject jsonObject1) {
+    public void onPreConfigSaved(int var1, JsonObject jsonObject0, JsonObject jsonObject1) {
         /** - Ensure stairs crafting recipe output is an integer value between 1 and 16 */
         if (16 < Config.ConfigFields.stairsOutput)
         {

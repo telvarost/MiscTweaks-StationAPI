@@ -27,22 +27,22 @@ public abstract class FarmlandMixin extends BlockBase {
         if (  (Config.ConfigFields.disableTrampleFarmlandWhenBarefoot)
            || (Config.ConfigFields.disableTrampleFarmlandWithLeatherBoots)
         ) {
-            if (arg2 instanceof AbstractClientPlayer) {
-                AbstractClientPlayer player = (AbstractClientPlayer)arg2;
-
-                if (  (Config.ConfigFields.disableTrampleFarmlandWhenBarefoot)
-                   && (null == player.inventory.armour[0])
-                ) {
-                    ci.cancel();
-                }
-
-                if (  (Config.ConfigFields.disableTrampleFarmlandWithLeatherBoots)
-                   && (null != player.inventory.armour[0])
-                   && (ItemBase.leatherBoots.id == player.inventory.armour[0].itemId)
-                ) {
-                    ci.cancel();
-                }
-            }
+//            if (arg2 instanceof AbstractClientPlayer) {
+//                AbstractClientPlayer player = (AbstractClientPlayer)arg2;
+//
+//                if (  (Config.ConfigFields.disableTrampleFarmlandWhenBarefoot)
+//                   && (null == player.inventory.armour[0])
+//                ) {
+//                    ci.cancel();
+//                }
+//
+//                if (  (Config.ConfigFields.disableTrampleFarmlandWithLeatherBoots)
+//                   && (null != player.inventory.armour[0])
+//                   && (ItemBase.leatherBoots.id == player.inventory.armour[0].itemId)
+//                ) {
+//                    ci.cancel();
+//                }
+//            }
         }
     }
 

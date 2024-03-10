@@ -14,13 +14,12 @@
     "GhastMixin",
     "ItemBaseMixin",
     "LeavesMixin",
-    "MinecraftAccessor",
-    "PlayerInventoryMixin",
-    "TileEntitySignMixin"
+    "PlayerInventoryMixin"
   ],
   "server": [
   ],
   "client": [
+    "MinecraftAccessor",
     "EditSignMixin"
   ],
   "injectors": {
