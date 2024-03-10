@@ -1,12 +1,10 @@
 package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
-import net.fabricmc.loader.impl.game.GameProviderHelper;
 import net.minecraft.block.BlockBase;
 import net.minecraft.block.Farmland;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityBase;
-import net.minecraft.entity.player.AbstractClientPlayer;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemBase;
 import net.minecraft.level.Level;
