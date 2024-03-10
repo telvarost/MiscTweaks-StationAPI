@@ -25,9 +25,9 @@ All changes are default false/vanilla behavior unless otherwise specified.
 * Disable creeper explosions breaking blocks.
 * Disable ghast explosions causing fire.
 * Disable ghast explosions breaking blocks.
-//* Disable player/mobs trampling farmland.
-//* Disable player trampling farmland if player is not wearing boots.
-//* Disable player trampling farmland if player is wearing leather boots.
+* Disable player/mobs trampling farmland.
+* Disable player trampling farmland if player is not wearing boots.
+* Disable player trampling farmland if player is wearing leather boots.
 * Equalize base armor durability.
   * Helmet, Chestplate, Leggings, and Boots will all have the same durability
 * Modern armor defense points.
