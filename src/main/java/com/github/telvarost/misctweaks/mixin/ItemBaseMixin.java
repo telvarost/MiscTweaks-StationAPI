@@ -26,7 +26,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ItemBaseMixin implements StationFlatteningItem, StationItem, StationRendererItem {
 
     @Shadow public static ItemBase feather;
-
     @Shadow public static Shears shears;
 
     @Inject(method = "getAttack", at = @At("HEAD"), cancellable = true)
