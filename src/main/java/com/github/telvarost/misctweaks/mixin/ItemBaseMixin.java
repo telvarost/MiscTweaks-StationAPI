@@ -14,6 +14,7 @@ import net.minecraft.item.tool.Shears;
 import net.minecraft.level.Level;
 import net.minecraft.tileentity.TileEntitySign;
 import net.modificationstation.stationapi.api.client.item.StationRendererItem;
+import net.modificationstation.stationapi.api.entity.player.PlayerHelper;
 import net.modificationstation.stationapi.api.item.StationFlatteningItem;
 import net.modificationstation.stationapi.api.item.StationItem;
 import org.spongepowered.asm.mixin.Mixin;
@@ -40,14 +41,16 @@ public class ItemBaseMixin implements StationFlatteningItem, StationItem, Statio
         if (thisItem.id == shears.id) {
             if (null != arg && PrimedTnt.class == arg.getClass()) {
                 PrimedTnt thisTnt = (PrimedTnt) arg;
-//                Minecraft minecraft = MinecraftAccessor.getInstance();
-//
-//                if (!minecraft.level.isServerSide) {
-//                    Item var24 = new Item(minecraft.level, thisTnt.x, thisTnt.y, thisTnt.z, new ItemInstance(BlockBase.TNT));
-//                    var24.velocityY = 0.20000000298023224;
-//                    minecraft.level.spawnEntity(var24);
-//
-//                }
+                PlayerBase player = PlayerHelper.getPlayerFromGame();
+
+                if (  (null != player)
+                   && (!player.level.isServerSide)
+                ) {
+                    Item var24 = new Item(player.level, thisTnt.x, thisTnt.y, thisTnt.z, new ItemInstance(BlockBase.TNT));
+                    var24.velocityY = 0.20000000298023224;
+                    player.level.spawnEntity(var24);
+                }
+
                 thisTnt.remove();
             }
         }
