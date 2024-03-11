@@ -3,7 +3,6 @@ package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
 import net.minecraft.block.BlockBase;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityBase;
 import net.minecraft.entity.Item;
 import net.minecraft.entity.PrimedTnt;
@@ -40,18 +39,22 @@ public class ItemBaseMixin implements StationFlatteningItem, StationItem, Statio
 
         if (thisItem.id == shears.id) {
             if (null != arg && PrimedTnt.class == arg.getClass()) {
-                PrimedTnt thisTnt = (PrimedTnt) arg;
-                PlayerBase player = PlayerHelper.getPlayerFromGame();
+                PrimedTnt curTnt = (PrimedTnt) arg;
 
-                if (  (null != player)
-                   && (!player.level.isServerSide)
-                ) {
-                    Item var24 = new Item(player.level, thisTnt.x, thisTnt.y, thisTnt.z, new ItemInstance(BlockBase.TNT));
+                if (!curTnt.level.isServerSide) {
+                    Item var24 = new Item(curTnt.level, curTnt.x, curTnt.y, curTnt.z, new ItemInstance(BlockBase.TNT));
                     var24.velocityY = 0.20000000298023224;
-                    player.level.spawnEntity(var24);
+                    curTnt.level.spawnEntity(var24);
+                } else {
+                    PlayerBase player = PlayerHelper.getPlayerFromGame();
+                    if (player == null) {
+                        Item var24 = new Item(curTnt.level, curTnt.x, curTnt.y, curTnt.z, new ItemInstance(BlockBase.TNT));
+                        var24.velocityY = 0.20000000298023224;
+                        curTnt.level.spawnEntity(var24);
+                    }
                 }
 
-                thisTnt.remove();
+                curTnt.remove();
             }
         }
     }
