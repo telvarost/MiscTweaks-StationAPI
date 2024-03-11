@@ -7,8 +7,7 @@ A StationAPI mod for Minecraft Beta 1.7.3 that tweaks random things that did not
 # Miscellaneous Tweaks
 
 You will need ModMenu and GlassConfigAPI to change stairs recipe output and tweak other parts of the mod. See installation instructions below.
-
-**There's a very high chance this mod will not work in multiplayer, as of right now it is purely for singleplayer**
+* Mod now works on Multiplayer with GlassConfigAPI version 2.0+ used to sync configs!
 
 ## List of changes
 
@@ -48,7 +47,7 @@ All changes are default false/vanilla behavior unless otherwise specified
 2. Install Java 17, set the instance to use it, and disable compatibility checks on the instance: https://adoptium.net/temurin/releases/
 3. Add StationAPI to the mod folder for the instance: https://jenkins.glass-launcher.net/job/StationAPI/lastSuccessfulBuild/
 4. (Optional) Add Mod Menu to the mod folder for the instance: https://github.com/calmilamsy/ModMenu/releases
-5. (Optional) Add GlassConfigAPI 1.1.6+ to the mod folder for the instance: https://maven.glass-launcher.net/#/releases/net/glasslauncher/mods/GlassConfigAPI
+5. (Optional) Add GlassConfigAPI 2.0+ to the mod folder for the instance: https://maven.glass-launcher.net/#/releases/net/glasslauncher/mods/GlassConfigAPI
 6. Add this mod to the mod folder for the instance: https://github.com/telvarost/MiscTweaks-StationAPI/releases
 7. Run and enjoy! 👍
 
