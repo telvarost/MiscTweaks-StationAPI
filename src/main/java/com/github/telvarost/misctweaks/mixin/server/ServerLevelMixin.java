@@ -1,4 +1,4 @@
-package com.github.telvarost.misctweaks.mixin;
+package com.github.telvarost.misctweaks.mixin.server;
 
 import com.github.telvarost.misctweaks.ModHelper;
 import net.fabricmc.api.EnvType;
@@ -29,7 +29,7 @@ public class ServerLevelMixin extends Level {
 
 
     @Inject(method = "createExplosion", at = @At("HEAD"), cancellable = true)
-    public void createExplosion(EntityBase arg, double d, double e, double f, float g, boolean bl, CallbackInfoReturnable<Explosion> cir) {
+    public void miscTweaks_createExplosion(EntityBase arg, double d, double e, double f, float g, boolean bl, CallbackInfoReturnable<Explosion> cir) {
         if (0 < ModHelper.ModHelperFields.cancelDestroyBlocksPacket) {
             Explosion var10 = new Explosion(this, arg, d, e, f, g);
             var10.causeFires = bl;

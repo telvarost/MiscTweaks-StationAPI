@@ -20,9 +20,8 @@ public class LevelMixin {
         /** - Do nothing */
     }
 
-
     @Inject(method = "createExplosion(Lnet/minecraft/entity/EntityBase;DDDFZ)Lnet/minecraft/sortme/Explosion;", at = @At("HEAD"), cancellable = true)
-    public void createExplosion(EntityBase arg, double d, double e, double f, float g, boolean bl, CallbackInfoReturnable<Explosion> cir) {
+    public void miscTweaks_createExplosion(EntityBase arg, double d, double e, double f, float g, boolean bl, CallbackInfoReturnable<Explosion> cir) {
         if (0 < ModHelper.ModHelperFields.cancelDestroyBlocks) {
             Level curLevel = ((Level) (Object)this);
             Explosion var10 = new Explosion(curLevel, arg, d, e, f, g);

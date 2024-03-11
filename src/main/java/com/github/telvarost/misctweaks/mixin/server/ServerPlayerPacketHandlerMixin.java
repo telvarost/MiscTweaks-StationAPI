@@ -1,4 +1,4 @@
-package com.github.telvarost.misctweaks.mixin;
+package com.github.telvarost.misctweaks.mixin.server;
 
 import com.github.telvarost.misctweaks.Config;
 import net.fabricmc.api.EnvType;
@@ -40,7 +40,7 @@ public abstract class ServerPlayerPacketHandlerMixin extends PacketHandler imple
     )
     public int miscTweaks_onUpdateSignCheckCharacters(String instance) {
         if (Config.ConfigFields.enableColorSignsWithDye && instance.contains("§")) {
-            return instance.length() + 2;
+            return 0;
         } else {
             return instance.length();
         }

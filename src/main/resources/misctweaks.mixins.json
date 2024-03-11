@@ -18,15 +18,15 @@
     "PlayerInventoryMixin",
     "PrimedTntMixin",
     "TileEntitySignMixin",
-    "UpdateSign0x82C2SPacketMixin"
+    "server.UpdateSign0x82C2SPacketMixin"
   ],
   "server": [
-    "ServerLevelMixin",
-    "ServerPlayerPacketHandlerMixin"
+    "server.ServerLevelMixin",
+    "server.ServerPlayerPacketHandlerMixin"
   ],
   "client": [
-    "MinecraftAccessor",
-    "EditSignMixin"
+    "client.MinecraftAccessor",
+    "client.EditSignMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,4 +1,4 @@
-package com.github.telvarost.misctweaks.mixin;
+package com.github.telvarost.misctweaks.mixin.server;
 
 import com.github.telvarost.misctweaks.Config;
 import net.minecraft.packet.AbstractPacket;

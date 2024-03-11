@@ -1,7 +1,6 @@
 package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
-import net.minecraft.block.BlockBase;
 import net.minecraft.block.Leaves;
 import net.minecraft.block.LeavesBase;
 import net.minecraft.block.material.Material;
@@ -10,7 +9,6 @@ import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
-import net.minecraft.stat.Stats;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;

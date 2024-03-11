@@ -2,14 +2,8 @@ package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
 import com.github.telvarost.misctweaks.ModHelper;
-import net.minecraft.block.BlockBase;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityBase;
-import net.minecraft.entity.Item;
 import net.minecraft.entity.PrimedTnt;
-import net.minecraft.entity.player.PlayerBase;
-import net.minecraft.item.ItemBase;
-import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
