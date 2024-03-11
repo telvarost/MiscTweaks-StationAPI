@@ -12,30 +12,32 @@ You will need ModMenu and GlassConfigAPI to change stairs recipe output and twea
 
 ## List of changes
 
-All changes are default false/vanilla behavior unless otherwise specified.
-* Allow chests to be opened even when a solid block is above them.
-//* Allow editing signs with a feather (feather is consumed on use).
-//* Allow coloring signs with dye (dye is consumed on use).
-  * Coloring signs is incompatible with MojangFix.
-  * Use [MojangFixStationAPI](https://modrinth.com/mod/misctweaks-stationapi)'s config to disable MojangFix signs to use colored signs.
-    * Config is available through [ModMenu](https://modrinth.com/mod/modmenu-beta) and [GlassConfigAPI](https://modrinth.com/mod/glass-config-api).
-//* Allow defusing TNT with shears (use left-click to defuse).
-* Add chance for apples to drop from oak leaves.
+All changes are default false/vanilla behavior unless otherwise specified
+* Allow chests to be opened even when a solid block is above them
+//* Allow editing signs with a feather (feather is consumed on use)
+//* Allow coloring signs with dye (dye is consumed on use)
+  * Coloring signs is incompatible with MojangFix
+  * Use [MojangFixStationAPI](https://modrinth.com/mod/misctweaks-stationapi)'s config to disable MojangFix signs to use colored signs
+    * Config is available through [ModMenu](https://modrinth.com/mod/modmenu-beta) and [GlassConfigAPI](https://modrinth.com/mod/glass-config-api)
+//* Allow defusing TNT with shears (use left-click to defuse)
+* Add chance for apples to drop from oak leaves
   * Note: There currently seems to be a bug with GlassConfigAPI where Integer configs need to be saved twice to take effect
-* Disable creeper explosions breaking blocks.
-* Disable ghast explosions causing fire.
-* Disable ghast explosions breaking blocks.
-* Disable player/mobs trampling farmland.
-* Disable player trampling farmland if player is not wearing boots.
-* Disable player trampling farmland if player is wearing leather boots.
-* Equalize base armor durability.
+* Disable all explosions
+  * Disable TNT explosions breaking blocks
+  * Disable creeper explosions breaking blocks
+  * Disable ghast explosions breaking blocks
+* Disable ghast explosions causing fire
+* Disable player/mobs trampling farmland
+* Disable player trampling farmland if player is not wearing boots
+* Disable player trampling farmland if player is wearing leather boots
+* Equalize base armor durability
   * Helmet, Chestplate, Leggings, and Boots will all have the same durability
-* Modern armor defense points.
+* Modern armor defense points
   * Lower tiers have less defense and defense does not decrease with durability loss
-* Shapeless Jack o’ Lanterns, default true.
-* Stairs recipes craft 1-16 stairs.
+* Shapeless Jack o’ Lanterns, default true
+* Stairs recipes craft 1-16 stairs
   * Note: There currently seems to be a bug with GlassConfigAPI where Integer configs need to be saved twice to take effect
-* Use right click to equip/swap pieces of armor, default true.
+* Use right click to equip/swap pieces of armor, default true
 
 ## Dispenser changes moved to DispenserTweaks
 * See: https://github.com/telvarost/DispenserTweaks-StationAPI

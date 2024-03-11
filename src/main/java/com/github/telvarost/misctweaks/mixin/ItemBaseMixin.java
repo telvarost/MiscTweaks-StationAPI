@@ -47,8 +47,8 @@ public class ItemBaseMixin implements StationFlatteningItem, StationItem, Statio
 //                    var24.velocityY = 0.20000000298023224;
 //                    minecraft.level.spawnEntity(var24);
 //
-//                    thisTnt.remove();
 //                }
+                thisTnt.remove();
             }
         }
     }

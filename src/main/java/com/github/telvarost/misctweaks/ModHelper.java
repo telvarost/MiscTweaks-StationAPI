@@ -11,6 +11,8 @@ public class ModHelper {
 
         public static Boolean cancelDestroyBlocks = false;
 
+        public static Boolean cancelDestroyBlocksPacket = false;
+
         public static Integer numberOfDamagedBlocks = 0;
 
         public static Integer numberOfGhastFireballs = 0;

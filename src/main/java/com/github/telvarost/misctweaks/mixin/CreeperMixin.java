@@ -30,6 +30,7 @@ public class CreeperMixin extends MonsterBase {
         if (Config.ConfigFields.disableCreeperExplosionBreakingBlocks)
         {
             ModHelper.ModHelperFields.cancelDestroyBlocks = true;
+            ModHelper.ModHelperFields.cancelDestroyBlocksPacket = true;
         }
 
         return instance.isCharged();

@@ -14,9 +14,12 @@
     "GhastMixin",
     "ItemBaseMixin",
     "LeavesMixin",
-    "PlayerInventoryMixin"
+    "LevelMixin",
+    "PlayerInventoryMixin",
+    "PrimedTntMixin"
   ],
   "server": [
+    "ServerLevelMixin"
   ],
   "client": [
     "MinecraftAccessor",

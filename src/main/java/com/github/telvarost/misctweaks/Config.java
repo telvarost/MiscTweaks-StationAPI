@@ -41,6 +41,11 @@ public class Config {
         @ValueOnVanillaServer(integerValue = 0)
         public static Integer appleDropChance = 0;
 
+        @ConfigName("Disable All Explosions Breaking Blocks")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
+        public static Boolean disableAllExplosionsBreakingBlocks = false;
+
         @ConfigName("Disable Creeper Explosion Breaking Blocks")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
@@ -50,6 +55,11 @@ public class Config {
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
         public static Boolean disableGhastExplosionBreakingBlocks = false;
+
+        @ConfigName("Disable TNT Explosion Breaking Blocks")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
+        public static Boolean disableTntExplosionBreakingBlocks = false;
 
         @ConfigName("Disable Ghast Explosion Causing Fire")
         @MultiplayerSynced
