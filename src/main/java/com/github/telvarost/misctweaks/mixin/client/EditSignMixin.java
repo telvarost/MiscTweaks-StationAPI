@@ -1,6 +1,5 @@
 package com.github.telvarost.misctweaks.mixin.client;
 
-
 import com.github.telvarost.misctweaks.Config;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
