@@ -14,8 +14,8 @@ You will need ModMenu and GlassConfigAPI to change stairs recipe output and twea
 
 All changes are default false/vanilla behavior unless otherwise specified
 * Allow chests to be opened even when a solid block is above them
-//* Allow editing signs with a feather (feather is consumed on use)
-//* Allow coloring signs with dye (dye is consumed on use)
+* Allow editing signs with a feather (feather is consumed on use)
+* Allow coloring signs with dye (dye is consumed on use)
   * Coloring signs is incompatible with MojangFix
   * Use [MojangFixStationAPI](https://modrinth.com/mod/misctweaks-stationapi)'s config to disable MojangFix signs to use colored signs
     * Config is available through [ModMenu](https://modrinth.com/mod/modmenu-beta) and [GlassConfigAPI](https://modrinth.com/mod/glass-config-api)

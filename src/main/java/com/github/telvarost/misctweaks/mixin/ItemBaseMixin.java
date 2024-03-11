@@ -68,12 +68,16 @@ public class ItemBaseMixin implements StationFlatteningItem, StationItem, Statio
             int blockId = arg3.getTileId(i, j, k);
 
             if (  (BlockBase.STANDING_SIGN.id == blockId)
-                    || (BlockBase.WALL_SIGN.id == blockId)
+               || (BlockBase.WALL_SIGN.id == blockId)
             ) {
                 --arg.count;
 
                 TileEntitySign var8 = (TileEntitySign)arg3.getTileEntity(i, j, k);
                 if (var8 != null) {
+                    PlayerBase player = PlayerHelper.getPlayerFromGame();
+                    if (player == null) {
+                        var8.setNeedsInitialized(true);
+                    }
                     arg2.openSignScreen(var8);
                 }
 

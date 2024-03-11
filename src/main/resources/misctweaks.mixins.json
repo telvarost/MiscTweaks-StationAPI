@@ -16,10 +16,13 @@
     "LeavesMixin",
     "LevelMixin",
     "PlayerInventoryMixin",
-    "PrimedTntMixin"
+    "PrimedTntMixin",
+    "TileEntitySignMixin",
+    "UpdateSign0x82C2SPacketMixin"
   ],
   "server": [
-    "ServerLevelMixin"
+    "ServerLevelMixin",
+    "ServerPlayerPacketHandlerMixin"
   ],
   "client": [
     "MinecraftAccessor",
