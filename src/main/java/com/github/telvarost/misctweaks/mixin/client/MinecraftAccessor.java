@@ -1,4 +1,4 @@
-package com.github.telvarost.misctweaks.mixin;
+package com.github.telvarost.misctweaks.mixin.client;
 
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;

@@ -5,7 +5,7 @@ import net.minecraft.block.BlockBase;
 import net.minecraft.block.Farmland;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityBase;
-import net.minecraft.entity.player.AbstractClientPlayer;
+import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemBase;
 import net.minecraft.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
@@ -27,8 +27,8 @@ public abstract class FarmlandMixin extends BlockBase {
         if (  (Config.ConfigFields.disableTrampleFarmlandWhenBarefoot)
            || (Config.ConfigFields.disableTrampleFarmlandWithLeatherBoots)
         ) {
-            if (arg2 instanceof AbstractClientPlayer) {
-                AbstractClientPlayer player = (AbstractClientPlayer)arg2;
+            if (arg2 instanceof PlayerBase) {
+                PlayerBase player = (PlayerBase)arg2;
 
                 if (  (Config.ConfigFields.disableTrampleFarmlandWhenBarefoot)
                    && (null == player.inventory.armour[0])

@@ -14,14 +14,19 @@
     "GhastMixin",
     "ItemBaseMixin",
     "LeavesMixin",
-    "MinecraftAccessor",
+    "LevelMixin",
     "PlayerInventoryMixin",
-    "TileEntitySignMixin"
+    "PrimedTntMixin",
+    "TileEntitySignMixin",
+    "server.UpdateSign0x82C2SPacketMixin"
   ],
   "server": [
+    "server.ServerLevelMixin",
+    "server.ServerPlayerPacketHandlerMixin"
   ],
   "client": [
-    "EditSignMixin"
+    "client.MinecraftAccessor",
+    "client.EditSignMixin"
   ],
   "injectors": {
     "defaultRequire": 1

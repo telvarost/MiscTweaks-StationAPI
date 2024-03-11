@@ -3,7 +3,6 @@ package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
 import net.minecraft.block.BlockBase;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityBase;
 import net.minecraft.entity.Item;
 import net.minecraft.entity.PrimedTnt;
@@ -14,6 +13,7 @@ import net.minecraft.item.tool.Shears;
 import net.minecraft.level.Level;
 import net.minecraft.tileentity.TileEntitySign;
 import net.modificationstation.stationapi.api.client.item.StationRendererItem;
+import net.modificationstation.stationapi.api.entity.player.PlayerHelper;
 import net.modificationstation.stationapi.api.item.StationFlatteningItem;
 import net.modificationstation.stationapi.api.item.StationItem;
 import org.spongepowered.asm.mixin.Mixin;
@@ -26,7 +26,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ItemBaseMixin implements StationFlatteningItem, StationItem, StationRendererItem {
 
     @Shadow public static ItemBase feather;
-
     @Shadow public static Shears shears;
 
     @Inject(method = "getAttack", at = @At("HEAD"), cancellable = true)
@@ -39,16 +38,22 @@ public class ItemBaseMixin implements StationFlatteningItem, StationItem, Statio
 
         if (thisItem.id == shears.id) {
             if (null != arg && PrimedTnt.class == arg.getClass()) {
-                PrimedTnt thisTnt = (PrimedTnt) arg;
-                Minecraft minecraft = MinecraftAccessor.getInstance();
+                PrimedTnt curTnt = (PrimedTnt) arg;
 
-                if (!minecraft.level.isServerSide) {
-                    Item var24 = new Item(minecraft.level, thisTnt.x, thisTnt.y, thisTnt.z, new ItemInstance(BlockBase.TNT));
+                if (!curTnt.level.isServerSide) {
+                    Item var24 = new Item(curTnt.level, curTnt.x, curTnt.y, curTnt.z, new ItemInstance(BlockBase.TNT));
                     var24.velocityY = 0.20000000298023224;
-                    minecraft.level.spawnEntity(var24);
-
-                    thisTnt.remove();
+                    curTnt.level.spawnEntity(var24);
+                } else {
+                    PlayerBase player = PlayerHelper.getPlayerFromGame();
+                    if (player == null) {
+                        Item var24 = new Item(curTnt.level, curTnt.x, curTnt.y, curTnt.z, new ItemInstance(BlockBase.TNT));
+                        var24.velocityY = 0.20000000298023224;
+                        curTnt.level.spawnEntity(var24);
+                    }
                 }
+
+                curTnt.remove();
             }
         }
     }
@@ -63,12 +68,16 @@ public class ItemBaseMixin implements StationFlatteningItem, StationItem, Statio
             int blockId = arg3.getTileId(i, j, k);
 
             if (  (BlockBase.STANDING_SIGN.id == blockId)
-                    || (BlockBase.WALL_SIGN.id == blockId)
+               || (BlockBase.WALL_SIGN.id == blockId)
             ) {
                 --arg.count;
 
                 TileEntitySign var8 = (TileEntitySign)arg3.getTileEntity(i, j, k);
                 if (var8 != null) {
+                    PlayerBase player = PlayerHelper.getPlayerFromGame();
+                    if (player == null) {
+                        var8.setNeedsInitialized(true);
+                    }
                     arg2.openSignScreen(var8);
                 }
 
