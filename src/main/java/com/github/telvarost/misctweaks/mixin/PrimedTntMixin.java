@@ -27,8 +27,8 @@ abstract class PrimedTntMixin extends EntityBase {
     public void miscTweaks_method_1194(CallbackInfo ci) {
         if (Config.ConfigFields.disableTntExplosionBreakingBlocks)
         {
-            ModHelper.ModHelperFields.cancelDestroyBlocks = true;
-            ModHelper.ModHelperFields.cancelDestroyBlocksPacket = true;
+            ModHelper.ModHelperFields.cancelDestroyBlocks++;
+            ModHelper.ModHelperFields.cancelDestroyBlocksPacket++;
         }
     }
 

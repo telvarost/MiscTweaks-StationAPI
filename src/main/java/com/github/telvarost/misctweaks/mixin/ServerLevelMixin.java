@@ -30,14 +30,18 @@ public class ServerLevelMixin extends Level {
 
     @Inject(method = "createExplosion", at = @At("HEAD"), cancellable = true)
     public void createExplosion(EntityBase arg, double d, double e, double f, float g, boolean bl, CallbackInfoReturnable<Explosion> cir) {
-        if (ModHelper.ModHelperFields.cancelDestroyBlocksPacket) {
+        if (0 < ModHelper.ModHelperFields.cancelDestroyBlocksPacket) {
             Explosion var10 = new Explosion(this, arg, d, e, f, g);
             var10.causeFires = bl;
             var10.kaboomPhase1();
+
+            /** - Custom kaboomPhase2/packet that doesn't destroy blocks */
             var10.damagedTiles.clear();
             this.minecraftServer.serverPlayerConnectionManager.method_550(d, e, f, 64.0, this.dimension.id, new CreateExplosion0x3CS2CPacket(d, e, f, 0, var10.damagedTiles));
+
+            /** - End of custom kaboomPhase2/packet and end of method */
             cir.setReturnValue(var10);
-            ModHelper.ModHelperFields.cancelDestroyBlocksPacket = false;
+            ModHelper.ModHelperFields.cancelDestroyBlocksPacket--;
         }
     }
 }

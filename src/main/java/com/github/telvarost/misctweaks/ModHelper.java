@@ -9,11 +9,9 @@ public class ModHelper {
 
     public static class ModHelperFields {
 
-        public static Boolean cancelDestroyBlocks = false;
+        public static Integer cancelDestroyBlocks = 0;
 
-        public static Boolean cancelDestroyBlocksPacket = false;
-
-        public static Integer numberOfDamagedBlocks = 0;
+        public static Integer cancelDestroyBlocksPacket = 0;
 
         public static Integer numberOfGhastFireballs = 0;
     }

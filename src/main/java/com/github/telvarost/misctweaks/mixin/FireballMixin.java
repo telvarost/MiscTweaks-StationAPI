@@ -29,8 +29,8 @@ abstract class FireballMixin extends EntityBase {
         if (0 < ModHelper.ModHelperFields.numberOfGhastFireballs)
         {
             bl = (bl && !Config.ConfigFields.disableGhastExplosionCausingFire);
-            ModHelper.ModHelperFields.cancelDestroyBlocks = true;
-            ModHelper.ModHelperFields.cancelDestroyBlocksPacket = true;
+            ModHelper.ModHelperFields.cancelDestroyBlocks++;
+            ModHelper.ModHelperFields.cancelDestroyBlocksPacket++;
             ModHelper.ModHelperFields.numberOfGhastFireballs--;
         }
 

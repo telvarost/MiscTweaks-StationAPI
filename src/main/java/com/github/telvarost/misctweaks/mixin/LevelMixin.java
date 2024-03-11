@@ -1,14 +1,12 @@
 package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.ModHelper;
-import net.minecraft.block.BlockBase;
 import net.minecraft.entity.EntityBase;
 import net.minecraft.level.Level;
 import net.minecraft.sortme.Explosion;
 import net.minecraft.util.maths.MathHelper;
 import net.minecraft.util.maths.TilePos;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -25,7 +23,7 @@ public class LevelMixin {
 
     @Inject(method = "createExplosion(Lnet/minecraft/entity/EntityBase;DDDFZ)Lnet/minecraft/sortme/Explosion;", at = @At("HEAD"), cancellable = true)
     public void createExplosion(EntityBase arg, double d, double e, double f, float g, boolean bl, CallbackInfoReturnable<Explosion> cir) {
-        if (ModHelper.ModHelperFields.cancelDestroyBlocks) {
+        if (0 < ModHelper.ModHelperFields.cancelDestroyBlocks) {
             Level curLevel = ((Level) (Object)this);
             Explosion var10 = new Explosion(curLevel, arg, d, e, f, g);
             var10.causeFires = bl;
@@ -41,7 +39,6 @@ public class LevelMixin {
                 int var5 = var4.x;
                 int var6 = var4.y;
                 int var7 = var4.z;
-                int var8 = curLevel.getTileId(var5, var6, var7);
                 if (bl) {
                     double var9 = (double)((float)var5 + curLevel.rand.nextFloat());
                     double var11 = (double)((float)var6 + curLevel.rand.nextFloat());
@@ -65,7 +62,7 @@ public class LevelMixin {
 
             /** - End of custom kaboomPhase2 and end of method */
             cir.setReturnValue(var10);
-            ModHelper.ModHelperFields.cancelDestroyBlocks = false;
+            ModHelper.ModHelperFields.cancelDestroyBlocks--;
         }
     }
 }
