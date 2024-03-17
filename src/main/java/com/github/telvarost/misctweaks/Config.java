@@ -96,22 +96,22 @@ public class Config {
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
         public static Boolean modernArmorDefensePoints = false;
 
-        @ConfigName("Shapeless Jack o’ Lantern Recipe")
-        @Comment("Restart required for changes to take effect")
-        @MultiplayerSynced
-        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean enableShapelessJackOLanternRecipe = true;
-
-        @ConfigName("Stairs Crafting Recipe Output: 1-16")
-        @Comment("Restart required for changes to take effect")
-        @MaxLength(16)
-        @MultiplayerSynced
-        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Integer stairsOutput = 4;
-
-        @ConfigName("Use Right Click To Equip Armor")
-        @MultiplayerSynced
-        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean rightClickEquipArmor = true;
+//        @ConfigName("Shapeless Jack o’ Lantern Recipe")
+//        @Comment("Restart required for changes to take effect")
+//        @MultiplayerSynced
+//        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
+//        public static Boolean enableShapelessJackOLanternRecipe = true;
+//
+//        @ConfigName("Stairs Crafting Recipe Output: 1-16")
+//        @Comment("Restart required for changes to take effect")
+//        @MaxLength(16)
+//        @MultiplayerSynced
+//        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
+//        public static Integer stairsOutput = 4;
+//
+//        @ConfigName("Use Right Click To Equip Armor")
+//        @MultiplayerSynced
+//        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
+//        public static Boolean rightClickEquipArmor = true;
     }
 }

@@ -25,21 +25,21 @@ public abstract class ArmourMixin extends ItemBase {
         super(i);
     }
 
-    @Override
-    public ItemInstance use(ItemInstance arg, Level arg2, PlayerBase arg3) {
-        if (Config.ConfigFields.rightClickEquipArmor) {
-            if (arg3.inventory.armour[Math.abs(this.armourSlot - 3)] == null) {
-                arg3.inventory.armour[Math.abs(this.armourSlot - 3)] = arg.copy();
-                arg.count = 0;
-            } else {
-                ItemInstance temp = arg3.inventory.armour[Math.abs(this.armourSlot - 3)];
-                arg3.inventory.armour[Math.abs(this.armourSlot - 3)] = arg.copy();
-                return temp;
-            }
-        }
-
-        return arg;
-    }
+//    @Override
+//    public ItemInstance use(ItemInstance arg, Level arg2, PlayerBase arg3) {
+//        if (Config.ConfigFields.rightClickEquipArmor) {
+//            if (arg3.inventory.armour[Math.abs(this.armourSlot - 3)] == null) {
+//                arg3.inventory.armour[Math.abs(this.armourSlot - 3)] = arg.copy();
+//                arg.count = 0;
+//            } else {
+//                ItemInstance temp = arg3.inventory.armour[Math.abs(this.armourSlot - 3)];
+//                arg3.inventory.armour[Math.abs(this.armourSlot - 3)] = arg.copy();
+//                return temp;
+//            }
+//        }
+//
+//        return arg;
+//    }
 
     @Inject(
             method = "<init>",
