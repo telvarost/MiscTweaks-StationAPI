@@ -21,7 +21,9 @@ All changes are default false/vanilla behavior unless otherwise specified
 * Allow defusing TNT with shears (use left-click to defuse)
 * Add chance for apples to drop from oak leaves
 * Add recipe for crafting vanilla double stone slabs
-  * Vanilla double stone slabs behave like single stone slabs when placed on top of single stone slabs
+  * Recipe is single stone slab above single stone slab in crafting grid
+  * There is also a crafting recipe to turn the double stone slab back into two single stone slabs
+  * Double stone slabs behave like single stone slabs when placed on top of single stone slabs
 * Disable all explosions
   * Disable TNT explosions breaking blocks
   * Disable creeper explosions breaking blocks
