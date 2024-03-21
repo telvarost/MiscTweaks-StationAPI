@@ -10,108 +10,96 @@ public class Config {
 
     public static class ConfigFields {
 
+        @ConfigName("Add Double Stone Slab Crafting Recipe")
+        @Comment("Restart required for changes to take effect")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
+        public Boolean enableDoubleStoneSlabCraftingRecipe = false;
+
         @ConfigName("Allow Chests To Open Even When Blocked")
         @Comment("Chests can open when a block is above them")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean enableChestsOpenWithBlockAbove = false;
+        public Boolean enableChestsOpenWithBlockAbove = false;
 
         @ConfigName("Allow Coloring Signs With Dye")
         @Comment("Dye will be consumed on use")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean enableColorSignsWithDye = false;
+        public Boolean enableColorSignsWithDye = false;
 
         @ConfigName("Allow Editing Signs With A Feather")
         @Comment("Feather will be consumed on use")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean enableEditSignsWithFeathers = false;
+        public Boolean enableEditSignsWithFeathers = false;
 
         @ConfigName("Allow TNT Defusing With Shears")
         @Comment("Use Left-Click with shears to defuse")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean enableDefusingTnt = false;
+        public Boolean enableDefusingTnt = false;
 
         @ConfigName("Apple Drop Chance From Oak Leaves 0.X%")
         @Comment("0 = disabled, 5 = modern drop chance")
         @MaxLength(10)
         @MultiplayerSynced
         @ValueOnVanillaServer(integerValue = 0)
-        public static Integer appleDropChance = 0;
+        public Integer appleDropChance = 0;
 
         @ConfigName("Disable All Explosions Breaking Blocks")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean disableAllExplosionsBreakingBlocks = false;
+        public Boolean disableAllExplosionsBreakingBlocks = false;
 
         @ConfigName("Disable Creeper Explosion Breaking Blocks")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean disableCreeperExplosionBreakingBlocks = false;
+        public Boolean disableCreeperExplosionBreakingBlocks = false;
 
         @ConfigName("Disable Ghast Explosion Breaking Blocks")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean disableGhastExplosionBreakingBlocks = false;
+        public Boolean disableGhastExplosionBreakingBlocks = false;
 
         @ConfigName("Disable TNT Explosion Breaking Blocks")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean disableTntExplosionBreakingBlocks = false;
+        public Boolean disableTntExplosionBreakingBlocks = false;
 
         @ConfigName("Disable Ghast Explosion Causing Fire")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean disableGhastExplosionCausingFire = false;
+        public Boolean disableGhastExplosionCausingFire = false;
 
         @ConfigName("Disable Trampling Farmland")
         @Comment("Player/mobs will no longer trample farmland")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean disableTramplingFarmland = false;
+        public Boolean disableTramplingFarmland = false;
 
         @ConfigName("Do Not Trample Farmland When Barefoot")
         @Comment("Only affects player without boots")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean disableTrampleFarmlandWhenBarefoot = false;
+        public Boolean disableTrampleFarmlandWhenBarefoot = false;
 
         @ConfigName("Do Not Trample Farmland With Leather Boots")
         @Comment("Only affects player with leather boots")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean disableTrampleFarmlandWithLeatherBoots = false;
+        public Boolean disableTrampleFarmlandWithLeatherBoots = false;
 
         @ConfigName("Equalize Base Armor Durability")
         @Comment("Restart required for changes to take effect")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean equalizeBaseArmorDurability = false;
+        public Boolean equalizeBaseArmorDurability = false;
 
         @ConfigName("Modern Armor Defense Points")
         @Comment("Restart required for changes to take effect")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean modernArmorDefensePoints = false;
-
-        @ConfigName("Shapeless Jack o’ Lantern Recipe")
-        @Comment("Restart required for changes to take effect")
-        @MultiplayerSynced
-        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean enableShapelessJackOLanternRecipe = true;
-
-        @ConfigName("Stairs Crafting Recipe Output: 1-16")
-        @Comment("Restart required for changes to take effect")
-        @MaxLength(16)
-        @MultiplayerSynced
-        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Integer stairsOutput = 4;
-
-        @ConfigName("Use Right Click To Equip Armor")
-        @MultiplayerSynced
-        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean rightClickEquipArmor = true;
+        public Boolean modernArmorDefensePoints = false;
     }
 }

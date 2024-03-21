@@ -27,7 +27,7 @@ public abstract class LeavesMixin extends LeavesBase {
 
     @Inject(method = "dropAndRemove", at = @At("HEAD"), cancellable = true)
     private void miscTweaks_dropAndRemove(Level arg, int i, int j, int k, CallbackInfo ci) {
-        if (0 >= Config.ConfigFields.appleDropChance) {
+        if (0 >= Config.config.appleDropChance) {
             return;
         }
 
@@ -38,7 +38,7 @@ public abstract class LeavesMixin extends LeavesBase {
 
     @Inject(method = "afterBreak", at = @At("HEAD"), cancellable = true)
     public void miscTweaks_afterBreak(Level arg, PlayerBase arg2, int i, int j, int k, int l, CallbackInfo ci) {
-        if (0 >= Config.ConfigFields.appleDropChance) {
+        if (0 >= Config.config.appleDropChance) {
             return;
         }
 
@@ -54,7 +54,7 @@ public abstract class LeavesMixin extends LeavesBase {
     private void miscTweaks_rareAppleDrop(Level arg, int i, int j, int k, int leafType) {
         if (0 == leafType) {
             Random random = new Random();
-            boolean isAppleDropped = (random.nextInt(1000/Config.ConfigFields.appleDropChance) == 0) ? true : false;
+            boolean isAppleDropped = (random.nextInt(1000/Config.config.appleDropChance) == 0) ? true : false;
 
             if (isAppleDropped) {
                 ItemInstance arg2 = new ItemInstance(ItemBase.apple);

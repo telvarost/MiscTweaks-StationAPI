@@ -20,6 +20,9 @@ All changes are default false/vanilla behavior unless otherwise specified
     * Config is available through [ModMenu](https://modrinth.com/mod/modmenu-beta) and [GlassConfigAPI](https://modrinth.com/mod/glass-config-api)
 * Allow defusing TNT with shears (use left-click to defuse)
 * Add chance for apples to drop from oak leaves
+* Add recipe for crafting double stone slabs
+  * There is no translation key for double stone slabs, these are vanilla double slabs
+  * Double stone slabs behave like single stone slabs when placed on top of single stone slabs
 * Disable all explosions
   * Disable TNT explosions breaking blocks
   * Disable creeper explosions breaking blocks
@@ -32,9 +35,6 @@ All changes are default false/vanilla behavior unless otherwise specified
   * Helmet, Chestplate, Leggings, and Boots will all have the same durability
 * Modern armor defense points
   * Lower tiers have less defense and defense does not decrease with durability loss
-* Shapeless Jack o’ Lanterns, default true
-* Stairs recipes craft 1-16 stairs
-* Use right click to equip/swap pieces of armor, default true
 
 ## Dispenser changes moved to DispenserTweaks
 * See: https://github.com/telvarost/DispenserTweaks-StationAPI

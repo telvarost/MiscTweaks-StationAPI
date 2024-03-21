@@ -22,7 +22,7 @@ public class ExplosionMixin {
 
     @Inject(method = "kaboomPhase2", at = @At("HEAD"), cancellable = true)
     public void miscTweaks_cancelAllExplosionTileDamage(boolean renderParticles, CallbackInfo ci) {
-        if (Config.ConfigFields.disableAllExplosionsBreakingBlocks) {
+        if (Config.config.disableAllExplosionsBreakingBlocks) {
             if (renderParticles) {
                 this.level.playSound(this.x, this.y, this.z, "random.explode", 4.0F, (1.0F + (this.level.rand.nextFloat() - this.level.rand.nextFloat()) * 0.2F) * 0.7F);
                 this.level.addParticle("explode", this.x, this.y, this.z, 0, 1, 0);

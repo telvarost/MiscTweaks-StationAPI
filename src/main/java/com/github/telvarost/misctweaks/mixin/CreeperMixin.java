@@ -25,7 +25,7 @@ public class CreeperMixin extends MonsterBase {
             )
     )
     public boolean miscTweaks_tryAttackBeforeCreateExplosion(Creeper instance) {
-        if (Config.ConfigFields.disableCreeperExplosionBreakingBlocks)
+        if (Config.config.disableCreeperExplosionBreakingBlocks)
         {
             ModHelper.ModHelperFields.cancelDestroyBlocks++;
             ModHelper.ModHelperFields.cancelDestroyBlocksPacket++;

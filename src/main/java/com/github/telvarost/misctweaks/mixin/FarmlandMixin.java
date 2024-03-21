@@ -24,19 +24,19 @@ public abstract class FarmlandMixin extends BlockBase {
 
     @Inject(method = "onSteppedOn", at = @At("HEAD"), cancellable = true)
     public void miscTweaks_onSteppedOnByPlayer(Level arg, int i, int j, int k, EntityBase arg2, CallbackInfo ci) {
-        if (  (Config.ConfigFields.disableTrampleFarmlandWhenBarefoot)
-           || (Config.ConfigFields.disableTrampleFarmlandWithLeatherBoots)
+        if (  (Config.config.disableTrampleFarmlandWhenBarefoot)
+           || (Config.config.disableTrampleFarmlandWithLeatherBoots)
         ) {
             if (arg2 instanceof PlayerBase) {
                 PlayerBase player = (PlayerBase)arg2;
 
-                if (  (Config.ConfigFields.disableTrampleFarmlandWhenBarefoot)
+                if (  (Config.config.disableTrampleFarmlandWhenBarefoot)
                    && (null == player.inventory.armour[0])
                 ) {
                     ci.cancel();
                 }
 
-                if (  (Config.ConfigFields.disableTrampleFarmlandWithLeatherBoots)
+                if (  (Config.config.disableTrampleFarmlandWithLeatherBoots)
                    && (null != player.inventory.armour[0])
                    && (ItemBase.leatherBoots.id == player.inventory.armour[0].itemId)
                 ) {
@@ -54,7 +54,7 @@ public abstract class FarmlandMixin extends BlockBase {
             )
     )
     public int miscTweaks_onSteppedOnDisableTrample(Random rand, int value) {
-        if (Config.ConfigFields.disableTramplingFarmland) {
+        if (Config.config.disableTramplingFarmland) {
             return -1;
         } else {
             return rand.nextInt(value);

@@ -20,7 +20,7 @@ public abstract class PlayerInventoryMixin implements InventoryBase, StationFlat
             )
     )
     public int miscTweaks_getArmourValue(ItemInstance instance) {
-        if (Config.ConfigFields.modernArmorDefensePoints) {
+        if (Config.config.modernArmorDefensePoints) {
             return 0;
         } else {
             return instance.getDamage2();

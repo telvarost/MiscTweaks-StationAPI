@@ -25,8 +25,8 @@
     "server.ServerPlayerPacketHandlerMixin"
   ],
   "client": [
-    "client.MinecraftAccessor",
-    "client.EditSignMixin"
+    "client.EditSignMixin",
+    "client.MinecraftAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

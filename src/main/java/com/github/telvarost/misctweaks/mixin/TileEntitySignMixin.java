@@ -19,7 +19,7 @@ public class TileEntitySignMixin extends TileEntityBase {
             )
     )
     public String miscTweaks_readIdentifyingDataSubstring(String instance, int beginIndex, int endIndex) {
-        if (!Config.ConfigFields.enableColorSignsWithDye) {
+        if (!Config.config.enableColorSignsWithDye) {
             return instance.substring(beginIndex, endIndex);
         } else {
             int lineLimit = 15;

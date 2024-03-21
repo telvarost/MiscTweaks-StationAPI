@@ -29,7 +29,7 @@ public class GhastMixin extends FlyingBase implements MonsterEntityType {
             )
     )
     public boolean miscTweaks_spawnGhastFireball(Level instance, EntityBase entityBase) {
-        if (Config.ConfigFields.disableGhastExplosionBreakingBlocks)
+        if (Config.config.disableGhastExplosionBreakingBlocks)
         {
             ModHelper.ModHelperFields.numberOfGhastFireballs++;
         }

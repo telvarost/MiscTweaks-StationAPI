@@ -23,7 +23,7 @@ public abstract class ServerPlayerPacketHandlerMixin extends PacketHandler imple
             )
     )
     public int miscTweaks_onUpdateSignCheckLength(String instance) {
-        if (Config.ConfigFields.enableColorSignsWithDye && instance.contains("§")) {
+        if (Config.config.enableColorSignsWithDye && instance.contains("§")) {
             return instance.length() - 2;
         } else {
             return instance.length();
@@ -39,7 +39,7 @@ public abstract class ServerPlayerPacketHandlerMixin extends PacketHandler imple
             )
     )
     public int miscTweaks_onUpdateSignCheckCharacters(String instance) {
-        if (Config.ConfigFields.enableColorSignsWithDye && instance.contains("§")) {
+        if (Config.config.enableColorSignsWithDye && instance.contains("§")) {
             return 0;
         } else {
             return instance.length();

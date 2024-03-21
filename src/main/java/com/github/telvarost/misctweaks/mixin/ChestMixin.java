@@ -24,7 +24,7 @@ public abstract class ChestMixin extends BlockWithEntity {
             )
     )
     public boolean miscTweaks_canUseWithBlockAbove(Level instance, int i, int j, int k) {
-        if (Config.ConfigFields.enableChestsOpenWithBlockAbove) {
+        if (Config.config.enableChestsOpenWithBlockAbove) {
             return false;
         } else {
             return instance.canSuffocate(i, j, k);

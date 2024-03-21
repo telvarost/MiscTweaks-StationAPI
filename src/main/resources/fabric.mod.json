@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "MiscTweaks",
-  "description": "Random tweaks that did not fit in my other mods such as allowing stairs recipe output to be changed.",
+  "description": "Random tweaks like stopping creeper explosions, coloring signs with dye, disabling farmland trampling under certain conditions, and more!",
   "authors": [
     "Telvarost"
   ],
@@ -28,9 +28,6 @@
     ],
     "gcapi": [
       "com.github.telvarost.misctweaks.Config"
-    ],
-    "gcapi:presave": [
-      "com.github.telvarost.misctweaks.events.ConfigListener"
     ]
   },
   "mixins": [

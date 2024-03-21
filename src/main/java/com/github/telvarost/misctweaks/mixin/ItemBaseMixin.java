@@ -30,7 +30,7 @@ public class ItemBaseMixin implements StationFlatteningItem, StationItem, Statio
 
     @Inject(method = "getAttack", at = @At("HEAD"), cancellable = true)
     public void miscTweaks_getAttack(EntityBase arg, CallbackInfoReturnable<Integer> cir) {
-        if (!Config.ConfigFields.enableDefusingTnt) {
+        if (!Config.config.enableDefusingTnt) {
             return;
         }
 
@@ -60,7 +60,7 @@ public class ItemBaseMixin implements StationFlatteningItem, StationItem, Statio
 
     @Inject(method = "useOnTile", at = @At("HEAD"), cancellable = true)
     public void miscTweaks_useOnTile(ItemInstance arg, PlayerBase arg2, Level arg3, int i, int j, int k, int l, CallbackInfoReturnable<Boolean> cir) {
-        if (!Config.ConfigFields.enableEditSignsWithFeathers) {
+        if (!Config.config.enableEditSignsWithFeathers) {
             return;
         }
 
