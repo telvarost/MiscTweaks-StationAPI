@@ -7,6 +7,7 @@
     "ArmourMixin",
     "ChestMixin",
     "CreeperMixin",
+    "DeadBushMixin",
     "DyeMixin",
     "ExplosionMixin",
     "FarmlandMixin",
@@ -17,6 +18,7 @@
     "LevelMixin",
     "PlayerInventoryMixin",
     "PrimedTntMixin",
+    "TallGrassMixin",
     "TileEntitySignMixin",
     "server.UpdateSign0x82C2SPacketMixin"
   ],
