@@ -18,6 +18,10 @@ All changes are default false/vanilla behavior unless otherwise specified
   * Coloring signs is incompatible with MojangFix
   * Use [MojangFixStationAPI](https://modrinth.com/mod/misctweaks-stationapi)'s config to disable MojangFix signs to use colored signs
     * Config is available through [ModMenu](https://modrinth.com/mod/modmenu-beta) and [GlassConfigAPI](https://modrinth.com/mod/glass-config-api)
+* Allow random chance for dead bushes to drop a stick
+  * The percent chance is the same as getting seeds from tall grass (12.5%)
+* Allow collecting dead bushes with shears
+* ALlow collecting tall grass with shears
 * Allow defusing TNT with shears (use left-click to defuse)
 * Add chance for apples to drop from oak leaves
 * Add recipe for crafting vanilla double stone slabs
