@@ -21,7 +21,7 @@ All changes are default false/vanilla behavior unless otherwise specified
 * Allow random chance for dead bushes to drop a stick
   * The percent chance is the same as getting seeds from tall grass (12.5%)
 * Allow collecting dead bushes with shears
-* ALlow collecting tall grass with shears
+* Allow collecting tall grass with shears
 * Allow defusing TNT with shears (use left-click to defuse)
 * Add chance for apples to drop from oak leaves
 * Add recipe for crafting vanilla double stone slabs
