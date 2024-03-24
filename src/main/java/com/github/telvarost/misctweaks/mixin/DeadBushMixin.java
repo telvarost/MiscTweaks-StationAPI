@@ -44,13 +44,14 @@ class DeadBushMixin extends Plant {
 
     @Inject(at = @At("RETURN"), method = "getDropId", cancellable = true)
     public void miscTweaks_getDropId(int i, Random random, CallbackInfoReturnable<Integer> cir) {
-        if (!Config.config.enableShearsCollectDeadBush) {
-            return;
-        }
-
-        if (0 < brokenByShears) {
+        if (  (Config.config.enableShearsCollectDeadBush)
+           && (0 < brokenByShears)
+        ) {
             cir.setReturnValue(id);
             brokenByShears--;
+        } else if (Config.config.enableRandomStickDropFromDeadBushes) {
+            int itemDropId = random.nextInt(8) == 0 ? ItemBase.stick.id : -1;
+            cir.setReturnValue(itemDropId);
         }
     }
 }

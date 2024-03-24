@@ -34,6 +34,12 @@ public class Config {
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
         public Boolean enableEditSignsWithFeathers = false;
 
+        @ConfigName("Allow Random Stick Drop From Dead Bushes")
+        @Comment("Chance is the same as seeds from tall grass")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
+        public Boolean enableRandomStickDropFromDeadBushes = false;
+
         @ConfigName("Allow Shears To Collect Dead Bushes")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
