@@ -27,7 +27,7 @@ class TallGrassMixin extends Plant {
 
     @Override
     public void onBlockPlaced(Level arg, int i, int j, int k) {
-        arg.setTileMeta(i, j, k, this.texture);
+        arg.setTileMeta(i, j, k, 1);
     }
 
     @Override
