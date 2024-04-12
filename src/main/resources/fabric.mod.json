@@ -29,6 +29,9 @@
     ],
     "gcapi": [
       "com.github.telvarost.misctweaks.Config"
+    ],
+    "gcapi:factory_provider": [
+      "com.github.telvarost.misctweaks.ZombieDropEnumFactory"
     ]
   },
   "mixins": [

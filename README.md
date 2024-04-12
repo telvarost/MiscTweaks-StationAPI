@@ -24,6 +24,8 @@ All changes are default false/vanilla behavior unless otherwise specified
 * Allow collecting tall grass with shears
 * Allow defusing TNT with shears (use left-click to defuse)
 * Add chance for apples to drop from oak leaves
+* Add ability to enable different zombie drops
+  * Select between: feathers, red mushrooms, cyan dye, green dye, clay, paper, or nothing
 * Add recipe for crafting vanilla double stone slabs
   * Recipe is single stone slab above single stone slab in crafting grid
   * There is also a crafting recipe to turn the double stone slab back into two single stone slabs
@@ -49,8 +51,8 @@ All changes are default false/vanilla behavior unless otherwise specified
 1. Download an instance of Babric for Prism Launcher: https://github.com/babric/prism-instance
 2. Install Java 17, set the instance to use it, and disable compatibility checks on the instance: https://adoptium.net/temurin/releases/
 3. Add StationAPI to the mod folder for the instance: https://jenkins.glass-launcher.net/job/StationAPI/lastSuccessfulBuild/
-4. (Optional) Add Mod Menu to the mod folder for the instance: https://github.com/calmilamsy/ModMenu/releases
-5. (Optional) Add GlassConfigAPI 2.0+ to the mod folder for the instance: https://maven.glass-launcher.net/#/releases/net/glasslauncher/mods/GlassConfigAPI
+4. Add Mod Menu to the mod folder for the instance: https://github.com/calmilamsy/ModMenu/releases
+5. Add GlassConfigAPI 2.0+ to the mod folder for the instance: https://maven.glass-launcher.net/#/releases/net/glasslauncher/mods/GlassConfigAPI
 6. Add this mod to the mod folder for the instance: https://github.com/telvarost/MiscTweaks-StationAPI/releases
 7. Run and enjoy! 👍
 

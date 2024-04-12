@@ -14,5 +14,7 @@ public class ModHelper {
         public static Integer cancelDestroyBlocksPacket = 0;
 
         public static Integer numberOfGhastFireballs = 0;
+
+        public static Boolean loadMixinConfigs = true;
     }
 }

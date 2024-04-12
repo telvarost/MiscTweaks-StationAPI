@@ -3,6 +3,7 @@
   "minVersion": "0.8",
   "package": "com.github.telvarost.misctweaks.mixin",
   "compatibilityLevel": "JAVA_8",
+  "plugin": "com.github.telvarost.misctweaks.MiscTweaksMixinPlugin",
   "mixins": [
     "ArmourMixin",
     "ChestMixin",
@@ -20,6 +21,7 @@
     "PrimedTntMixin",
     "TallGrassMixin",
     "TileEntitySignMixin",
+    "ZombieMixin",
     "server.UpdateSign0x82C2SPacketMixin"
   ],
   "server": [

@@ -63,6 +63,18 @@ public class Config {
         @ValueOnVanillaServer(integerValue = 0)
         public Integer appleDropChance = 0;
 
+        @ConfigName("Chance Zombies Drop Config Item")
+        @Comment("Restart required for changes to take effect")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
+        public Boolean enableZombieDropItem = false;
+
+        @ConfigName("Chance Zombies Drop This Item")
+        @Comment("Only works if setting is enabled above")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(integerValue = 0)
+        public ZombieDropEnum zombieDropItem = ZombieDropEnum.FEATHER;
+
         @ConfigName("Disable All Explosions Breaking Blocks")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
