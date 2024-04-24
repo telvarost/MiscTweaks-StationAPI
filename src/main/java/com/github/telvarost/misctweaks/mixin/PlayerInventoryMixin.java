@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(PlayerInventory.class)
-public abstract class PlayerInventoryMixin implements InventoryBase, StationFlatteningPlayerInventory {
+public abstract class PlayerInventoryMixin implements InventoryBase {
 
     @Redirect(
             method = "getArmourValue",

@@ -12,10 +12,7 @@ import net.minecraft.item.ItemInstance;
 import net.minecraft.item.tool.Shears;
 import net.minecraft.level.Level;
 import net.minecraft.tileentity.TileEntitySign;
-import net.modificationstation.stationapi.api.client.item.StationRendererItem;
 import net.modificationstation.stationapi.api.entity.player.PlayerHelper;
-import net.modificationstation.stationapi.api.item.StationFlatteningItem;
-import net.modificationstation.stationapi.api.item.StationItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ItemBase.class)
-public class ItemBaseMixin implements StationFlatteningItem, StationItem, StationRendererItem {
+public class ItemBaseMixin {
 
     @Shadow public static ItemBase feather;
     @Shadow public static Shears shears;
