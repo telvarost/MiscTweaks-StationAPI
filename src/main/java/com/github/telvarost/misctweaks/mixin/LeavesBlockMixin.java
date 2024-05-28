@@ -18,12 +18,28 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Random;
 
 @Mixin(Leaves.class)
-public abstract class LeavesMixin extends LeavesBase {
+public abstract class LeavesBlockMixin extends LeavesBase {
 
-    public LeavesMixin(int i, int j) {
+    public LeavesBlockMixin(int i, int j) {
         super(i, j, Material.LEAVES, false);
     }
 
+
+    @Inject(
+            method = "onScheduledTick",
+            at = @At("HEAD"),
+            cancellable = true
+    )
+    private void miscTweaks_onScheduledTick(Level level, int x, int y, int z, Random random, CallbackInfo ci) {
+        if (Config.config.enablePlayerPlacedLeafPersistence) {
+            if (!level.isServerSide) {
+                int tileMeta = level.getTileMeta(x, y, z);
+                if (0x4 == (0x4 & tileMeta)) {
+                    ci.cancel();
+                }
+            }
+        }
+    }
 
     @Inject(method = "dropAndRemove", at = @At("HEAD"), cancellable = true)
     private void miscTweaks_dropAndRemove(Level arg, int i, int j, int k, CallbackInfo ci) {

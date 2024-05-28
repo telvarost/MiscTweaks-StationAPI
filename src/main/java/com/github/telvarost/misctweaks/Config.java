@@ -90,15 +90,15 @@ public class Config {
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
         public Boolean disableGhastExplosionBreakingBlocks = false;
 
-        @ConfigName("Disable TNT Explosion Breaking Blocks")
-        @MultiplayerSynced
-        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public Boolean disableTntExplosionBreakingBlocks = false;
-
         @ConfigName("Disable Ghast Explosion Causing Fire")
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
         public Boolean disableGhastExplosionCausingFire = false;
+
+        @ConfigName("Disable TNT Explosion Breaking Blocks")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
+        public Boolean disableTntExplosionBreakingBlocks = false;
 
         @ConfigName("Disable Trampling Farmland")
         @Comment("Player/mobs will no longer trample farmland")
@@ -117,6 +117,12 @@ public class Config {
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
         public Boolean disableTrampleFarmlandWithLeatherBoots = false;
+
+        @ConfigName("Enable Player Placed Leaf Persistence")
+        @Comment("Disables leaf decay for player placed leaves")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
+        public Boolean enablePlayerPlacedLeafPersistence = false;
 
         @ConfigName("Equalize Base Armor Durability")
         @Comment("Restart required for changes to take effect")

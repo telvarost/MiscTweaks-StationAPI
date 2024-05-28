@@ -38,6 +38,7 @@ All changes are default false/vanilla behavior unless otherwise specified
 * Disable player/mobs trampling farmland
 * Disable player trampling farmland if player is not wearing boots
 * Disable player trampling farmland if player is wearing leather boots
+* Disable leaf decay for player placed leaves
 * Equalize base armor durability
   * Helmet, Chestplate, Leggings, and Boots will all have the same durability
 * Modern armor defense points
