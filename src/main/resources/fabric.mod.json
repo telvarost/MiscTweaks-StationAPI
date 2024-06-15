@@ -31,7 +31,8 @@
       "com.github.telvarost.misctweaks.Config"
     ],
     "gcapi:factory_provider": [
-      "com.github.telvarost.misctweaks.ZombieDropEnumFactory"
+      "com.github.telvarost.misctweaks.ZombieDropEnumFactory",
+      "com.github.telvarost.misctweaks.ZombiePigmanDropEnumFactory"
     ]
   },
   "mixins": [

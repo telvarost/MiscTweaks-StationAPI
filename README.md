@@ -21,9 +21,15 @@ All changes are default false/vanilla behavior unless otherwise specified
 * Allow random chance for dead bushes to drop a stick
   * The percent chance is the same as getting seeds from tall grass (12.5%)
 * Allow collecting dead bushes with shears
+* Allow collecting ferns with shears
+  * BHCreative is required for this as b1.7.3 does not have an item for it
+  * Item is non-vanilla and will disappear if BHCreative is removed
 * Allow collecting tall grass with shears
+* Allow ghast fireballs to insta-kill ghasts
 * Allow defusing TNT with shears (use left-click to defuse)
 * Add chance for apples to drop from oak leaves
+* Add ability to enable different zombie pigman drops
+  * Select between: cooked porkchops, raw porkchops, brown mushrooms, gold sword, bone meal, brick, or nothing
 * Add ability to enable different zombie drops
   * Select between: feathers, red mushrooms, cyan dye, green dye, clay, paper, or nothing
 * Add recipe for crafting vanilla double stone slabs

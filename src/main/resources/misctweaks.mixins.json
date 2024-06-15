@@ -13,6 +13,7 @@
     "ExplosionMixin",
     "FarmlandMixin",
     "FireballMixin",
+    "GhastDamageMixin",
     "GhastMixin",
     "ItemBaseMixin",
     "LeavesBlockMixin",
@@ -23,6 +24,7 @@
     "TallGrassMixin",
     "TileEntitySignMixin",
     "ZombieMixin",
+    "ZombiePigmanMixin",
     "server.UpdateSign0x82C2SPacketMixin"
   ],
   "server": [

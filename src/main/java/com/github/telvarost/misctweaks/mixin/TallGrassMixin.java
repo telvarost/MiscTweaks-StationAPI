@@ -1,10 +1,12 @@
 package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Plant;
 import net.minecraft.block.TallGrass;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemBase;
+import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.minecraft.stat.Stats;
 import org.checkerframework.common.aliasing.qual.Unique;
@@ -14,6 +16,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Random;
+
+import static com.matthewperiut.spc.command.Give.identifierToItemId;
 
 @Mixin(TallGrass.class)
 class TallGrassMixin extends Plant {
@@ -44,7 +48,20 @@ class TallGrassMixin extends Plant {
         }
 
         player.increaseStat(Stats.mineBlock[this.id], 1);
-        this.drop(arg, i, j, k, l);
+
+        if (  (Config.config.enableShearsCollectFern)
+           && (FabricLoader.getInstance().isModLoaded("bhcreative"))
+           && (l == 2)
+        ) {
+            int fernId = identifierToItemId("bhcreative:fern");
+            if (0 < fernId) {
+                this.drop(arg, i, j, k, new ItemInstance(fernId, 1, 0));
+            } else {
+                this.drop(arg, i, j, k, l);
+            }
+        } else {
+            this.drop(arg, i, j, k, l);
+        }
     }
 
     @Inject(at = @At("RETURN"), method = "getDropId", cancellable = true)

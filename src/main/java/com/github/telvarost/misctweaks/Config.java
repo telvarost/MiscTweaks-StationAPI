@@ -34,6 +34,12 @@ public class Config {
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
         public Boolean enableEditSignsWithFeathers = false;
 
+        @ConfigName("Allow Ghast Fireballs To Insta-Kill Ghasts")
+        @Comment("Restart required for changes to take effect")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
+        public Boolean enableGhastFireballsToInstaKillGhasts = false;
+
         @ConfigName("Allow Random Stick Drop From Dead Bushes")
         @Comment("Chance is the same as seeds from tall grass")
         @MultiplayerSynced
@@ -44,6 +50,12 @@ public class Config {
         @MultiplayerSynced
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
         public Boolean enableShearsCollectDeadBush = false;
+
+        @ConfigName("Allow Shears To Collect Ferns")
+        @Comment("Requires BHCreative as item is non-vanilla")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
+        public Boolean enableShearsCollectFern = false;
 
         @ConfigName("Allow Shears To Collect Tall Grass")
         @MultiplayerSynced
@@ -69,11 +81,23 @@ public class Config {
         @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
         public Boolean enableZombieDropItem = false;
 
+        @ConfigName("Chance Zombie Pigmen Drop Config Item")
+        @Comment("Restart required for changes to take effect")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
+        public Boolean enableZombiePigmanDropItem = false;
+
         @ConfigName("Chance Zombies Drop This Item")
         @Comment("Only works if setting is enabled above")
         @MultiplayerSynced
         @ValueOnVanillaServer(integerValue = 0)
         public ZombieDropEnum zombieDropItem = ZombieDropEnum.FEATHER;
+
+        @ConfigName("Chance Zombie Pigmen Drop This Item")
+        @Comment("Only works if setting is enabled above")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(integerValue = 0)
+        public ZombiePigmanDropEnum zombiePigmanDropItem = ZombiePigmanDropEnum.COOKED_PORKCHOP;
 
         @ConfigName("Disable All Explosions Breaking Blocks")
         @MultiplayerSynced

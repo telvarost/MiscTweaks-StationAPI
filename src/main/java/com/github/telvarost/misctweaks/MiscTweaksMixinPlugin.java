@@ -26,7 +26,9 @@ public final class MiscTweaksMixinPlugin implements IMixinConfigPlugin {
                         .build()
                         .load(new File("config/misctweaks", "config.json"));
 
+                Config.config.enableGhastFireballsToInstaKillGhasts = configObject.getBoolean("enableGhastFireballsToInstaKillGhasts", false);
                 Config.config.enableZombieDropItem = configObject.getBoolean("enableZombieDropItem", false);
+                Config.config.enableZombiePigmanDropItem = configObject.getBoolean("enableZombiePigmanDropItem", false);
             } catch (IOException ex) {
                 System.out.println("Couldn't read the config file" + ex.toString());
             } catch (SyntaxError error) {
@@ -35,8 +37,12 @@ public final class MiscTweaksMixinPlugin implements IMixinConfigPlugin {
             }
         }
 
-        if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.ZombieMixin")) {
+        if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.GhastDamageMixin")) {
+            return Config.config.enableGhastFireballsToInstaKillGhasts;
+        } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.ZombieMixin")) {
             return Config.config.enableZombieDropItem;
+        } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.ZombiePigmanMixin")) {
+            return Config.config.enableZombiePigmanDropItem;
         } else {
             return true;
         }
