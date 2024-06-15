@@ -1,6 +1,7 @@
 package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
+import com.github.telvarost.misctweaks.ModHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Plant;
 import net.minecraft.block.TallGrass;
@@ -16,8 +17,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Random;
-
-import static com.matthewperiut.spc.command.Give.identifierToItemId;
 
 @Mixin(TallGrass.class)
 class TallGrassMixin extends Plant {
@@ -53,7 +52,7 @@ class TallGrassMixin extends Plant {
            && (FabricLoader.getInstance().isModLoaded("bhcreative"))
            && (l == 2)
         ) {
-            int fernId = identifierToItemId("bhcreative:fern");
+            int fernId = ModHelper.identifierToItemId("bhcreative:fern");
             if (0 < fernId) {
                 this.drop(arg, i, j, k, new ItemInstance(fernId, 1, 0));
             } else {
