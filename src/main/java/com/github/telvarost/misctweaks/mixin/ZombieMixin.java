@@ -5,6 +5,7 @@ import com.github.telvarost.misctweaks.ZombieDropEnum;
 import net.minecraft.block.BlockBase;
 import net.minecraft.entity.monster.MonsterBase;
 import net.minecraft.entity.monster.Zombie;
+import net.minecraft.entity.monster.ZombiePigman;
 import net.minecraft.item.ItemBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
@@ -38,6 +39,10 @@ public class ZombieMixin extends MonsterBase {
                 var1 = new ItemInstance(ItemBase.paper, 1);
             } else {
                 /** - Drop nothing */
+            }
+
+            if ((Object)this instanceof ZombiePigman) {
+                var1 = new ItemInstance(ItemBase.cookedPorkchop, 1);
             }
 
             if (null != var1) {
