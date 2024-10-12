@@ -1,18 +1,17 @@
 package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
-import net.minecraft.tileentity.TileEntityBase;
-import net.minecraft.tileentity.TileEntitySign;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.SignBlockEntity;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(TileEntitySign.class)
-public class TileEntitySignMixin extends TileEntityBase {
+@Mixin(SignBlockEntity.class)
+public class TileEntitySignMixin extends BlockEntity {
 
     @Redirect(
-            method = "readIdentifyingData",
+            method = "readNbt",
             at = @At(
                     value = "INVOKE",
                     target = "Ljava/lang/String;substring(II)Ljava/lang/String;"

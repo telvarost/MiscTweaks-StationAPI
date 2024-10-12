@@ -3,19 +3,19 @@ package com.github.telvarost.misctweaks.mixin.server;
 import com.github.telvarost.misctweaks.Config;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.network.PacketHandler;
-import net.minecraft.server.command.CommandSource;
-import net.minecraft.server.network.ServerPlayerPacketHandler;
+import net.minecraft.network.NetworkHandler;
+import net.minecraft.server.command.CommandOutput;
+import net.minecraft.server.network.ServerPlayNetworkHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Environment(EnvType.SERVER)
-@Mixin(ServerPlayerPacketHandler.class)
-public abstract class ServerPlayerPacketHandlerMixin extends PacketHandler implements CommandSource {
+@Mixin(ServerPlayNetworkHandler.class)
+public abstract class ServerPlayerPacketHandlerMixin extends NetworkHandler implements CommandOutput {
 
     @Redirect(
-            method = "onUpdateSign",
+            method = "handleUpdateSign",
             at = @At(
                     value = "INVOKE",
                     target = "Ljava/lang/String;length()I",
@@ -31,7 +31,7 @@ public abstract class ServerPlayerPacketHandlerMixin extends PacketHandler imple
     }
 
     @Redirect(
-            method = "onUpdateSign",
+            method = "handleUpdateSign",
             at = @At(
                     value = "INVOKE",
                     target = "Ljava/lang/String;length()I",

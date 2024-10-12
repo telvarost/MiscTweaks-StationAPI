@@ -2,14 +2,14 @@ package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
 import net.minecraft.block.BlockWithEntity;
-import net.minecraft.block.Chest;
+import net.minecraft.block.ChestBlock;
 import net.minecraft.block.material.Material;
-import net.minecraft.level.Level;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(Chest.class)
+@Mixin(ChestBlock.class)
 public abstract class ChestMixin extends BlockWithEntity {
 
     public ChestMixin(int i) {
@@ -17,17 +17,17 @@ public abstract class ChestMixin extends BlockWithEntity {
     }
 
     @Redirect(
-            method = "canUse",
+            method = "onUse",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/level/Level;canSuffocate(III)Z"
+                    target = "Lnet/minecraft/world/World;shouldSuffocate(III)Z"
             )
     )
-    public boolean miscTweaks_canUseWithBlockAbove(Level instance, int i, int j, int k) {
+    public boolean miscTweaks_canUseWithBlockAbove(World instance, int i, int j, int k) {
         if (Config.config.enableChestsOpenWithBlockAbove) {
             return false;
         } else {
-            return instance.canSuffocate(i, j, k);
+            return instance.shouldSuffocate(i, j, k);
         }
     }
 }

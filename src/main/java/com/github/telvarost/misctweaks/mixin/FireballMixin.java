@@ -2,30 +2,30 @@ package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
 import com.github.telvarost.misctweaks.ModHelper;
-import net.minecraft.entity.EntityBase;
-import net.minecraft.entity.projectile.Fireball;
-import net.minecraft.level.Level;
-import net.minecraft.sortme.Explosion;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.projectile.FireballEntity;
+import net.minecraft.world.World;
+import net.minecraft.world.explosion.Explosion;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(Fireball.class)
-abstract class FireballMixin extends EntityBase {
+@Mixin(FireballEntity.class)
+abstract class FireballMixin extends Entity {
 
-    public FireballMixin(Level arg) {
+    public FireballMixin(World arg) {
         super(arg);
-        this.setSize(1.0F, 1.0F);
+        this.setBoundingBoxSpacing(1.0F, 1.0F);
     }
 
     @Redirect(
             method = "tick",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/level/Level;createExplosion(Lnet/minecraft/entity/EntityBase;DDDFZ)Lnet/minecraft/sortme/Explosion;"
+                    target = "Lnet/minecraft/world/World;createExplosion(Lnet/minecraft/entity/Entity;DDDFZ)Lnet/minecraft/world/explosion/Explosion;"
             )
     )
-    public Explosion miscTweaks_handleExplosion(Level instance, EntityBase arg, double d, double e, double f, float g, boolean bl) {
+    public Explosion miscTweaks_handleExplosion(World instance, Entity arg, double d, double e, double f, float g, boolean bl) {
         if (0 < ModHelper.ModHelperFields.numberOfGhastFireballs)
         {
             bl = (bl && !Config.config.disableGhastExplosionCausingFire);

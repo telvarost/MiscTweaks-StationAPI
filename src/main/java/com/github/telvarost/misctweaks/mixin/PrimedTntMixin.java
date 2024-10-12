@@ -2,22 +2,22 @@ package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
 import com.github.telvarost.misctweaks.ModHelper;
-import net.minecraft.entity.EntityBase;
-import net.minecraft.entity.PrimedTnt;
-import net.minecraft.level.Level;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.TntEntity;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(PrimedTnt.class)
-abstract class PrimedTntMixin extends EntityBase {
+@Mixin(TntEntity.class)
+abstract class PrimedTntMixin extends Entity {
 
-    public PrimedTntMixin(Level arg) {
+    public PrimedTntMixin(World arg) {
         super(arg);
     }
 
-    @Inject(method = "method_1194", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "explode", at = @At("HEAD"), cancellable = true)
     public void miscTweaks_method_1194(CallbackInfo ci) {
         if (Config.config.disableTntExplosionBreakingBlocks)
         {

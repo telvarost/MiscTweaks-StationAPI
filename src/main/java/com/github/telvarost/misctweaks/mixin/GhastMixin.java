@@ -2,30 +2,30 @@ package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
 import com.github.telvarost.misctweaks.ModHelper;
-import net.minecraft.entity.living.FlyingBase;
-import net.minecraft.entity.monster.Ghast;
-import net.minecraft.entity.monster.MonsterEntityType;
-import net.minecraft.level.Level;
+import net.minecraft.entity.FlyingEntity;
+import net.minecraft.entity.Monster;
+import net.minecraft.entity.mob.GhastEntity;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(Ghast.class)
-public class GhastMixin extends FlyingBase implements MonsterEntityType {
+@Mixin(GhastEntity.class)
+public class GhastMixin extends FlyingEntity implements Monster {
 
-    public GhastMixin(Level arg) {
+    public GhastMixin(World arg) {
         super(arg);
         this.texture = "/mob/ghast.png";
-        this.setSize(4.0F, 4.0F);
-        this.immuneToFire = true;
+        this.setBoundingBoxSpacing(4.0F, 4.0F);
+        this.fireImmune = true;
     }
 
     @Inject(
-            method = "tickHandSwing",
+            method = "tickLiving",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/level/Level;spawnEntity(Lnet/minecraft/entity/EntityBase;)Z"
+                    target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z"
             )
     )
     public void miscTweaks_spawnGhastFireball(CallbackInfo ci) {

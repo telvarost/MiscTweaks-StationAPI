@@ -1,8 +1,6 @@
 package com.github.telvarost.misctweaks.mixin.server;
 
 import com.github.telvarost.misctweaks.Config;
-import net.minecraft.packet.AbstractPacket;
-import net.minecraft.packet.play.UpdateSign0x82C2SPacket;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -11,9 +9,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.io.DataInputStream;
 import java.io.IOException;
+import net.minecraft.network.packet.Packet;
+import net.minecraft.network.packet.play.UpdateSignPacket;
 
-@Mixin(UpdateSign0x82C2SPacket.class)
-public abstract class UpdateSign0x82C2SPacketMixin extends AbstractPacket {
+@Mixin(UpdateSignPacket.class)
+public abstract class UpdateSign0x82C2SPacketMixin extends Packet {
 
     @Shadow public int x;
 

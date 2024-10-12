@@ -1,44 +1,44 @@
 package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
-import net.minecraft.block.BlockBase;
-import net.minecraft.block.Farmland;
+import net.minecraft.block.Block;
+import net.minecraft.block.FarmlandBlock;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityBase;
-import net.minecraft.entity.player.PlayerBase;
-import net.minecraft.item.ItemBase;
-import net.minecraft.level.Level;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Random;
 
-@Mixin(Farmland.class)
-public abstract class FarmlandMixin extends BlockBase {
+@Mixin(FarmlandBlock.class)
+public abstract class FarmlandMixin extends Block {
 
     public FarmlandMixin(int i) {
-        super(i, Material.DIRT);
+        super(i, Material.SOIL);
     }
 
 
     @Inject(method = "onSteppedOn", at = @At("HEAD"), cancellable = true)
-    public void miscTweaks_onSteppedOnByPlayer(Level arg, int i, int j, int k, EntityBase arg2, CallbackInfo ci) {
+    public void miscTweaks_onSteppedOnByPlayer(World arg, int i, int j, int k, Entity arg2, CallbackInfo ci) {
         if (  (Config.config.disableTrampleFarmlandWhenBarefoot)
            || (Config.config.disableTrampleFarmlandWithLeatherBoots)
         ) {
-            if (arg2 instanceof PlayerBase) {
-                PlayerBase player = (PlayerBase)arg2;
+            if (arg2 instanceof PlayerEntity) {
+                PlayerEntity player = (PlayerEntity)arg2;
 
                 if (  (Config.config.disableTrampleFarmlandWhenBarefoot)
-                   && (null == player.inventory.armour[0])
+                   && (null == player.inventory.armor[0])
                 ) {
                     ci.cancel();
                 }
 
                 if (  (Config.config.disableTrampleFarmlandWithLeatherBoots)
-                   && (null != player.inventory.armour[0])
-                   && (ItemBase.leatherBoots.id == player.inventory.armour[0].itemId)
+                   && (null != player.inventory.armor[0])
+                   && (Item.LEATHER_BOOTS.id == player.inventory.armor[0].itemId)
                 ) {
                     ci.cancel();
                 }

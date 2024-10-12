@@ -2,47 +2,47 @@ package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
 import com.github.telvarost.misctweaks.ZombieDropEnum;
-import net.minecraft.block.BlockBase;
-import net.minecraft.entity.monster.MonsterBase;
-import net.minecraft.entity.monster.Zombie;
-import net.minecraft.entity.monster.ZombiePigman;
-import net.minecraft.item.ItemBase;
-import net.minecraft.item.ItemInstance;
-import net.minecraft.level.Level;
+import net.minecraft.block.Block;
+import net.minecraft.entity.mob.MonsterEntity;
+import net.minecraft.entity.mob.PigZombieEntity;
+import net.minecraft.entity.mob.ZombieEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 
-@Mixin(Zombie.class)
-public class ZombieMixin extends MonsterBase {
+@Mixin(ZombieEntity.class)
+public class ZombieMixin extends MonsterEntity {
 
-    public ZombieMixin(Level arg) {
+    public ZombieMixin(World arg) {
         super(arg);
     }
 
     @Override
-    protected void getDrops() {
-        int var2 = this.rand.nextInt(3);
+    protected void dropItems() {
+        int var2 = this.random.nextInt(3);
 
         for(int var3 = 0; var3 < var2; ++var3) {
-            ItemInstance var1 = null;
+            ItemStack var1 = null;
 
             if (ZombieDropEnum.FEATHER == Config.config.zombieDropItem) {
-                var1 = new ItemInstance(ItemBase.feather, 1);
+                var1 = new ItemStack(Item.FEATHER, 1);
             } else if (ZombieDropEnum.RED_MUSHROOM == Config.config.zombieDropItem) {
-                var1 = new ItemInstance(BlockBase.RED_MUSHROOM, 1);
+                var1 = new ItemStack(Block.RED_MUSHROOM, 1);
             } else if (ZombieDropEnum.CYAN_DYE == Config.config.zombieDropItem) {
-                var1 = new ItemInstance(ItemBase.dyePowder, 1, 6);
+                var1 = new ItemStack(Item.DYE, 1, 6);
             } else if (ZombieDropEnum.GREEN_DYE == Config.config.zombieDropItem) {
-                var1 = new ItemInstance(ItemBase.dyePowder, 1, 2);
+                var1 = new ItemStack(Item.DYE, 1, 2);
             } else if (ZombieDropEnum.CLAY == Config.config.zombieDropItem) {
-                var1 = new ItemInstance(ItemBase.clay, 1);
+                var1 = new ItemStack(Item.CLAY, 1);
             } else if (ZombieDropEnum.PAPER == Config.config.zombieDropItem) {
-                var1 = new ItemInstance(ItemBase.paper, 1);
+                var1 = new ItemStack(Item.PAPER, 1);
             } else {
                 /** - Drop nothing */
             }
 
-            if ((Object)this instanceof ZombiePigman) {
-                var1 = new ItemInstance(ItemBase.cookedPorkchop, 1);
+            if ((Object)this instanceof PigZombieEntity) {
+                var1 = new ItemStack(Item.COOKED_PORKCHOP, 1);
             }
 
             if (null != var1) {

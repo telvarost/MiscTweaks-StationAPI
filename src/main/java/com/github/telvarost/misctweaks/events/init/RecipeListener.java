@@ -2,11 +2,8 @@ package com.github.telvarost.misctweaks.events.init;
 
 import com.github.telvarost.misctweaks.Config;
 import net.mine_diver.unsafeevents.listener.EventListener;
-import net.minecraft.block.BlockBase;
-import net.minecraft.item.ItemInstance;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeRegistry;
-import net.minecraft.recipe.ShapedRecipe;
+import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent;
 import net.modificationstation.stationapi.api.recipe.CraftingRegistry;
 import net.modificationstation.stationapi.api.util.Identifier;
@@ -21,14 +18,14 @@ public class RecipeListener {
 
         if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPED.type()) {
             if (Config.config.enableDoubleStoneSlabCraftingRecipe) {
-                CraftingRegistry.addShapedRecipe(new ItemInstance(BlockBase.DOUBLE_STONE_SLAB.asItem(), 1), "X", "X", 'X', BlockBase.STONE_SLAB.asItem());
+                CraftingRegistry.addShapedRecipe(new ItemStack(Block.DOUBLE_SLAB.asItem(), 1), "X", "X", 'X', Block.SLAB.asItem());
             }
         }
 
         if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPELESS.type())
         {
             if (Config.config.enableDoubleStoneSlabCraftingRecipe) {
-                CraftingRegistry.addShapelessRecipe(new ItemInstance(BlockBase.STONE_SLAB.asItem(), 2), BlockBase.DOUBLE_STONE_SLAB.asItem());
+                CraftingRegistry.addShapelessRecipe(new ItemStack(Block.SLAB.asItem(), 2), Block.DOUBLE_SLAB.asItem());
             }
         }
     }

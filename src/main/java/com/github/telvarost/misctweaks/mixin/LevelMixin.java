@@ -1,47 +1,51 @@
 package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.ModHelper;
-import net.minecraft.entity.EntityBase;
-import net.minecraft.level.Level;
-import net.minecraft.sortme.Explosion;
-import net.minecraft.util.maths.MathHelper;
-import net.minecraft.util.maths.TilePos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.ArrayList;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
+import net.minecraft.world.explosion.Explosion;
 
-@Mixin(Level.class)
+@Mixin(World.class)
 public class LevelMixin {
 
     LevelMixin() {
         /** - Do nothing */
     }
 
-    @Inject(method = "createExplosion(Lnet/minecraft/entity/EntityBase;DDDFZ)Lnet/minecraft/sortme/Explosion;", at = @At("HEAD"), cancellable = true)
-    public void miscTweaks_createExplosion(EntityBase arg, double d, double e, double f, float g, boolean bl, CallbackInfoReturnable<Explosion> cir) {
+    @Inject(
+            method = "createExplosion(Lnet/minecraft/entity/Entity;DDDFZ)Lnet/minecraft/world/explosion/Explosion;",
+            at = @At("HEAD"),
+            cancellable = true
+    )
+    public void miscTweaks_createExplosion(Entity arg, double d, double e, double f, float g, boolean bl, CallbackInfoReturnable<Explosion> cir) {
         if (0 < ModHelper.ModHelperFields.cancelDestroyBlocks) {
-            Level curLevel = ((Level) (Object)this);
+            World curLevel = ((World) (Object)this);
             Explosion var10 = new Explosion(curLevel, arg, d, e, f, g);
-            var10.causeFires = bl;
-            var10.kaboomPhase1();
+            var10.fire = bl;
+            var10.explode();
 
             /** - Custom kaboomPhase2 that doesn't destroy blocks */
-            curLevel.playSound(d, e, f, "random.explode", 4.0F, (1.0F + (curLevel.rand.nextFloat() - curLevel.rand.nextFloat()) * 0.2F) * 0.7F);
+            curLevel.playSound(d, e, f, "random.explode", 4.0F, (1.0F + (curLevel.random.nextFloat() - curLevel.random.nextFloat()) * 0.2F) * 0.7F);
             ArrayList var2 = new ArrayList();
-            var2.addAll(var10.damagedTiles);
+            var2.addAll(var10.damagedBlocks);
 
             for(int var3 = var2.size() - 1; var3 >= 0; --var3) {
-                TilePos var4 = (TilePos)var2.get(var3);
+                BlockPos var4 = (BlockPos)var2.get(var3);
                 int var5 = var4.x;
                 int var6 = var4.y;
                 int var7 = var4.z;
                 if (bl) {
-                    double var9 = (double)((float)var5 + curLevel.rand.nextFloat());
-                    double var11 = (double)((float)var6 + curLevel.rand.nextFloat());
-                    double var13 = (double)((float)var7 + curLevel.rand.nextFloat());
+                    double var9 = (double)((float)var5 + curLevel.random.nextFloat());
+                    double var11 = (double)((float)var6 + curLevel.random.nextFloat());
+                    double var13 = (double)((float)var7 + curLevel.random.nextFloat());
                     double var15 = var9 - var10.x;
                     double var17 = var11 - var10.y;
                     double var19 = var13 - var10.z;
@@ -50,7 +54,7 @@ public class LevelMixin {
                     var17 /= var21;
                     var19 /= var21;
                     double var23 = 0.5 / (var21 / (double)var10.power + 0.1);
-                    var23 *= (double)(curLevel.rand.nextFloat() * curLevel.rand.nextFloat() + 0.3F);
+                    var23 *= (double)(curLevel.random.nextFloat() * curLevel.random.nextFloat() + 0.3F);
                     var15 *= var23;
                     var17 *= var23;
                     var19 *= var23;
