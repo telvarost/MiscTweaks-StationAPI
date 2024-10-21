@@ -27,10 +27,10 @@
     ],
     "stationapi:event_bus_server": [
     ],
-    "gcapi": [
+    "gcapi3": [
       "com.github.telvarost.misctweaks.Config"
     ],
-    "gcapi:factory_provider": [
+    "gcapi3:factory_provider": [
       "com.github.telvarost.misctweaks.ZombieDropEnumFactory",
       "com.github.telvarost.misctweaks.ZombiePigmanDropEnumFactory"
     ]
@@ -41,7 +41,7 @@
 
   "depends": {
     "minecraft": "1.0.0-beta.7.3",
-    "gcapi": "*",
+    "gcapi3": ">=3.0.1",
     "stationapi": "*"
   },
 

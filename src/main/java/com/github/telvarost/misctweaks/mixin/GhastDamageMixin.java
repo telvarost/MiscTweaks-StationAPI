@@ -37,7 +37,7 @@ public class GhastDamageMixin extends FlyingEntity implements Monster {
                     }
                 }
 
-                if ((float)this.hearts > (float)this.invulnerableTicks / 2.0F) {
+                if ((float)this.hearts > (float)this.maxHealth / 2.0F) {
                     if (i <= this.prevHealth) {
                         return false;
                     }
@@ -48,9 +48,9 @@ public class GhastDamageMixin extends FlyingEntity implements Monster {
                 } else {
                     this.prevHealth = i;
                     this.lastHealth = this.health;
-                    this.hearts = this.invulnerableTicks;
+                    this.hearts = this.maxHealth;
                     this.applyDamage(i);
-                    this.damagedTimer = this.damagedTime = 10;
+                    this.hurtTime = this.damagedTime = 10;
                 }
 
                 this.damagedSwingDir = 0.0F;
