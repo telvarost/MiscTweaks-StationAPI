@@ -1,5 +1,6 @@
 package com.github.telvarost.misctweaks.mixin;
 
+import com.github.telvarost.misctweaks.Config;
 import net.minecraft.block.Block;
 import net.minecraft.block.LogBlock;
 import net.minecraft.block.material.Material;
@@ -46,6 +47,10 @@ public class LogBlockMixin extends Block {
             cancellable = true
     )
     public void miscTweaks_getTexture(int side, int meta, CallbackInfoReturnable<Integer> cir) {
+        if (!Config.config.enableLogRotation) {
+            return;
+        }
+
         int textureId;
         int textureUpwards;
         int textureSidewaysCW;
@@ -102,5 +107,18 @@ public class LogBlockMixin extends Block {
         }
 
         cir.setReturnValue(textureId);
+    }
+
+    @Inject(
+            method = "getDroppedItemMeta",
+            at = @At("RETURN"),
+            cancellable = true
+    )
+    protected void getDroppedItemMeta(int blockMeta, CallbackInfoReturnable<Integer> cir) {
+        if (!Config.config.enableLogRotation) {
+            return;
+        }
+
+        cir.setReturnValue(blockMeta & 0x3);
     }
 }

@@ -1,9 +1,7 @@
 package com.github.telvarost.misctweaks;
 
-import blue.endless.jankson.Jankson;
-import blue.endless.jankson.JsonObject;
-import blue.endless.jankson.api.SyntaxError;
 import net.fabricmc.loader.api.FabricLoader;
+import net.glasslauncher.mods.gcapi3.impl.GlassYamlFile;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -13,51 +11,26 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
-public final class MiscTweaksMixinPlugin implements IMixinConfigPlugin {
-
-    @Override
-    public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if (ModHelper.ModHelperFields.loadMixinConfigs) {
-            ModHelper.ModHelperFields.loadMixinConfigs = false;
-
-            try {
-                JsonObject configObject = Jankson
-                        .builder()
-                        .build()
-                        .load(new File("config/misctweaks", "config.json"));
-
-                Config.config.enableGhastFireballsToInstaKillGhasts = configObject.getBoolean("enableGhastFireballsToInstaKillGhasts", false);
-                Config.config.enableZombieDropItem = configObject.getBoolean("enableZombieDropItem", false);
-                Config.config.enableZombiePigmanDropItem = configObject.getBoolean("enableZombiePigmanDropItem", false);
-            } catch (IOException ex) {
-                System.out.println("Couldn't read the config file" + ex.toString());
-            } catch (SyntaxError error) {
-                System.out.println("Couldn't read the config file" + error.getMessage());
-                System.out.println(error.getLineMessage());
-            }
-        }
-
-        if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.GhastDamageMixin")) {
-            return Config.config.enableGhastFireballsToInstaKillGhasts;
-        } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.ZombieMixin")) {
-            return Config.config.enableZombieDropItem;
-        } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.ZombiePigmanMixin")) {
-            return Config.config.enableZombiePigmanDropItem;
-        } else {
-            return true;
-        }
-    }
-
-    // Boilerplate
+public class MiscTweaksMixinPlugin implements IMixinConfigPlugin {
+    public static GlassYamlFile config;
 
     @Override
     public void onLoad(String mixinPackage) {
+        File file = new File(FabricLoader.getInstance().getConfigDir().toFile(), "misctweaks/config.yml");
 
+        config = new GlassYamlFile();
+        try {
+            config.load(file);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+            //noinspection CallToPrintStackTrace
+            e.printStackTrace();
+        }
     }
 
     @Override
     public String getRefMapperConfig() {
-        return null;
+        return null; // null = default behaviour
     }
 
     @Override
@@ -67,7 +40,7 @@ public final class MiscTweaksMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public List<String> getMixins() {
-        return null;
+        return null; // null = I don't wish to append any mixin
     }
 
     @Override
@@ -78,5 +51,27 @@ public final class MiscTweaksMixinPlugin implements IMixinConfigPlugin {
     @Override
     public void postApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {
 
+    }
+
+    @Override
+    public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+        Config.config.enableGhastFireballsToInstaKillGhasts = config.getBoolean("enableGhastFireballsToInstaKillGhasts", false);
+        Config.config.enableZombieDropItem = config.getBoolean("enableZombieDropItem", false);
+        Config.config.enableZombiePigmanDropItem = config.getBoolean("enableZombiePigmanDropItem", false);
+        Config.config.enableLogRotation = config.getBoolean("enableLogRotation", false);
+
+        if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.GhastDamageMixin")) {
+            return Config.config.enableGhastFireballsToInstaKillGhasts;
+        } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.ZombieMixin")) {
+            return Config.config.enableZombieDropItem;
+        } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.ZombiePigmanMixin")) {
+            return Config.config.enableZombiePigmanDropItem;
+        } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.LogBlockMixin")) {
+            return Config.config.enableLogRotation;
+        } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.LogItemMixin")) {
+            return Config.config.enableLogRotation;
+        } else {
+            return true;
+        }
     }
 }

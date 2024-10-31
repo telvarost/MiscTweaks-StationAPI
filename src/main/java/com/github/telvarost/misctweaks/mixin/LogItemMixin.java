@@ -1,5 +1,6 @@
 package com.github.telvarost.misctweaks.mixin;
 
+import com.github.telvarost.misctweaks.Config;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
@@ -20,6 +21,10 @@ public class LogItemMixin extends BlockItem {
     public boolean useOnBlock(ItemStack stack, PlayerEntity user, World world, int x, int y, int z, int side) {
         boolean b = super.useOnBlock(stack, user, world, x, y, z, side);
         int blockMeta;
+
+        if (!Config.config.enableLogRotation) {
+            return b;
+        }
 
         if (world.getBlockId(x, y, z) == Block.SNOW.id) {
             side = 0;

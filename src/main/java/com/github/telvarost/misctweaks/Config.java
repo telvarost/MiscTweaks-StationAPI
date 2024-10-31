@@ -189,6 +189,14 @@ public class Config {
         public Boolean disableTrampleFarmlandWithLeatherBoots = false;
 
         @ConfigEntry(
+                name = "Enable Log Rotation (Restart required)",
+                description = "Disabling converts rotated logs to weird oak",
+                multiplayerSynced = true
+        )
+        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
+        public Boolean enableLogRotation = false;
+
+        @ConfigEntry(
                 name = "Enable Player Placed Leaf Persistence",
                 description = "Disables leaf decay for player placed leaves",
                 multiplayerSynced = true
