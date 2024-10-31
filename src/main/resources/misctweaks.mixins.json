@@ -19,6 +19,7 @@
     "LeavesBlockMixin",
     "LeavesItemMixin",
     "LevelMixin",
+    "LogBlockMixin",
     "PlayerInventoryMixin",
     "PrimedTntMixin",
     "TallGrassMixin",
