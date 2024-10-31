@@ -1,6 +1,5 @@
 package com.github.telvarost.misctweaks.mixin;
 
-import com.github.telvarost.misctweaks.Config;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -53,10 +52,6 @@ public class LogBlockMixin extends Block {
             cancellable = true
     )
     public void miscTweaks_getTexture(int side, int meta, CallbackInfoReturnable<Integer> cir) {
-        if (!Config.config.enableLogRotation) {
-            return;
-        }
-
         int textureId;
         int textureSideways;
         int textureTop = CUT_LOG_TEXTURE;
@@ -104,10 +99,6 @@ public class LogBlockMixin extends Block {
             cancellable = true
     )
     protected void getDroppedItemMeta(int blockMeta, CallbackInfoReturnable<Integer> cir) {
-        if (!Config.config.enableLogRotation) {
-            return;
-        }
-
         cir.setReturnValue(blockMeta & 0x3);
     }
 }

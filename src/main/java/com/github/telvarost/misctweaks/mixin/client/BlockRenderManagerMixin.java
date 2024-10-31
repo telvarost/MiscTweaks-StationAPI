@@ -1,5 +1,7 @@
 package com.github.telvarost.misctweaks.mixin.client;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -10,7 +12,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Environment(EnvType.CLIENT)
@@ -33,15 +34,15 @@ public abstract class BlockRenderManagerMixin {
 
     @Shadow public abstract boolean renderBlock(Block block, int x, int y, int z);
 
-    @Redirect(
+    @WrapOperation(
             method = "render(Lnet/minecraft/block/Block;IF)V",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/block/Block;getRenderType()I"
             )
     )
-    public int render(Block instance) {
-        int renderType = instance.getRenderType();
+    public int render(Block instance, Operation<Integer> original) {
+        int renderType = original.call(instance);
 
         if (renderType == 18) {
             renderType = 0;
