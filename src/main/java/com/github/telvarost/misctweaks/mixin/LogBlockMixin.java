@@ -3,9 +3,6 @@ package com.github.telvarost.misctweaks.mixin;
 import net.minecraft.block.Block;
 import net.minecraft.block.LogBlock;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -105,34 +102,5 @@ public class LogBlockMixin extends Block {
         }
 
         cir.setReturnValue(textureId);
-    }
-
-    @Override
-    public void onPlaced(World world, int x, int y, int z, LivingEntity placer) {
-        int direction = MathHelper.floor((double)(placer.yaw * 4.0F / 360.0F) + 0.5) & 3;
-        int upOrDown = MathHelper.floor((double)(placer.pitch * 4.0F / 360.0F) + 0.5) & 3;
-        int blockMeta;
-
-        if (0 == upOrDown) {
-            if (direction == 0) {
-                blockMeta = world.getBlockMeta(x, y, z) | 0x4;
-                world.setBlockMeta(x, y, z, blockMeta);
-            }
-
-            if (direction == 1) {
-                blockMeta = world.getBlockMeta(x, y, z) | 0x8;
-                world.setBlockMeta(x, y, z, blockMeta);
-            }
-
-            if (direction == 2) {
-                blockMeta = world.getBlockMeta(x, y, z) | 0x4;
-                world.setBlockMeta(x, y, z, blockMeta);
-            }
-
-            if (direction == 3) {
-                blockMeta = world.getBlockMeta(x, y, z) | 0x8;
-                world.setBlockMeta(x, y, z, blockMeta);
-            }
-        }
     }
 }
