@@ -19,6 +19,8 @@
     "LeavesBlockMixin",
     "LeavesItemMixin",
     "LevelMixin",
+    "LogBlockMixin",
+    "LogItemMixin",
     "PlayerInventoryMixin",
     "PrimedTntMixin",
     "TallGrassMixin",
@@ -32,6 +34,7 @@
     "server.ServerPlayerPacketHandlerMixin"
   ],
   "client": [
+    "client.BlockRenderManagerMixin",
     "client.EditSignMixin",
     "client.MinecraftAccessor"
   ],

@@ -45,6 +45,9 @@ All changes are default false/vanilla behavior unless otherwise specified
 * Disable player trampling farmland if player is not wearing boots
 * Disable player trampling farmland if player is wearing leather boots
 * Disable leaf decay for player placed leaves
+* Enable log rotation for oak, spruce, and birch logs
+  * This uses the extra metadata bits for rotation
+    * So when disabled the rotated logs will appear as oak, but drop a different block type similar to how crash slabs work
 * Equalize base armor durability
   * Helmet, Chestplate, Leggings, and Boots will all have the same durability
 * Modern armor defense points
