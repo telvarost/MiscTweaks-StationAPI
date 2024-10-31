@@ -23,8 +23,7 @@
       "com.github.telvarost.misctweaks.events.init.RecipeListener"
     ],
     "stationapi:event_bus_client": [
-      "com.github.telvarost.misctweaks.events.init.ClientInitListener",
-      "com.github.telvarost.misctweaks.events.init.TextureListener"
+      "com.github.telvarost.misctweaks.events.init.ClientInitListener"
     ],
     "stationapi:event_bus_server": [
     ],

@@ -70,6 +70,8 @@ public class MiscTweaksMixinPlugin implements IMixinConfigPlugin {
             return Config.config.enableLogRotation;
         } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.LogItemMixin")) {
             return Config.config.enableLogRotation;
+        } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.client.BlockRenderManagerMixin")) {
+            return Config.config.enableLogRotation;
         } else {
             return true;
         }

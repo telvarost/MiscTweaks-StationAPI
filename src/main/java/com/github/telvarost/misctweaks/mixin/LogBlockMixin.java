@@ -1,6 +1,8 @@
 package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.LogBlock;
 import net.minecraft.block.material.Material;
@@ -9,8 +11,6 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import static com.github.telvarost.misctweaks.events.init.TextureListener.*;
 
 @Mixin(LogBlock.class)
 public class LogBlockMixin extends Block {
@@ -41,6 +41,12 @@ public class LogBlockMixin extends Block {
         this.textureId = 20;
     }
 
+    @Environment(EnvType.CLIENT)
+    @Override
+    public int getRenderType() {
+        return 18;
+    }
+
     @Inject(
             method = "getTexture",
             at = @At("HEAD"),
@@ -52,57 +58,40 @@ public class LogBlockMixin extends Block {
         }
 
         int textureId;
-        int textureUpwards;
-        int textureSidewaysCW;
-        int textureSidewaysCCW;
-
+        int textureSideways;
         int textureTop = CUT_LOG_TEXTURE;
         int logType = meta & 0x3;
         int logRotation = meta & 0xC;
 
         if (SPRUCE_TYPE == logType) {
-            textureUpwards = SPRUCE_LOG_TEXTURE;
-            textureSidewaysCW = SIDEWAYS_CW_SPRUCE;
-            textureSidewaysCCW = SIDEWAYS_CCW_SPRUCE;
+            textureSideways = SPRUCE_LOG_TEXTURE;
         } else if (BIRCH_TYPE == logType) {
-            textureUpwards = BIRCH_LOG_TEXTURE;
-            textureSidewaysCW = SIDEWAYS_CW_BIRCH;
-            textureSidewaysCCW = SIDEWAYS_CCW_BIRCH;
+            textureSideways = BIRCH_LOG_TEXTURE;
         } else {
-            textureUpwards = OAK_LOG_TEXTURE;
-            textureSidewaysCW = SIDEWAYS_CW_OAK;
-            textureSidewaysCCW = SIDEWAYS_CCW_OAK;
+            textureSideways = OAK_LOG_TEXTURE;
         }
 
         if (0x4 == logRotation) {
 
             if (side == 2 || side == 3) {
                 textureId = textureTop;
-            } else if (side == 0 || side == 1) {
-                textureId = textureUpwards;
-            } else if (side == 5) {
-                textureId = textureSidewaysCW;
             } else {
-                textureId = textureSidewaysCCW;
+                textureId = textureSideways;
             }
 
         } else if (0x8 == logRotation) {
 
             if (side == 4 || side == 5) {
                 textureId = textureTop;
-            } else if (side == 0 || side == 1) {
-                textureId = textureSidewaysCW;
-            } else if (side == 3) {
-                textureId = textureSidewaysCW;
             } else {
-                textureId = textureSidewaysCCW;
+                textureId = textureSideways;
             }
 
         } else {
             if (side == 1 || side == 0) {
                 textureId = textureTop;
             } else {
-                textureId = textureUpwards;
+                textureId = textureSideways;
             }
         }
 
