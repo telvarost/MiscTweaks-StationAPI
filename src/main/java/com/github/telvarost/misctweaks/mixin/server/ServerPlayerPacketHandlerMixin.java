@@ -1,6 +1,8 @@
 package com.github.telvarost.misctweaks.mixin.server;
 
 import com.github.telvarost.misctweaks.Config;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.network.NetworkHandler;
@@ -14,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(ServerPlayNetworkHandler.class)
 public abstract class ServerPlayerPacketHandlerMixin extends NetworkHandler implements CommandOutput {
 
-    @Redirect(
+    @WrapOperation(
             method = "handleUpdateSign",
             at = @At(
                     value = "INVOKE",
@@ -22,15 +24,15 @@ public abstract class ServerPlayerPacketHandlerMixin extends NetworkHandler impl
                     ordinal = 0
             )
     )
-    public int miscTweaks_onUpdateSignCheckLength(String instance) {
+    public int miscTweaks_onUpdateSignCheckLength(String instance, Operation<Integer> original) {
         if (Config.config.enableColorSignsWithDye && instance.contains("§")) {
-            return instance.length() - 2;
+            return original.call(instance) - 2;
         } else {
-            return instance.length();
+            return original.call(instance);
         }
     }
 
-    @Redirect(
+    @WrapOperation(
             method = "handleUpdateSign",
             at = @At(
                     value = "INVOKE",
@@ -38,11 +40,11 @@ public abstract class ServerPlayerPacketHandlerMixin extends NetworkHandler impl
                     ordinal = 1
             )
     )
-    public int miscTweaks_onUpdateSignCheckCharacters(String instance) {
+    public int miscTweaks_onUpdateSignCheckCharacters(String instance, Operation<Integer> original) {
         if (Config.config.enableColorSignsWithDye && instance.contains("§")) {
             return 0;
         } else {
-            return instance.length();
+            return original.call(instance);
         }
     }
 }
