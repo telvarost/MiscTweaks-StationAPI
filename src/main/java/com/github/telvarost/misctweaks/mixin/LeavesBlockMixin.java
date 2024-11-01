@@ -24,7 +24,6 @@ public abstract class LeavesBlockMixin extends TransparentBlock {
         super(i, j, Material.LEAVES, false);
     }
 
-
     @Inject(
             method = "onTick",
             at = @At("HEAD"),
