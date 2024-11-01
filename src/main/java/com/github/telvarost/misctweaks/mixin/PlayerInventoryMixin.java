@@ -1,29 +1,29 @@
 package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
-import net.modificationstation.stationapi.api.entity.player.StationFlatteningPlayerInventory;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(PlayerInventory.class)
 public abstract class PlayerInventoryMixin implements Inventory {
 
-    @Redirect(
+    @WrapOperation(
             method = "getTotalArmorDurability",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/item/ItemStack;getDamage2()I"
             )
     )
-    public int miscTweaks_getArmourValue(ItemStack instance) {
+    public int miscTweaks_getArmourValue(ItemStack instance, Operation<Integer> original) {
         if (Config.config.modernArmorDefensePoints) {
             return 0;
         } else {
-            return instance.getDamage2();
+            return original.call(instance);
         }
     }
 }

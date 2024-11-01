@@ -2,13 +2,14 @@ package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
 import com.github.telvarost.misctweaks.ModHelper;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.FireballEntity;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(FireballEntity.class)
 abstract class FireballMixin extends Entity {
@@ -18,23 +19,23 @@ abstract class FireballMixin extends Entity {
         this.setBoundingBoxSpacing(1.0F, 1.0F);
     }
 
-    @Redirect(
+    @WrapOperation(
             method = "tick",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/World;createExplosion(Lnet/minecraft/entity/Entity;DDDFZ)Lnet/minecraft/world/explosion/Explosion;"
             )
     )
-    public Explosion miscTweaks_handleExplosion(World instance, Entity arg, double d, double e, double f, float g, boolean bl) {
+    public Explosion miscTweaks_handleExplosion(World instance, Entity source, double x, double y, double z, float power, boolean fire, Operation<Explosion> original) {
         if (0 < ModHelper.ModHelperFields.numberOfGhastFireballs)
         {
-            bl = (bl && !Config.config.disableGhastExplosionCausingFire);
+            fire = (fire && !Config.config.disableGhastExplosionCausingFire);
             ModHelper.ModHelperFields.cancelDestroyBlocks++;
             ModHelper.ModHelperFields.cancelDestroyBlocksPacket++;
             ModHelper.ModHelperFields.numberOfGhastFireballs--;
         }
 
-        return instance.createExplosion(arg, d, e, f, g, bl);
+        return original.call(instance, source, x, y, z, power, fire);
     }
 
 }

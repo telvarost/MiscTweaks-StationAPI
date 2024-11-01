@@ -1,6 +1,8 @@
 package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.block.Block;
 import net.minecraft.block.FarmlandBlock;
 import net.minecraft.block.material.Material;
@@ -20,7 +22,6 @@ public abstract class FarmlandMixin extends Block {
     public FarmlandMixin(int i) {
         super(i, Material.SOIL);
     }
-
 
     @Inject(method = "onSteppedOn", at = @At("HEAD"), cancellable = true)
     public void miscTweaks_onSteppedOnByPlayer(World arg, int i, int j, int k, Entity arg2, CallbackInfo ci) {
@@ -46,18 +47,18 @@ public abstract class FarmlandMixin extends Block {
         }
     }
 
-    @Redirect(
+    @WrapOperation(
             method = "onSteppedOn",
             at = @At(
                     value = "INVOKE",
                     target = "Ljava/util/Random;nextInt(I)I"
             )
     )
-    public int miscTweaks_onSteppedOnDisableTrample(Random rand, int value) {
+    public int miscTweaks_onSteppedOnDisableTrample(Random instance, int value, Operation<Integer> original) {
         if (Config.config.disableTramplingFarmland) {
             return -1;
         } else {
-            return rand.nextInt(value);
+            return original.call(instance, value);
         }
     }
 }
