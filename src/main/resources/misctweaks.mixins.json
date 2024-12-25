@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "plugin": "com.github.telvarost.misctweaks.MiscTweaksMixinPlugin",
   "mixins": [
-    "ArmourMixin",
+    "ArmorMixin",
     "ChestMixin",
     "CreeperMixin",
     "DeadBushMixin",
@@ -19,12 +19,13 @@
     "LeavesBlockMixin",
     "LeavesItemMixin",
     "LevelMixin",
+    "LightningEntityMixin",
     "LogBlockMixin",
     "LogItemMixin",
     "PlayerInventoryMixin",
     "PrimedTntMixin",
+    "SignBlockEntityMixin",
     "TallGrassMixin",
-    "TileEntitySignMixin",
     "ZombieMixin",
     "ZombiePigmanMixin",
     "server.UpdateSign0x82C2SPacketMixin"

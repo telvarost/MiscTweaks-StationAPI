@@ -21,7 +21,7 @@ public class EditSignMixin extends Screen {
 
     @ModifyConstant(method = "keyPressed", constant = @Constant(intValue = 15))
     protected int miscTweaks_keyPressed(int value) {
-        if (!Config.config.enableColorSignsWithDye) {
+        if (!Config.config.BLOCK_ENTITY_CONFIG.enableColorSignsWithDye) {
             return 15;
         } else {
             int lineLimit = 15;

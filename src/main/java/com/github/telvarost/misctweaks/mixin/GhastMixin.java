@@ -29,7 +29,7 @@ public class GhastMixin extends FlyingEntity implements Monster {
             )
     )
     public void miscTweaks_spawnGhastFireball(CallbackInfo ci) {
-        if (Config.config.disableGhastExplosionBreakingBlocks)
+        if (Config.config.EXPLOSION_AND_FIRE_CONFIG.disableGhastExplosionBreakingBlocks)
         {
             ModHelper.ModHelperFields.numberOfGhastFireballs++;
         }

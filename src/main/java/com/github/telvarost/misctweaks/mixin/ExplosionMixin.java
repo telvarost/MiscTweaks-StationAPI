@@ -22,7 +22,7 @@ public class ExplosionMixin {
 
     @Inject(method = "playExplosionSound", at = @At("HEAD"), cancellable = true)
     public void miscTweaks_cancelAllExplosionTileDamage(boolean renderParticles, CallbackInfo ci) {
-        if (Config.config.disableAllExplosionsBreakingBlocks) {
+        if (Config.config.EXPLOSION_AND_FIRE_CONFIG.disableAllExplosionsBreakingBlocks) {
             if (renderParticles) {
                 world.playSound(x, y, z, "random.explode", 4.0F, (1.0F + (world.random.nextFloat() - world.random.nextFloat()) * 0.2F) * 0.7F);
                 world.addParticle("explode", x, y, z, 0, 1, 0);

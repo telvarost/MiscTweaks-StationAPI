@@ -25,19 +25,19 @@ public abstract class FarmlandMixin extends Block {
 
     @Inject(method = "onSteppedOn", at = @At("HEAD"), cancellable = true)
     public void miscTweaks_onSteppedOnByPlayer(World arg, int i, int j, int k, Entity arg2, CallbackInfo ci) {
-        if (  (Config.config.disableTrampleFarmlandWhenBarefoot)
-           || (Config.config.disableTrampleFarmlandWithLeatherBoots)
+        if (  (Config.config.MOB_CONFIG.disableTrampleFarmlandWhenBarefoot)
+           || (Config.config.MOB_CONFIG.disableTrampleFarmlandWithLeatherBoots)
         ) {
             if (arg2 instanceof PlayerEntity) {
                 PlayerEntity player = (PlayerEntity)arg2;
 
-                if (  (Config.config.disableTrampleFarmlandWhenBarefoot)
+                if (  (Config.config.MOB_CONFIG.disableTrampleFarmlandWhenBarefoot)
                    && (null == player.inventory.armor[0])
                 ) {
                     ci.cancel();
                 }
 
-                if (  (Config.config.disableTrampleFarmlandWithLeatherBoots)
+                if (  (Config.config.MOB_CONFIG.disableTrampleFarmlandWithLeatherBoots)
                    && (null != player.inventory.armor[0])
                    && (Item.LEATHER_BOOTS.id == player.inventory.armor[0].itemId)
                 ) {
@@ -55,7 +55,7 @@ public abstract class FarmlandMixin extends Block {
             )
     )
     public int miscTweaks_onSteppedOnDisableTrample(Random instance, int value, Operation<Integer> original) {
-        if (Config.config.disableTramplingFarmland) {
+        if (Config.config.MOB_CONFIG.disableTramplingFarmland) {
             return -1;
         } else {
             return original.call(instance, value);

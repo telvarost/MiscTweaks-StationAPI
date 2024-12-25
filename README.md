@@ -35,6 +35,7 @@ All changes are default false/vanilla behavior unless otherwise specified
   * Disable creeper explosions breaking blocks
   * Disable ghast explosions breaking blocks
 * Disable ghast explosions causing fire
+* Disable lightning strikes causing fire
 
 ### Flora Changes
 * Allow collecting ferns with shears
@@ -60,14 +61,11 @@ All changes are default false/vanilla behavior unless otherwise specified
 * Disable player trampling farmland if player is not wearing boots
 * Disable player trampling farmland if player is wearing leather boots
 
-### Slab Changes
-* Add recipe for crafting vanilla double stone slabs
-  * Recipe is single stone slab above single stone slab in crafting grid
-  * There is also a crafting recipe to turn the double stone slab back into two single stone slabs
-  * Double stone slabs behave like single stone slabs when placed on top of single stone slabs
+### Slab Changes moved to NowObtainableRecipes
+* See: https://modrinth.com/mod/nowobtainablerecipes-stationapi
 
-## Dispenser changes moved to DispenserTweaks
-* See: https://github.com/telvarost/DispenserTweaks-StationAPI
+## Dispenser Changes moved to DispenserTweaks
+* See: https://modrinth.com/mod/dispensertweaks-stationapi
 
 ## Installation using Prism Launcher
 

@@ -27,7 +27,7 @@ public class CreeperMixin extends MonsterEntity {
             )
     )
     public void miscTweaks_tryAttackBeforeCreateExplosion(Entity f, float par2, CallbackInfo ci) {
-        if (Config.config.disableCreeperExplosionBreakingBlocks)
+        if (Config.config.EXPLOSION_AND_FIRE_CONFIG.disableCreeperExplosionBreakingBlocks)
         {
             ModHelper.ModHelperFields.cancelDestroyBlocks++;
             ModHelper.ModHelperFields.cancelDestroyBlocksPacket++;
