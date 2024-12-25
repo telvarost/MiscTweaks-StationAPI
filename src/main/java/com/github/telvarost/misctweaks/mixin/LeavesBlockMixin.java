@@ -30,7 +30,7 @@ public abstract class LeavesBlockMixin extends TransparentBlock {
             cancellable = true
     )
     private void miscTweaks_onScheduledTick(World level, int x, int y, int z, Random random, CallbackInfo ci) {
-        if (Config.config.enablePlayerPlacedLeafPersistence) {
+        if (Config.config.FLORA_CONFIG.enablePlayerPlacedLeafPersistence) {
             if (!level.isRemote) {
                 int tileMeta = level.getBlockMeta(x, y, z);
                 if (0x4 == (0x4 & tileMeta)) {
@@ -42,7 +42,7 @@ public abstract class LeavesBlockMixin extends TransparentBlock {
 
     @Inject(method = "breakLeaves", at = @At("HEAD"), cancellable = true)
     private void miscTweaks_dropAndRemove(World arg, int i, int j, int k, CallbackInfo ci) {
-        if (0 >= Config.config.appleDropChance) {
+        if (0 >= Config.config.FLORA_CONFIG.appleDropChance) {
             return;
         }
 
@@ -53,7 +53,7 @@ public abstract class LeavesBlockMixin extends TransparentBlock {
 
     @Inject(method = "afterBreak", at = @At("HEAD"), cancellable = true)
     public void miscTweaks_afterBreak(World arg, PlayerEntity arg2, int i, int j, int k, int l, CallbackInfo ci) {
-        if (0 >= Config.config.appleDropChance) {
+        if (0 >= Config.config.FLORA_CONFIG.appleDropChance) {
             return;
         }
 
@@ -69,7 +69,7 @@ public abstract class LeavesBlockMixin extends TransparentBlock {
     private void miscTweaks_rareAppleDrop(World arg, int i, int j, int k, int leafType) {
         if (0 == leafType) {
             Random random = new Random();
-            boolean isAppleDropped = (random.nextInt(1000/Config.config.appleDropChance) == 0) ? true : false;
+            boolean isAppleDropped = (random.nextInt(1000/Config.config.FLORA_CONFIG.appleDropChance) == 0) ? true : false;
 
             if (isAppleDropped) {
                 ItemStack arg2 = new ItemStack(Item.APPLE);

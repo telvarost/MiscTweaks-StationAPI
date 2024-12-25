@@ -31,7 +31,7 @@ public class GhastDamageMixin extends FlyingEntity implements Monster {
                 this.walkAnimationSpeed = 1.5F;
                 boolean var3 = true;
 
-                if (Config.config.enableGhastFireballsToInstaKillGhasts) {
+                if (Config.config.EXPLOSION_AND_FIRE_CONFIG.enableGhastFireballsToInstaKillGhasts) {
                     if (arg == null || arg instanceof GhastEntity || arg instanceof FireballEntity) {
                         i = 20;
                     }

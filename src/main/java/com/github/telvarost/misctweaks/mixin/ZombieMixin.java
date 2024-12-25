@@ -25,17 +25,17 @@ public class ZombieMixin extends MonsterEntity {
         for(int var3 = 0; var3 < var2; ++var3) {
             ItemStack var1 = null;
 
-            if (ZombieDropEnum.FEATHER == Config.config.zombieDropItem) {
+            if (ZombieDropEnum.FEATHER == Config.config.MOB_CONFIG.zombieDropItem) {
                 var1 = new ItemStack(Item.FEATHER, 1);
-            } else if (ZombieDropEnum.RED_MUSHROOM == Config.config.zombieDropItem) {
+            } else if (ZombieDropEnum.RED_MUSHROOM == Config.config.MOB_CONFIG.zombieDropItem) {
                 var1 = new ItemStack(Block.RED_MUSHROOM, 1);
-            } else if (ZombieDropEnum.CYAN_DYE == Config.config.zombieDropItem) {
+            } else if (ZombieDropEnum.CYAN_DYE == Config.config.MOB_CONFIG.zombieDropItem) {
                 var1 = new ItemStack(Item.DYE, 1, 6);
-            } else if (ZombieDropEnum.GREEN_DYE == Config.config.zombieDropItem) {
+            } else if (ZombieDropEnum.GREEN_DYE == Config.config.MOB_CONFIG.zombieDropItem) {
                 var1 = new ItemStack(Item.DYE, 1, 2);
-            } else if (ZombieDropEnum.CLAY == Config.config.zombieDropItem) {
+            } else if (ZombieDropEnum.CLAY == Config.config.MOB_CONFIG.zombieDropItem) {
                 var1 = new ItemStack(Item.CLAY, 1);
-            } else if (ZombieDropEnum.PAPER == Config.config.zombieDropItem) {
+            } else if (ZombieDropEnum.PAPER == Config.config.MOB_CONFIG.zombieDropItem) {
                 var1 = new ItemStack(Item.PAPER, 1);
             } else {
                 /** - Drop nothing */

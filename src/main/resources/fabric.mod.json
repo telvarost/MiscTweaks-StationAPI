@@ -20,7 +20,6 @@
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "com.github.telvarost.misctweaks.events.init.RecipeListener"
     ],
     "stationapi:event_bus_client": [
       "com.github.telvarost.misctweaks.events.init.ClientInitListener"

@@ -55,23 +55,23 @@ public class MiscTweaksMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        Config.config.enableGhastFireballsToInstaKillGhasts = config.getBoolean("enableGhastFireballsToInstaKillGhasts", false);
-        Config.config.enableZombieDropItem = config.getBoolean("enableZombieDropItem", false);
-        Config.config.enableZombiePigmanDropItem = config.getBoolean("enableZombiePigmanDropItem", false);
-        Config.config.enableLogRotation = config.getBoolean("enableLogRotation", false);
+        Config.config.EXPLOSION_AND_FIRE_CONFIG.enableGhastFireballsToInstaKillGhasts = config.getBoolean("enableGhastFireballsToInstaKillGhasts", false);
+        Config.config.MOB_CONFIG.enableZombieDropItem = config.getBoolean("enableZombieDropItem", false);
+        Config.config.MOB_CONFIG.enableZombiePigmanDropItem = config.getBoolean("enableZombiePigmanDropItem", false);
+        Config.config.FLORA_CONFIG.enableLogRotation = config.getBoolean("enableLogRotation", false);
 
         if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.GhastDamageMixin")) {
-            return Config.config.enableGhastFireballsToInstaKillGhasts;
+            return Config.config.EXPLOSION_AND_FIRE_CONFIG.enableGhastFireballsToInstaKillGhasts;
         } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.ZombieMixin")) {
-            return Config.config.enableZombieDropItem;
+            return Config.config.MOB_CONFIG.enableZombieDropItem;
         } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.ZombiePigmanMixin")) {
-            return Config.config.enableZombiePigmanDropItem;
+            return Config.config.MOB_CONFIG.enableZombiePigmanDropItem;
         } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.LogBlockMixin")) {
-            return Config.config.enableLogRotation;
+            return Config.config.FLORA_CONFIG.enableLogRotation;
         } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.LogItemMixin")) {
-            return Config.config.enableLogRotation;
+            return Config.config.FLORA_CONFIG.enableLogRotation;
         } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.client.BlockRenderManagerMixin")) {
-            return Config.config.enableLogRotation;
+            return Config.config.FLORA_CONFIG.enableLogRotation;
         } else {
             return true;
         }

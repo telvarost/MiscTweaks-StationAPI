@@ -29,7 +29,7 @@ abstract class FireballMixin extends Entity {
     public Explosion miscTweaks_handleExplosion(World instance, Entity source, double x, double y, double z, float power, boolean fire, Operation<Explosion> original) {
         if (0 < ModHelper.ModHelperFields.numberOfGhastFireballs)
         {
-            fire = (fire && !Config.config.disableGhastExplosionCausingFire);
+            fire = (fire && !Config.config.EXPLOSION_AND_FIRE_CONFIG.disableGhastExplosionCausingFire);
             ModHelper.ModHelperFields.cancelDestroyBlocks++;
             ModHelper.ModHelperFields.cancelDestroyBlocksPacket++;
             ModHelper.ModHelperFields.numberOfGhastFireballs--;

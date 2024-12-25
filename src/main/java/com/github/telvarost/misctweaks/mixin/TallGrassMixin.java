@@ -35,7 +35,7 @@ class TallGrassMixin extends PlantBlock {
 
     @Override
     public void afterBreak(World arg, PlayerEntity player, int i, int j, int k, int l) {
-        if (Config.config.enableShearsCollectTallGrass) {
+        if (Config.config.FLORA_CONFIG.enableShearsCollectTallGrass) {
             if (  (null != player)
                && (null != player.inventory)
                && (null != player.inventory.getSelectedItem())
@@ -48,7 +48,7 @@ class TallGrassMixin extends PlantBlock {
 
         player.increaseStat(Stats.MINE_BLOCK[this.id], 1);
 
-        if (  (Config.config.enableShearsCollectFern)
+        if (  (Config.config.FLORA_CONFIG.enableShearsCollectFern)
            && (FabricLoader.getInstance().isModLoaded("bhcreative"))
            && (l == 2)
         ) {
@@ -65,7 +65,7 @@ class TallGrassMixin extends PlantBlock {
 
     @Inject(at = @At("RETURN"), method = "getDroppedItemId", cancellable = true)
     public void miscTweaks_getDropId(int i, Random random, CallbackInfoReturnable<Integer> cir) {
-        if (!Config.config.enableShearsCollectTallGrass) {
+        if (!Config.config.FLORA_CONFIG.enableShearsCollectTallGrass) {
             return;
         }
 

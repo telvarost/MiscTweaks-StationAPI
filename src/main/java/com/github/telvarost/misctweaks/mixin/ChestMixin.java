@@ -25,7 +25,7 @@ public abstract class ChestMixin extends BlockWithEntity {
             )
     )
     public boolean miscTweaks_canUseWithBlockAbove(World instance, int x, int y, int z, Operation<Boolean> original) {
-        if (Config.config.enableChestsOpenWithBlockAbove) {
+        if (Config.config.BLOCK_ENTITY_CONFIG.enableChestsOpenWithBlockAbove) {
             return false;
         } else {
             return original.call(instance, x, y, z);

@@ -9,14 +9,14 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ArmorItem.class)
-public abstract class ArmourMixin extends Item {
+public abstract class ArmorMixin extends Item {
 
     @Shadow @Final private static int[] PROTECTION_BY_SLOT;
 
     @Mutable
     @Shadow @Final public int maxProtection;
 
-    public ArmourMixin(int i, int j, int k, int l) {
+    public ArmorMixin(int i, int j, int k, int l) {
         super(i);
     }
 
@@ -25,11 +25,11 @@ public abstract class ArmourMixin extends Item {
             at = @At("RETURN")
     )
     private void miscTweaks_changeArmorDurability(int i, int j, int k, int l, CallbackInfo ci) {
-        if (Config.config.equalizeBaseArmorDurability) {
+        if (Config.config.ARMOR_CONFIG.equalizeBaseArmorDurability) {
             this.setMaxDamage(14 * 3 << j);
         }
 
-        if (Config.config.modernArmorDefensePoints) {
+        if (Config.config.ARMOR_CONFIG.modernArmorDefensePoints) {
             if (4 == k) {
                 PROTECTION_BY_SLOT[0] = 2;
                 PROTECTION_BY_SLOT[1] = 5;

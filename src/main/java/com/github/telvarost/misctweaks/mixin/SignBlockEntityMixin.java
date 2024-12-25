@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(SignBlockEntity.class)
-public class TileEntitySignMixin extends BlockEntity {
+public class SignBlockEntityMixin extends BlockEntity {
 
     @WrapOperation(
             method = "readNbt",
@@ -19,7 +19,7 @@ public class TileEntitySignMixin extends BlockEntity {
             )
     )
     public String miscTweaks_readIdentifyingDataSubstring(String instance, int beginIndex, int endIndex, Operation<String> original) {
-        if (!Config.config.enableColorSignsWithDye) {
+        if (!Config.config.BLOCK_ENTITY_CONFIG.enableColorSignsWithDye) {
             return instance.substring(beginIndex, endIndex);
         } else {
             int lineLimit = 15;

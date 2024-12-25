@@ -20,7 +20,7 @@ public abstract class PlayerInventoryMixin implements Inventory {
             )
     )
     public int miscTweaks_getArmourValue(ItemStack instance, Operation<Integer> original) {
-        if (Config.config.modernArmorDefensePoints) {
+        if (Config.config.ARMOR_CONFIG.modernArmorDefensePoints) {
             return 0;
         } else {
             return original.call(instance);

@@ -27,7 +27,7 @@ class DeadBushMixin extends PlantBlock {
 
     @Override
     public void afterBreak(World arg, PlayerEntity player, int i, int j, int k, int l) {
-        if (Config.config.enableShearsCollectDeadBush) {
+        if (Config.config.FLORA_CONFIG.enableShearsCollectDeadBush) {
             if (  (null != player)
                && (null != player.inventory)
                && (null != player.inventory.getSelectedItem())
@@ -44,12 +44,12 @@ class DeadBushMixin extends PlantBlock {
 
     @Inject(at = @At("RETURN"), method = "getDroppedItemId", cancellable = true)
     public void miscTweaks_getDropId(int i, Random random, CallbackInfoReturnable<Integer> cir) {
-        if (  (Config.config.enableShearsCollectDeadBush)
+        if (  (Config.config.FLORA_CONFIG.enableShearsCollectDeadBush)
            && (0 < brokenByShears)
         ) {
             cir.setReturnValue(id);
             brokenByShears--;
-        } else if (Config.config.enableRandomStickDropFromDeadBushes) {
+        } else if (Config.config.FLORA_CONFIG.enableRandomStickDropFromDeadBushes) {
             int itemDropId = random.nextInt(8) == 0 ? Item.STICK.id : -1;
             cir.setReturnValue(itemDropId);
         }

@@ -21,24 +21,24 @@ public class ZombiePigmanMixin extends MonsterEntity {
     protected void dropItems() {
         int var2 = this.random.nextInt(3);
 
-        if (ZombiePigmanDropEnum.GOLD_SWORD == Config.config.zombiePigmanDropItem) {
+        if (ZombiePigmanDropEnum.GOLD_SWORD == Config.config.MOB_CONFIG.zombiePigmanDropItem) {
             var2 = this.random.nextInt(2);
         }
 
         for(int var3 = 0; var3 < var2; ++var3) {
             ItemStack var1 = null;
 
-            if (ZombiePigmanDropEnum.COOKED_PORKCHOP == Config.config.zombiePigmanDropItem) {
+            if (ZombiePigmanDropEnum.COOKED_PORKCHOP == Config.config.MOB_CONFIG.zombiePigmanDropItem) {
                 var1 = new ItemStack(Item.COOKED_PORKCHOP, 1);
-            } else if (ZombiePigmanDropEnum.RAW_PORKCHOP == Config.config.zombiePigmanDropItem) {
+            } else if (ZombiePigmanDropEnum.RAW_PORKCHOP == Config.config.MOB_CONFIG.zombiePigmanDropItem) {
                 var1 = new ItemStack(Item.RAW_PORKCHOP, 1);
-            } else if (ZombiePigmanDropEnum.BROWN_MUSHROOM == Config.config.zombiePigmanDropItem) {
+            } else if (ZombiePigmanDropEnum.BROWN_MUSHROOM == Config.config.MOB_CONFIG.zombiePigmanDropItem) {
                 var1 = new ItemStack(Block.BROWN_MUSHROOM, 1);
-            } else if (ZombiePigmanDropEnum.GOLD_SWORD == Config.config.zombiePigmanDropItem) {
+            } else if (ZombiePigmanDropEnum.GOLD_SWORD == Config.config.MOB_CONFIG.zombiePigmanDropItem) {
                 var1 = new ItemStack(Item.GOLDEN_SWORD, 1, random.nextInt(30));
-            } else if (ZombiePigmanDropEnum.BONE_MEAL == Config.config.zombiePigmanDropItem) {
+            } else if (ZombiePigmanDropEnum.BONE_MEAL == Config.config.MOB_CONFIG.zombiePigmanDropItem) {
                 var1 = new ItemStack(Item.DYE, 1, 15);
-            } else if (ZombiePigmanDropEnum.BRICK == Config.config.zombiePigmanDropItem) {
+            } else if (ZombiePigmanDropEnum.BRICK == Config.config.MOB_CONFIG.zombiePigmanDropItem) {
                 var1 = new ItemStack(Item.BRICK, 1);
             } else {
                 /** - Drop nothing */
