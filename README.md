@@ -1,13 +1,13 @@
 # MiscTweaks StationAPI Edition for Minecraft Beta 1.7.3
 
-A StationAPI mod for Minecraft Beta 1.7.3 that tweaks random things that did not fit in my other mods such as allowing stairs recipe output to be changed.
+A StationAPI mod for Minecraft Beta 1.7.3 that tweaks random things.
 
 **If you're looking for modern Minecraft recipes:** https://github.com/telvarost/MostlyModernRecipes-StationAPI
 
 # Miscellaneous Tweaks
 
 You will need ModMenu and GlassConfigAPI to change stairs recipe output and tweak other parts of the mod. See installation instructions below.
-* Mod now works on Multiplayer with GlassConfigAPI version 2.0+ used to sync configs!
+* Mod works on Multiplayer with GlassConfigAPI version 3.0+ used to sync configs!
 
 ## List of changes
 
