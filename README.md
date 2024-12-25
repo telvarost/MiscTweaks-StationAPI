@@ -61,7 +61,7 @@ All changes are default false/vanilla behavior unless otherwise specified
 * Disable player trampling farmland if player is not wearing boots
 * Disable player trampling farmland if player is wearing leather boots
 
-### Slab Changes moved to NowObtainableRecipes
+## Slab Changes moved to NowObtainableRecipes
 * See: https://modrinth.com/mod/nowobtainablerecipes-stationapi
 
 ## Dispenser Changes moved to DispenserTweaks
