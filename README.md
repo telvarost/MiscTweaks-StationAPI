@@ -4,7 +4,7 @@ A StationAPI mod for Minecraft Beta 1.7.3 that tweaks random things.
 
 # Miscellaneous Tweaks
 
-You will need ModMenu and GlassConfigAPI to change stairs recipe output and tweak other parts of the mod. See installation instructions below.
+You will need ModMenu and GlassConfigAPI to change configs and use this mod. See installation instructions below.
 * Mod works on Multiplayer with GlassConfigAPI version 3.0+ used to sync configs!
 
 ## List of changes
