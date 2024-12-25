@@ -2,8 +2,6 @@
 
 A StationAPI mod for Minecraft Beta 1.7.3 that tweaks random things.
 
-**If you're looking for modern Minecraft recipes:** https://github.com/telvarost/MostlyModernRecipes-StationAPI
-
 # Miscellaneous Tweaks
 
 You will need ModMenu and GlassConfigAPI to change stairs recipe output and tweak other parts of the mod. See installation instructions below.
