@@ -2,6 +2,8 @@ package com.github.telvarost.misctweaks.mixin;
 
 
 import com.github.telvarost.misctweaks.Config;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.SignBlockEntity;
 import net.minecraft.entity.Entity;
@@ -12,7 +14,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShearsItem;
 import net.minecraft.world.World;
-import net.modificationstation.stationapi.api.entity.player.PlayerHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -42,8 +43,7 @@ public class ItemBaseMixin {
                     var24.velocityY = 0.20000000298023224;
                     curTnt.world.spawnEntity(var24);
                 } else {
-                    PlayerEntity player = PlayerHelper.getPlayerFromGame();
-                    if (player == null) {
+                    if (FabricLoader.getInstance().getEnvironmentType() != EnvType.CLIENT) {
                         ItemEntity var24 = new ItemEntity(curTnt.world, curTnt.x, curTnt.y, curTnt.z, new ItemStack(Block.TNT));
                         var24.velocityY = 0.20000000298023224;
                         curTnt.world.spawnEntity(var24);
@@ -71,8 +71,7 @@ public class ItemBaseMixin {
 
                 SignBlockEntity var8 = (SignBlockEntity)arg3.getBlockEntity(i, j, k);
                 if (var8 != null) {
-                    PlayerEntity player = PlayerHelper.getPlayerFromGame();
-                    if (player == null) {
+                    if (FabricLoader.getInstance().getEnvironmentType() != EnvType.CLIENT) {
                         var8.setEditable(true);
                     }
                     arg2.openEditSignScreen(var8);

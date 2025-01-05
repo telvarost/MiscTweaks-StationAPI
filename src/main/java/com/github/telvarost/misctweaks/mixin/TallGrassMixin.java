@@ -1,7 +1,7 @@
 package com.github.telvarost.misctweaks.mixin;
 
 import com.github.telvarost.misctweaks.Config;
-import com.github.telvarost.misctweaks.ModHelper;
+import com.github.telvarost.misctweaks.ModHelperStationAPI;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.PlantBlock;
 import net.minecraft.block.TallPlantBlock;
@@ -52,7 +52,7 @@ class TallGrassMixin extends PlantBlock {
            && (FabricLoader.getInstance().isModLoaded("bhcreative"))
            && (l == 2)
         ) {
-            int fernId = ModHelper.identifierToItemId("bhcreative:fern");
+            int fernId = ModHelperStationAPI.identifierToItemId("bhcreative:fern");
             if (0 < fernId) {
                 this.dropStack(arg, i, j, k, new ItemStack(fernId, 1, 0));
             } else {
