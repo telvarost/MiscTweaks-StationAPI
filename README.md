@@ -1,6 +1,6 @@
 # MiscTweaks StationAPI Edition for Minecraft Beta 1.7.3
 
-A StationAPI mod for Minecraft Beta 1.7.3 that tweaks random things.
+A mod for Minecraft Beta 1.7.3 babric that tweaks random things.
 
 # Miscellaneous Tweaks
 
