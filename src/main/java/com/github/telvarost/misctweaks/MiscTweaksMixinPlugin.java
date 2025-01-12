@@ -55,10 +55,19 @@ public class MiscTweaksMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        Config.config.EXPLOSION_AND_FIRE_CONFIG.enableGhastFireballsToInstaKillGhasts = config.getBoolean("enableGhastFireballsToInstaKillGhasts", false);
-        Config.config.MOB_CONFIG.enableZombieDropItem = config.getBoolean("enableZombieDropItem", false);
-        Config.config.MOB_CONFIG.enableZombiePigmanDropItem = config.getBoolean("enableZombiePigmanDropItem", false);
-        Config.config.FLORA_CONFIG.enableLogRotation = config.getBoolean("enableLogRotation", false);
+
+        if (null != config.getConfigurationSection("EXPLOSION_AND_FIRE_CONFIG")) {
+            Config.config.EXPLOSION_AND_FIRE_CONFIG.enableGhastFireballsToInstaKillGhasts = config.getConfigurationSection("EXPLOSION_AND_FIRE_CONFIG").getBoolean("enableGhastFireballsToInstaKillGhasts", false);
+        }
+
+        if (null != config.getConfigurationSection("MOB_CONFIG")) {
+            Config.config.MOB_CONFIG.enableZombieDropItem = config.getConfigurationSection("MOB_CONFIG").getBoolean("enableZombieDropItem", false);
+            Config.config.MOB_CONFIG.enableZombiePigmanDropItem = config.getConfigurationSection("MOB_CONFIG").getBoolean("enableZombiePigmanDropItem", false);
+        }
+
+        if (null != config.getConfigurationSection("FLORA_CONFIG")) {
+            Config.config.FLORA_CONFIG.enableLogRotation = config.getConfigurationSection("FLORA_CONFIG").getBoolean("enableLogRotation", false);
+        }
 
         if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.GhastDamageMixin")) {
             return Config.config.EXPLOSION_AND_FIRE_CONFIG.enableGhastFireballsToInstaKillGhasts;

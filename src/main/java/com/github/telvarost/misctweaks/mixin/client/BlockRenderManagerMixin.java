@@ -64,15 +64,17 @@ public abstract class BlockRenderManagerMixin {
 
     @Inject(
             method = "render(Lnet/minecraft/block/Block;III)Z",
-            at = @At("HEAD"),
+            at = @At("TAIL"),
             cancellable = true
     )
     public void render(Block block, int x, int y, int z, CallbackInfoReturnable<Boolean> cir) {
-        int var5 = block.getRenderType();
+        if (!cir.getReturnValue()) {
+            int var5 = block.getRenderType();
 
-        if (var5 == 18) {
-            block.updateBoundingBox(this.blockView, x, y, z);
-            cir.setReturnValue(renderLog(block, x, y, z));
+            if (var5 == 18) {
+                block.updateBoundingBox(this.blockView, x, y, z);
+                cir.setReturnValue(renderLog(block, x, y, z));
+            }
         }
     }
 
