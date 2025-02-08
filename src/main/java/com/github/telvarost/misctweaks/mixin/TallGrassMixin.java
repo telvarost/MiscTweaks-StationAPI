@@ -10,19 +10,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
-import org.checkerframework.common.aliasing.qual.Unique;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.Random;
 
 @Mixin(TallPlantBlock.class)
 class TallGrassMixin extends PlantBlock {
-
-    @Unique
-    private int brokenByShears = 0;
 
     public TallGrassMixin(int i, int j) {
         super(i, j);
@@ -34,44 +25,38 @@ class TallGrassMixin extends PlantBlock {
     }
 
     @Override
-    public void afterBreak(World arg, PlayerEntity player, int i, int j, int k, int l) {
-        if (Config.config.FLORA_CONFIG.enableShearsCollectTallGrass) {
-            if (  (null != player)
-               && (null != player.inventory)
-               && (null != player.inventory.getSelectedItem())
-               && (Item.SHEARS.id == player.inventory.getSelectedItem().itemId)
-            ) {
-                player.inventory.getSelectedItem().damage(1, player);
-                brokenByShears++;
-            }
-        }
+    public void afterBreak(World world, PlayerEntity playerEntity, int x, int y, int z, int meta) {
+        int dropId = 0;
 
-        player.increaseStat(Stats.MINE_BLOCK[this.id], 1);
-
-        if (  (Config.config.FLORA_CONFIG.enableShearsCollectFern)
-           && (FabricLoader.getInstance().isModLoaded("bhcreative"))
-           && (l == 2)
+        if (  (Config.config.FLORA_CONFIG.enableShearsCollectTallGrass)
+           || (Config.config.FLORA_CONFIG.enableShearsCollectFern)
         ) {
-            int fernId = ModHelperStationAPI.identifierToItemId("bhcreative:fern");
-            if (0 < fernId) {
-                this.dropStack(arg, i, j, k, new ItemStack(fernId, 1, 0));
-            } else {
-                this.dropStacks(arg, i, j, k, l);
+            if (  (null != playerEntity)
+               && (null != playerEntity.inventory)
+               && (null != playerEntity.inventory.getSelectedItem())
+               && (Item.SHEARS.id == playerEntity.inventory.getSelectedItem().itemId)
+            ) {
+                if (  (Config.config.FLORA_CONFIG.enableShearsCollectFern)
+                   && (FabricLoader.getInstance().isModLoaded("bhcreative"))
+                   && (meta == 2)
+                ) {
+                    playerEntity.inventory.getSelectedItem().damage(1, playerEntity);
+                    dropId = ModHelperStationAPI.identifierToItemId("bhcreative:fern");
+                } else if (Config.config.FLORA_CONFIG.enableShearsCollectTallGrass) {
+                    playerEntity.inventory.getSelectedItem().damage(1, playerEntity);
+                    dropId = id;
+                }
             }
+        }
+
+        playerEntity.increaseStat(Stats.MINE_BLOCK[this.id], 1);
+
+        if (0 != dropId) {
+            this.dropStack(world, x, y, z, new ItemStack(dropId, 1, 0));
+        } else if (FabricLoader.getInstance().isModLoaded("wolves")) {
+            this.dropWithChance(world, x, y, z, world.getBlockState(x, y, z), meta, 1.0F);
         } else {
-            this.dropStacks(arg, i, j, k, l);
-        }
-    }
-
-    @Inject(at = @At("RETURN"), method = "getDroppedItemId", cancellable = true)
-    public void miscTweaks_getDropId(int i, Random random, CallbackInfoReturnable<Integer> cir) {
-        if (!Config.config.FLORA_CONFIG.enableShearsCollectTallGrass) {
-            return;
-        }
-
-        if (0 < brokenByShears) {
-            cir.setReturnValue(id);
-            brokenByShears--;
+            this.dropStacks(world, x, y, z, meta);
         }
     }
 }
