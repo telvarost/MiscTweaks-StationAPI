@@ -24,7 +24,7 @@ public class DyeMixin extends Item {
 
     @Inject(method = "useOnBlock", at = @At("HEAD"), cancellable = true)
     public void miscTweaks_useOnTile(ItemStack arg, PlayerEntity arg2, World arg3, int i, int j, int k, int l, CallbackInfoReturnable<Boolean> cir) {
-        if (!Config.config.BLOCK_ENTITY_CONFIG.enableColorSignsWithDye) {
+        if (!Config.config.INTERACTIVE_BLOCK_CONFIG.enableColorSignsWithDye) {
             return;
         }
 
@@ -56,9 +56,10 @@ public class DyeMixin extends Item {
 
             if (dyeWasUsed) {
                 --arg.count;
+                cir.setReturnValue(true);
+            } else {
+                cir.setReturnValue(false);
             }
-
-            cir.setReturnValue(true);
         }
     }
 }

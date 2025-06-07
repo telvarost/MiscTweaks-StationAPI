@@ -6,6 +6,7 @@
   "plugin": "com.github.telvarost.misctweaks.MiscTweaksMixinPlugin",
   "mixins": [
     "ArmorMixin",
+    "BowItemMixin",
     "ChestMixin",
     "CreeperMixin",
     "DeadBushMixin",
@@ -26,6 +27,7 @@
     "PrimedTntMixin",
     "SignBlockEntityMixin",
     "TallGrassMixin",
+    "TrapdoorBlockMixin",
     "ZombieMixin",
     "ZombiePigmanMixin",
     "server.UpdateSign0x82C2SPacketMixin"

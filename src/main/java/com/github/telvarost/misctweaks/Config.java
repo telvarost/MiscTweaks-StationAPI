@@ -8,23 +8,24 @@ public class Config {
     public static ConfigFields config = new ConfigFields();
 
     public static class ConfigFields {
-        @ConfigCategory(
-                name = "Armor Config",
-                description = "Restart required for changes to take effect"
-        )
-        public ArmorConfig ARMOR_CONFIG = new ArmorConfig();
 
         @ConfigCategory(
-                name = "Block Entity Config",
-                description = "Changes for chests and signs"
+                name = "Equipment Config",
+                description = "Changes for armor and bows"
         )
-        public BlockEntityConfig BLOCK_ENTITY_CONFIG = new BlockEntityConfig();
+        public EquipmentConfig EQUIPMENT_CONFIG = new EquipmentConfig();
 
         @ConfigCategory(
                 name = "Explosion And Fire Config",
                 description = "Changes for tnt, creepers, ghasts, etc."
         )
         public ExplosionAndFireConfig EXPLOSION_AND_FIRE_CONFIG = new ExplosionAndFireConfig();
+
+        @ConfigCategory(
+                name = "Interactive Block Config",
+                description = "Changes for chests, signs, and trapdoors"
+        )
+        public InteractiveBlockConfig INTERACTIVE_BLOCK_CONFIG = new InteractiveBlockConfig();
 
         @ConfigCategory(
                 name = "Flora Config",
@@ -39,41 +40,27 @@ public class Config {
         public MobConfig MOB_CONFIG = new MobConfig();
     }
 
-    public static class ArmorConfig {
+    public static class EquipmentConfig {
+        @ConfigEntry(
+                name = "Bows Have Durability",
+                description = "Restart required for changes to take effect",
+                multiplayerSynced = true
+        )
+        public Boolean bowsHaveDurability = false;
+
         @ConfigEntry(
                 name = "Equalize Base Armor Durability",
+                description = "Restart required for changes to take effect",
                 multiplayerSynced = true
         )
         public Boolean equalizeBaseArmorDurability = false;
 
         @ConfigEntry(
                 name = "Modern Armor Defense Points",
+                description = "Restart required for changes to take effect",
                 multiplayerSynced = true
         )
         public Boolean modernArmorDefensePoints = false;
-    }
-
-    public static class BlockEntityConfig {
-        @ConfigEntry(
-                name = "Allow Chests To Open Even When Blocked",
-                description = "Chests can open when a block is above them",
-                multiplayerSynced = true
-        )
-        public Boolean enableChestsOpenWithBlockAbove = false;
-
-        @ConfigEntry(
-                name = "Allow Coloring Signs With Dye",
-                description = "Dye will be consumed on use",
-                multiplayerSynced = true
-        )
-        public Boolean enableColorSignsWithDye = false;
-
-        @ConfigEntry(
-                name = "Allow Editing Signs With A Feather",
-                description = "Feather will be consumed on use",
-                multiplayerSynced = true
-        )
-        public Boolean enableEditSignsWithFeathers = false;
     }
 
     public static class ExplosionAndFireConfig {
@@ -126,6 +113,36 @@ public class Config {
                 multiplayerSynced = true
         )
         public Boolean disableTntExplosionBreakingBlocks = false;
+    }
+
+    public static class InteractiveBlockConfig {
+        @ConfigEntry(
+                name = "Allow Chests To Open Even When Blocked",
+                description = "Chests can open when a block is above them",
+                multiplayerSynced = true
+        )
+        public Boolean enableChestsOpenWithBlockAbove = false;
+
+        @ConfigEntry(
+                name = "Allow Coloring Signs With Dye",
+                description = "Dye will be consumed on use",
+                multiplayerSynced = true
+        )
+        public Boolean enableColorSignsWithDye = false;
+
+        @ConfigEntry(
+                name = "Allow Editing Signs With A Feather",
+                description = "Feather will be consumed on use",
+                multiplayerSynced = true
+        )
+        public Boolean enableEditSignsWithFeathers = false;
+
+        @ConfigEntry(
+                name = "Allow Gluing Trapdoors With A Slimeball",
+                description = "Slimeball will be consumed on use",
+                multiplayerSynced = true
+        )
+        public Boolean enableGlueTrapdoorsWithSlimeballs = false;
     }
 
     public static class FloraConfig {

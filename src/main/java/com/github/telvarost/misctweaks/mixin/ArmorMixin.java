@@ -25,11 +25,11 @@ public abstract class ArmorMixin extends Item {
             at = @At("RETURN")
     )
     private void miscTweaks_changeArmorDurability(int i, int j, int k, int l, CallbackInfo ci) {
-        if (Config.config.ARMOR_CONFIG.equalizeBaseArmorDurability) {
+        if (Config.config.EQUIPMENT_CONFIG.equalizeBaseArmorDurability) {
             this.setMaxDamage(14 * 3 << j);
         }
 
-        if (Config.config.ARMOR_CONFIG.modernArmorDefensePoints) {
+        if (Config.config.EQUIPMENT_CONFIG.modernArmorDefensePoints) {
             if (4 == k) {
                 PROTECTION_BY_SLOT[0] = 2;
                 PROTECTION_BY_SLOT[1] = 5;

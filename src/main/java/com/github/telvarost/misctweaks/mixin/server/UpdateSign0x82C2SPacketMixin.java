@@ -25,7 +25,7 @@ public abstract class UpdateSign0x82C2SPacketMixin extends Packet {
 
     @Inject(method = "read", at = @At("HEAD"), cancellable = true)
     public void miscTweaks_read(DataInputStream dataInputStream, CallbackInfo ci) throws IOException {
-        if (!Config.config.BLOCK_ENTITY_CONFIG.enableColorSignsWithDye) {
+        if (!Config.config.INTERACTIVE_BLOCK_CONFIG.enableColorSignsWithDye) {
             return;
         }
 

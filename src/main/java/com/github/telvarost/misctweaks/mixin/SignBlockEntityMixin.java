@@ -19,7 +19,7 @@ public class SignBlockEntityMixin extends BlockEntity {
             )
     )
     public String miscTweaks_readIdentifyingDataSubstring(String instance, int beginIndex, int endIndex, Operation<String> original) {
-        if (!Config.config.BLOCK_ENTITY_CONFIG.enableColorSignsWithDye) {
+        if (!Config.config.INTERACTIVE_BLOCK_CONFIG.enableColorSignsWithDye) {
             return instance.substring(beginIndex, endIndex);
         } else {
             int lineLimit = 15;

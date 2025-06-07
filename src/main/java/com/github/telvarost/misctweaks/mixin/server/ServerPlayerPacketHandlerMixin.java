@@ -25,7 +25,7 @@ public abstract class ServerPlayerPacketHandlerMixin extends NetworkHandler impl
             )
     )
     public int miscTweaks_onUpdateSignCheckLength(String instance, Operation<Integer> original) {
-        if (Config.config.BLOCK_ENTITY_CONFIG.enableColorSignsWithDye && instance.contains("§")) {
+        if (Config.config.INTERACTIVE_BLOCK_CONFIG.enableColorSignsWithDye && instance.contains("§")) {
             return original.call(instance) - 2;
         } else {
             return original.call(instance);
@@ -41,7 +41,7 @@ public abstract class ServerPlayerPacketHandlerMixin extends NetworkHandler impl
             )
     )
     public int miscTweaks_onUpdateSignCheckCharacters(String instance, Operation<Integer> original) {
-        if (Config.config.BLOCK_ENTITY_CONFIG.enableColorSignsWithDye && instance.contains("§")) {
+        if (Config.config.INTERACTIVE_BLOCK_CONFIG.enableColorSignsWithDye && instance.contains("§")) {
             return 0;
         } else {
             return original.call(instance);

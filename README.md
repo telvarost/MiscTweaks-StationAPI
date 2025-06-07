@@ -11,19 +11,13 @@ You will need ModMenu and GlassConfigAPI to change configs and use this mod. See
 
 All changes are default false/vanilla behavior unless otherwise specified
 
-### Armor Changes
+### Equipment Changes
+* Allow bows to have durability
+  * Sets bow durability to 384 and uses 1 durability for each arrow fired
 * Equalize base armor durability
   * Helmet, Chestplate, Leggings, and Boots will all have the same durability
 * Modern armor defense points
   * Lower tiers have less defense and defense does not decrease with durability loss
-
-### Block Entity Changes
-* Allow chests to be opened even when a solid block is above them
-* Allow editing signs with a feather (feather is consumed on use)
-* Allow coloring signs with dye (dye is consumed on use)
-  * Coloring signs is incompatible with MojangFix
-  * Use [MojangFixStationAPI](https://modrinth.com/mod/misctweaks-stationapi)'s config to disable MojangFix signs to use colored signs
-    * Config is available through [ModMenu](https://modrinth.com/mod/modmenu-beta) and [GlassConfigAPI](https://modrinth.com/mod/glass-config-api)
 
 ### Explosion/Fire Changes
 * Allow ghast fireballs to insta-kill ghasts
@@ -34,6 +28,15 @@ All changes are default false/vanilla behavior unless otherwise specified
   * Disable ghast explosions breaking blocks
 * Disable ghast explosions causing fire
 * Disable lightning strikes causing fire
+
+### Interactive Block Changes
+* Allow chests to be opened even when a solid block is above them
+* Allow editing signs with a feather (feather is consumed on use)
+* Allow coloring signs with dye (dye is consumed on use)
+  * Coloring signs is incompatible with MojangFix
+  * Use [MojangFixStationAPI](https://modrinth.com/mod/misctweaks-stationapi)'s config to disable MojangFix signs to use colored signs
+    * Config is available through [ModMenu](https://modrinth.com/mod/modmenu-beta) and [GlassConfigAPI](https://modrinth.com/mod/glass-config-api)
+* Allow gluing trapdoors in place with a slimeball (slimeball is consumed on use)
 
 ### Flora Changes
 * Allow collecting ferns with shears

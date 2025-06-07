@@ -1,6 +1,5 @@
 package com.github.telvarost.misctweaks.mixin;
 
-
 import com.github.telvarost.misctweaks.Config;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -24,6 +23,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ItemBaseMixin {
 
     @Shadow public static Item FEATHER;
+    @Shadow public static Item SLIMEBALL;
     @Shadow public static ShearsItem SHEARS;
 
     @Inject(method = "getAttackDamage", at = @At("HEAD"), cancellable = true)
@@ -56,28 +56,48 @@ public class ItemBaseMixin {
     }
 
     @Inject(method = "useOnBlock", at = @At("HEAD"), cancellable = true)
-    public void miscTweaks_useOnTile(ItemStack arg, PlayerEntity arg2, World arg3, int i, int j, int k, int l, CallbackInfoReturnable<Boolean> cir) {
-        if (!Config.config.BLOCK_ENTITY_CONFIG.enableEditSignsWithFeathers) {
-            return;
-        }
+    public void miscTweaks_useOnTile(ItemStack stack, PlayerEntity user, World world, int x, int y, int z, int side, CallbackInfoReturnable<Boolean> cir) {
+        if (FEATHER.id == stack.itemId) {
+            if (Config.config.INTERACTIVE_BLOCK_CONFIG.enableEditSignsWithFeathers) {
+                int blockId = world.getBlockId(x, y, z);
 
-        if (FEATHER.id == arg.itemId) {
-            int blockId = arg3.getBlockId(i, j, k);
+                if (  (Block.SIGN.id == blockId)
+                   || (Block.WALL_SIGN.id == blockId)
+                ) {
+                    --stack.count;
 
-            if (  (Block.SIGN.id == blockId)
-               || (Block.WALL_SIGN.id == blockId)
-            ) {
-                --arg.count;
-
-                SignBlockEntity var8 = (SignBlockEntity)arg3.getBlockEntity(i, j, k);
-                if (var8 != null) {
-                    if (FabricLoader.getInstance().getEnvironmentType() != EnvType.CLIENT) {
-                        var8.setEditable(true);
+                    SignBlockEntity var8 = (SignBlockEntity)world.getBlockEntity(x, y, z);
+                    if (var8 != null) {
+                        if (FabricLoader.getInstance().getEnvironmentType() != EnvType.CLIENT) {
+                            var8.setEditable(true);
+                        }
+                        user.openEditSignScreen(var8);
                     }
-                    arg2.openEditSignScreen(var8);
-                }
 
-                cir.setReturnValue(true);
+                    cir.setReturnValue(true);
+                }
+            }
+        } else if (SLIMEBALL.id == stack.itemId) {
+            if (Config.config.INTERACTIVE_BLOCK_CONFIG.enableGlueTrapdoorsWithSlimeballs) {
+                int blockId = world.getBlockId(x, y, z);
+
+                if (Block.TRAPDOOR.id == blockId) {
+                    int blockMeta = world.getBlockMeta(x, y, z);
+
+                    if ((blockMeta & 8) == 0) {
+                        --stack.count;
+
+                        world.setBlockMeta(x, y, z, blockMeta | 8);
+                        world.playSound(user, "mob.slime", 1.0F, 0.9F);
+
+                        cir.setReturnValue(true);
+                    } else {
+                        world.playSound(user,
+                                        Block.TRAPDOOR.soundGroup.getBreakSound(),
+                                        1.0F,
+                                        ((world.random.nextFloat() - world.random.nextFloat()) * 0.2F + 1.0F) * 0.8F);
+                    }
+                }
             }
         }
     }
