@@ -22,16 +22,16 @@ public class Config {
         public ExplosionAndFireConfig EXPLOSION_AND_FIRE_CONFIG = new ExplosionAndFireConfig();
 
         @ConfigCategory(
-                name = "Interactive Block Config",
-                description = "Changes for chests, signs, and trapdoors"
-        )
-        public InteractiveBlockConfig INTERACTIVE_BLOCK_CONFIG = new InteractiveBlockConfig();
-
-        @ConfigCategory(
                 name = "Flora Config",
                 description = "Changes for leaves, logs, dead bushes, etc."
         )
         public FloraConfig FLORA_CONFIG = new FloraConfig();
+
+        @ConfigCategory(
+                name = "Interactive Block Config",
+                description = "Changes for chests, signs, and trapdoors"
+        )
+        public InteractiveBlockConfig INTERACTIVE_BLOCK_CONFIG = new InteractiveBlockConfig();
 
         @ConfigCategory(
                 name = "Mob Config",
@@ -115,36 +115,6 @@ public class Config {
         public Boolean disableTntExplosionBreakingBlocks = false;
     }
 
-    public static class InteractiveBlockConfig {
-        @ConfigEntry(
-                name = "Allow Chests To Open Even When Blocked",
-                description = "Chests can open when a block is above them",
-                multiplayerSynced = true
-        )
-        public Boolean enableChestsOpenWithBlockAbove = false;
-
-        @ConfigEntry(
-                name = "Allow Coloring Signs With Dye",
-                description = "Dye will be consumed on use",
-                multiplayerSynced = true
-        )
-        public Boolean enableColorSignsWithDye = false;
-
-        @ConfigEntry(
-                name = "Allow Editing Signs With A Feather",
-                description = "Feather will be consumed on use",
-                multiplayerSynced = true
-        )
-        public Boolean enableEditSignsWithFeathers = false;
-
-        @ConfigEntry(
-                name = "Allow Gluing Trapdoors With A Slimeball",
-                description = "Slimeball will be consumed on use",
-                multiplayerSynced = true
-        )
-        public Boolean enableGlueTrapdoorsWithSlimeballs = false;
-    }
-
     public static class FloraConfig {
         @ConfigEntry(
                 name = "Allow Random Stick Drop From Dead Bushes",
@@ -195,6 +165,36 @@ public class Config {
                 multiplayerSynced = true
         )
         public Boolean enablePlayerPlacedLeafPersistence = false;
+    }
+
+    public static class InteractiveBlockConfig {
+        @ConfigEntry(
+                name = "Allow Chests To Open Even When Blocked",
+                description = "Chests can open when a block is above them",
+                multiplayerSynced = true
+        )
+        public Boolean enableChestsOpenWithBlockAbove = false;
+
+        @ConfigEntry(
+                name = "Allow Coloring Signs With Dye",
+                description = "Dye will be consumed on use",
+                multiplayerSynced = true
+        )
+        public Boolean enableColorSignsWithDye = false;
+
+        @ConfigEntry(
+                name = "Allow Editing Signs With A Feather",
+                description = "Feather will be consumed on use",
+                multiplayerSynced = true
+        )
+        public Boolean enableEditSignsWithFeathers = false;
+
+        @ConfigEntry(
+                name = "Allow Gluing Trapdoors With A Slimeball",
+                description = "Slimeball will be consumed on use",
+                multiplayerSynced = true
+        )
+        public Boolean enableGlueTrapdoorsWithSlimeballs = false;
     }
 
     public static class MobConfig {

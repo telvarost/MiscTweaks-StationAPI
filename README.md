@@ -29,15 +29,6 @@ All changes are default false/vanilla behavior unless otherwise specified
 * Disable ghast explosions causing fire
 * Disable lightning strikes causing fire
 
-### Interactive Block Changes
-* Allow chests to be opened even when a solid block is above them
-* Allow editing signs with a feather (feather is consumed on use)
-* Allow coloring signs with dye (dye is consumed on use)
-  * Coloring signs is incompatible with MojangFix
-  * Use [MojangFixStationAPI](https://modrinth.com/mod/misctweaks-stationapi)'s config to disable MojangFix signs to use colored signs
-    * Config is available through [ModMenu](https://modrinth.com/mod/modmenu-beta) and [GlassConfigAPI](https://modrinth.com/mod/glass-config-api)
-* Allow gluing trapdoors in place with a slimeball (slimeball is consumed on use)
-
 ### Flora Changes
 * Allow collecting ferns with shears
   * [BHCreative](https://modrinth.com/mod/bh-creative) is required for this as b1.7.3 does not have an item for it
@@ -52,6 +43,15 @@ All changes are default false/vanilla behavior unless otherwise specified
 * Enable log rotation for oak, spruce, and birch logs
   * This uses the extra metadata bits for rotation
     * So when disabled the rotated logs will appear as oak, but drop a different block type similar to how crash slabs work
+
+### Interactive Block Changes
+* Allow chests to be opened even when a solid block is above them
+* Allow editing signs with a feather (feather is consumed on use)
+* Allow coloring signs with dye (dye is consumed on use)
+  * Coloring signs is incompatible with MojangFix
+  * Use [MojangFixStationAPI](https://modrinth.com/mod/misctweaks-stationapi)'s config to disable MojangFix signs to use colored signs
+    * Config is available through [ModMenu](https://modrinth.com/mod/modmenu-beta) and [GlassConfigAPI](https://modrinth.com/mod/glass-config-api)
+* Allow gluing trapdoors in place with a slimeball (slimeball is consumed on use)
 
 ### Mob Changes
 * Add ability to enable different zombie pigman drops
