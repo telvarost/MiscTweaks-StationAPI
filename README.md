@@ -20,6 +20,7 @@ All changes are default false/vanilla behavior unless otherwise specified
   * Lower tiers have less defense and defense does not decrease with durability loss
 
 ### Explosion/Fire Changes
+* Allow fire to turn grass into dirt when it expires
 * Allow ghast fireballs to insta-kill ghasts
 * Allow defusing TNT with shears (use left-click to defuse)
 * Disable all explosions

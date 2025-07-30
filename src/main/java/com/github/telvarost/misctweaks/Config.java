@@ -65,6 +65,13 @@ public class Config {
 
     public static class ExplosionAndFireConfig {
         @ConfigEntry(
+                name = "Allow Fire To Turn Grass Into Dirt",
+                description = "Restart required for changes to take effect",
+                multiplayerSynced = true
+        )
+        public Boolean enableFireTurnsGrassIntoDirt = false;
+
+        @ConfigEntry(
                 name = "Allow Ghast Fireballs To Insta-Kill Ghasts",
                 description = "Restart required for changes to take effect",
                 multiplayerSynced = true

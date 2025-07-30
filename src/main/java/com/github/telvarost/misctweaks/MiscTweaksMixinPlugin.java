@@ -57,6 +57,7 @@ public class MiscTweaksMixinPlugin implements IMixinConfigPlugin {
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
 
         if (null != config.getConfigurationSection("EXPLOSION_AND_FIRE_CONFIG")) {
+            Config.config.EXPLOSION_AND_FIRE_CONFIG.enableFireTurnsGrassIntoDirt = config.getConfigurationSection("EXPLOSION_AND_FIRE_CONFIG").getBoolean("enableFireTurnsGrassIntoDirt", false);
             Config.config.EXPLOSION_AND_FIRE_CONFIG.enableGhastFireballsToInstaKillGhasts = config.getConfigurationSection("EXPLOSION_AND_FIRE_CONFIG").getBoolean("enableGhastFireballsToInstaKillGhasts", false);
         }
 
@@ -69,7 +70,9 @@ public class MiscTweaksMixinPlugin implements IMixinConfigPlugin {
             Config.config.FLORA_CONFIG.enableLogRotation = config.getConfigurationSection("FLORA_CONFIG").getBoolean("enableLogRotation", false);
         }
 
-        if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.GhastDamageMixin")) {
+        if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.FireBlockMixin")) {
+            return Config.config.EXPLOSION_AND_FIRE_CONFIG.enableFireTurnsGrassIntoDirt;
+        } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.GhastDamageMixin")) {
             return Config.config.EXPLOSION_AND_FIRE_CONFIG.enableGhastFireballsToInstaKillGhasts;
         } else if (mixinClassName.equals("com.github.telvarost.misctweaks.mixin.ZombieMixin")) {
             return Config.config.MOB_CONFIG.enableZombieDropItem;
