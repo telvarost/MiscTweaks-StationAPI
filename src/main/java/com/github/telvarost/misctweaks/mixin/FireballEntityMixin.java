@@ -12,9 +12,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(FireballEntity.class)
-abstract class FireballMixin extends Entity {
+abstract class FireballEntityMixin extends Entity {
 
-    public FireballMixin(World arg) {
+    public FireballEntityMixin(World arg) {
         super(arg);
         this.setBoundingBoxSpacing(1.0F, 1.0F);
     }

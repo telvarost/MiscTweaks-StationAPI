@@ -65,6 +65,12 @@ public class Config {
 
     public static class ExplosionAndFireConfig {
         @ConfigEntry(
+                name = "Allow Fire To Be Extinguished By Snowballs",
+                multiplayerSynced = true
+        )
+        public Boolean enableSnowballsExtinguishFire = false;
+
+        @ConfigEntry(
                 name = "Allow Fire To Turn Grass Into Dirt",
                 description = "Restart required for changes to take effect",
                 multiplayerSynced = true
