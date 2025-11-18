@@ -158,12 +158,12 @@ public class Config {
         public Boolean enableShearsCollectTallGrass = false;
 
         @ConfigEntry(
-                name = "Apple Drop Chance From Oak Leaves 0.X%",
-                description = "0 = disabled, 5 = modern drop chance",
-                maxLength = 10,
-                multiplayerSynced = true
+                name = "Apple Drop Chance From Oak Leaves",
+                description = "0 = disabled, 0.5 = modern drop chance (0.5%)",
+                multiplayerSynced = true,
+                maxLength = 1
         )
-        public Integer appleDropChance = 0;
+        public Float appleDropChance = 0.0F;
 
         @ConfigEntry(
                 name = "Enable Log Rotation (Restart required)",

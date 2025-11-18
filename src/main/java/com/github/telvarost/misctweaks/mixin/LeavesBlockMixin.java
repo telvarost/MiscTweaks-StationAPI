@@ -20,8 +20,8 @@ import java.util.Random;
 @Mixin(LeavesBlock.class)
 public abstract class LeavesBlockMixin extends TransparentBlock {
 
-    public LeavesBlockMixin(int i, int j) {
-        super(i, j, Material.LEAVES, false);
+    public LeavesBlockMixin(int id, int textureId) {
+        super(id, textureId, Material.LEAVES, false);
     }
 
     @Inject(
@@ -29,10 +29,10 @@ public abstract class LeavesBlockMixin extends TransparentBlock {
             at = @At("HEAD"),
             cancellable = true
     )
-    private void miscTweaks_onScheduledTick(World level, int x, int y, int z, Random random, CallbackInfo ci) {
+    private void miscTweaks_onScheduledTick(World world, int x, int y, int z, Random random, CallbackInfo ci) {
         if (Config.config.FLORA_CONFIG.enablePlayerPlacedLeafPersistence) {
-            if (!level.isRemote) {
-                int tileMeta = level.getBlockMeta(x, y, z);
+            if (!world.isRemote) {
+                int tileMeta = world.getBlockMeta(x, y, z);
                 if (0x4 == (0x4 & tileMeta)) {
                     ci.cancel();
                 }
@@ -41,47 +41,44 @@ public abstract class LeavesBlockMixin extends TransparentBlock {
     }
 
     @Inject(method = "breakLeaves", at = @At("HEAD"), cancellable = true)
-    private void miscTweaks_dropAndRemove(World arg, int i, int j, int k, CallbackInfo ci) {
+    private void miscTweaks_dropAndRemove(World world, int x, int y, int z, CallbackInfo ci) {
         if (0 >= Config.config.FLORA_CONFIG.appleDropChance) {
             return;
         }
 
         /** - Special drop logic */
-        int l = arg.getBlockMeta(i, j, k);
-        miscTweaks_rareAppleDrop(arg, i, j, k, (l & 3));
+        int meta = world.getBlockMeta(x, y, z);
+        miscTweaks_rareAppleDrop(world, x, y, z, (meta & 3));
     }
 
     @Inject(method = "afterBreak", at = @At("HEAD"), cancellable = true)
-    public void miscTweaks_afterBreak(World arg, PlayerEntity arg2, int i, int j, int k, int l, CallbackInfo ci) {
+    public void miscTweaks_afterBreak(World world, PlayerEntity playerEntity, int x, int y, int z, int meta, CallbackInfo ci) {
         if (0 >= Config.config.FLORA_CONFIG.appleDropChance) {
             return;
         }
 
-        if (!arg.isRemote && arg2.getHand() != null && arg2.getHand().itemId == Item.SHEARS.id) {
+        if (!world.isRemote && playerEntity.getHand() != null && playerEntity.getHand().itemId == Item.SHEARS.id) {
             /** - Do nothing */
         } else {
             /** - Special drop logic */
-            miscTweaks_rareAppleDrop(arg, i, j, k, (l & 3));
+            miscTweaks_rareAppleDrop(world, x, y, z, (meta & 3));
         }
     }
 
     @Unique
-    private void miscTweaks_rareAppleDrop(World arg, int i, int j, int k, int leafType) {
+    private void miscTweaks_rareAppleDrop(World world, int i, int j, int k, int leafType) {
         if (0 == leafType) {
-            Random random = new Random();
-            boolean isAppleDropped = (random.nextInt(1000/Config.config.FLORA_CONFIG.appleDropChance) == 0) ? true : false;
-
-            if (isAppleDropped) {
+            if ((Config.config.FLORA_CONFIG.appleDropChance/100.0F) > world.random.nextFloat()) {
                 ItemStack arg2 = new ItemStack(Item.APPLE);
 
-                if (!arg.isRemote) {
+                if (!world.isRemote) {
                     float var6 = 0.7F;
-                    double var7 = (double) (arg.random.nextFloat() * var6) + (double) (1.0F - var6) * 0.5;
-                    double var9 = (double) (arg.random.nextFloat() * var6) + (double) (1.0F - var6) * 0.5;
-                    double var11 = (double) (arg.random.nextFloat() * var6) + (double) (1.0F - var6) * 0.5;
-                    ItemEntity var13 = new ItemEntity(arg, (double) i + var7, (double) j + var9, (double) k + var11, arg2);
+                    double var7 = (double) (world.random.nextFloat() * var6) + (double) (1.0F - var6) * 0.5;
+                    double var9 = (double) (world.random.nextFloat() * var6) + (double) (1.0F - var6) * 0.5;
+                    double var11 = (double) (world.random.nextFloat() * var6) + (double) (1.0F - var6) * 0.5;
+                    ItemEntity var13 = new ItemEntity(world, (double) i + var7, (double) j + var9, (double) k + var11, arg2);
                     var13.pickupDelay = 10;
-                    arg.spawnEntity(var13);
+                    world.spawnEntity(var13);
                 }
             }
         }
