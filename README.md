@@ -24,6 +24,7 @@ All changes are default false/vanilla behavior unless otherwise specified
 * Allow fire to turn grass into dirt when it expires
 * Allow ghast fireballs to insta-kill ghasts
 * Allow defusing TNT with shears (use left-click to defuse)
+* Control drop chance of blocks when destroyed by explosions
 * Disable all explosions
   * Disable TNT explosions breaking blocks
   * Disable creeper explosions breaking blocks

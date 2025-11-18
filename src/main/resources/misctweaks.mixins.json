@@ -20,7 +20,7 @@
     "ItemBaseMixin",
     "LeavesBlockMixin",
     "LeavesItemMixin",
-    "LevelMixin",
+    "WorldMixin",
     "LightningEntityMixin",
     "LogBlockMixin",
     "LogItemMixin",
@@ -35,7 +35,7 @@
     "server.UpdateSign0x82C2SPacketMixin"
   ],
   "server": [
-    "server.ServerLevelMixin",
+    "server.ServerWorldMixin",
     "server.ServerPlayerPacketHandlerMixin"
   ],
   "client": [

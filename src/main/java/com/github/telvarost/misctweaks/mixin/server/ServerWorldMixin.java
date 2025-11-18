@@ -19,11 +19,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Environment(EnvType.SERVER)
 @Mixin(ServerWorld.class)
-public class ServerLevelMixin extends World {
+public class ServerWorldMixin extends World {
 
     @Shadow private MinecraftServer server;
 
-    ServerLevelMixin(MinecraftServer minecraftServer, WorldStorage arg, String string, int i, long l) {
+    ServerWorldMixin(MinecraftServer minecraftServer, WorldStorage arg, String string, int i, long l) {
         super(arg, string, l, Dimension.fromId(i));
     }
 

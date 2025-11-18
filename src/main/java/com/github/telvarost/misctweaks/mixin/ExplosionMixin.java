@@ -6,7 +6,9 @@ import net.minecraft.world.explosion.Explosion;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Explosion.class)
@@ -32,6 +34,15 @@ public class ExplosionMixin {
                 world.playSound(x, y, z, "random.explode", 4.0F, (1.0F + (world.random.nextFloat() - world.random.nextFloat()) * 0.2F) * 0.7F);
                 ci.cancel();
             }
+        }
+    }
+
+    @ModifyConstant(method = "playExplosionSound", constant = @Constant(floatValue = 0.3F))
+    public float playExplosionSound(float constant) {
+        if (0.0F < Config.config.EXPLOSION_AND_FIRE_CONFIG.chanceBlocksDropWhenExploded) {
+            return Config.config.EXPLOSION_AND_FIRE_CONFIG.chanceBlocksDropWhenExploded;
+        } else {
+            return -1.0F;
         }
     }
 

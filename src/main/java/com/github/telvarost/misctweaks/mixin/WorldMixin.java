@@ -14,9 +14,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
 @Mixin(World.class)
-public class LevelMixin {
+public class WorldMixin {
 
-    LevelMixin() {
+    WorldMixin() {
         /** - Do nothing */
     }
 
