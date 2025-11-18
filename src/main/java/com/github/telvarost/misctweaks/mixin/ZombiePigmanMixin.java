@@ -40,6 +40,8 @@ public class ZombiePigmanMixin extends MonsterEntity {
                 var1 = new ItemStack(Item.DYE, 1, 15);
             } else if (ZombiePigmanDropEnum.BRICK == Config.config.MOB_CONFIG.zombiePigmanDropItem) {
                 var1 = new ItemStack(Item.BRICK, 1);
+            } else if (ZombiePigmanDropEnum.GLOWSTONE_DUST == Config.config.MOB_CONFIG.zombiePigmanDropItem) {
+                var1 = new ItemStack(Item.GLOWSTONE_DUST, 1);
             } else {
                 /** - Drop nothing */
             }

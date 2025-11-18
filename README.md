@@ -58,7 +58,7 @@ All changes are default false/vanilla behavior unless otherwise specified
 
 ### Mob Changes
 * Add ability to enable different zombie pigman drops
-  * Select between: cooked porkchops, raw porkchops, brown mushrooms, gold sword, bone meal, brick, or nothing
+  * Select between: cooked porkchops, raw porkchops, brown mushrooms, gold sword, bone meal, brick, glowstone dust or nothing
 * Add ability to enable different zombie drops
   * Select between: feathers, red mushrooms, cyan dye, green dye, clay, paper, or nothing
 * Disable player/mobs trampling farmland

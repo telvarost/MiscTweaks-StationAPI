@@ -7,6 +7,7 @@ public enum ZombiePigmanDropEnum {
     GOLD_SWORD("Gold Sword"),
     BONE_MEAL("Bone Meal"),
     BRICK("Brick"),
+    GLOWSTONE_DUST("Glowstone Dust"),
     NOTHING("Nothing");
 
     final String stringValue;
